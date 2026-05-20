@@ -1,0 +1,136 @@
+﻿@model SocietyManagementSystem.Models.Resident
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mb-4">Add Resident</h2>
+
+<form method="post">
+
+    <div class="row">
+
+        <!-- Flat Number -->
+        <div class="col-md-6 mb-3">
+            <label>Flat Number</label>
+
+            <input asp-for="FlatNumber"
+                   type="number"
+                   class="form-control"
+                   required />
+
+            <span class="text-danger"></span>
+        </div>
+
+        <!-- Wing -->
+        <div class="col-md-6 mb-3">
+            <label>Wing</label>
+
+            <input asp-for="Wing"
+                   pattern="[A-Za-z]"
+                   maxlength="1"
+                   class="form-control text-uppercase"
+                   style="text-transform:uppercase"
+                   oninput="this.value = this.value.toUpperCase()"
+                   required />
+
+            <small class="text-muted">
+                Example: A / B / C
+            </small>
+        </div>
+
+        <!-- Floor -->
+        <div class="col-md-6 mb-3">
+            <label>Floor Number</label>
+
+            <input asp-for="FloorNumber"
+                   type="number"
+                   class="form-control"
+                   required />
+        </div>
+
+        <!-- Owner/Tenant -->
+        <div class="col-md-6 mb-3">
+            <label>Owner / Tenant</label>
+
+            <select asp-for="OwnerOrTenant"
+                    class="form-control"
+                    required>
+
+                <option value="">
+                    -- Select --
+                </option>
+
+                <option value="Owner">
+                    Owner
+                </option>
+
+                <option value="Tenant">
+                    Tenant
+                </option>
+
+            </select>
+        </div>
+
+        <!-- Family Members -->
+        <div class="col-md-6 mb-3">
+            <label>Family Members</label>
+
+            <input asp-for="FamilyMembersCount"
+                   type="number"
+                   class="form-control"
+                   required />
+        </div>
+
+        <!-- Vehicle -->
+        <div class="col-md-6 mb-3">
+            <label>Vehicle Number</label>
+
+            <input asp-for="VehicleNumber"
+                   class="form-control"
+                   maxlength="10"
+                   pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}"
+                   style="text-transform:uppercase"
+                   required />
+
+            <small class="text-muted">
+                Example: MH12AB1234
+            </small>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 mb-3">
+            <label>Contact Phone</label>
+
+            <input asp-for="ContactPhone"
+                   type="tel"
+                   pattern="[0-9]{10}"
+                   maxlength="10"
+                   class="form-control"
+                   required />
+
+            <small class="text-muted">
+                Enter 10 digit mobile number
+            </small>
+        </div>
+
+        <!-- Move In -->
+        <div class="col-md-6 mb-3">
+            <label>Move In Date</label>
+
+            <input asp-for="MoveInDate"
+                   type="date"
+                   class="form-control"
+                   required />
+        </div>
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+
+        Save Resident
+
+    </button>
+
+</form>

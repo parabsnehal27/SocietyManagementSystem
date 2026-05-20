@@ -151,10 +151,8 @@
     <Folder Include="Repositories\" />
     <Folder Include="Views\Complaints\" />
     <Folder Include="Views\Maintenance\" />
-    <Folder Include="Views\NewFolder\" />
     <Folder Include="Views\Visitors\" />
     <Folder Include="Views\Notices\" />
-    <Folder Include="Views\Residents\" />
   </ItemGroup>
 
   <ItemGroup>

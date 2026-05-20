@@ -50,18 +50,23 @@ namespace SocietyManagementSystem.Controllers
         [HttpPost]
         public IActionResult ForgotPassword(string email, string newPassword)
         {
-            // Temporary Hardcoded Email Check
-            if (email == "admin@gmail.com")
-            {
-                // Temporary password update
-                TempData["Success"] = "Password Reset Successfully";
+            var user = _context.Users
+                .FirstOrDefault(x => x.Email == email);
 
-                return RedirectToAction("Login");
+            if (user == null)
+            {
+                ViewBag.Error = "Email not found";
+
+                return View();
             }
 
-            ViewBag.Error = "Email not found";
+            user.PasswordHash = newPassword;
 
-            return View();
+            _context.SaveChanges();
+
+            TempData["Success"] = "Password Reset Successfully";
+
+            return RedirectToAction("Login");
         }
 
         public IActionResult Logout()

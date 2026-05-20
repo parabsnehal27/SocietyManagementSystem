@@ -12,5 +12,6 @@ namespace SocietyManagementSystem.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Resident> Residents { get; set; }
     }
 }
