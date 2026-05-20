@@ -1,9 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using SocietyManagementSystem.Data;
+using SocietyManagementSystem.Models;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SocietyManagementSystem.Controllers
 {
     public class AuthController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public AuthController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         // GET LOGIN PAGE
         public IActionResult Login()
         {
@@ -14,10 +24,14 @@ namespace SocietyManagementSystem.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            // Temporary Hardcoded Login
-            if (email == "admin@gmail.com" && password == "admin123")
+            var user = _context.Users
+                .FirstOrDefault(x => x.Email == email
+                                  && x.PasswordHash == password);
+
+            if (user != null)
             {
-                HttpContext.Session.SetString("AdminSession", email);
+                HttpContext.Session.SetString("AdminSession", user.Email);
+
                 return RedirectToAction("Dashboard", "Admin");
             }
 
