@@ -6,6 +6,12 @@ namespace SocietyManagementSystem.Controllers
     {
         public IActionResult Dashboard()
         {
+            // Check Session
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
             return View();
         }
     }
