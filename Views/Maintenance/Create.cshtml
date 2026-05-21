@@ -5,6 +5,12 @@
 }
 
 <h2 class="mb-4">Add Maintenance</h2>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
 
 <form method="post">
 
@@ -41,6 +47,8 @@
 
         <input asp-for="Year"
                type="number"
+               min="2020"
+               max="2100"
                class="form-control"
                required />
 

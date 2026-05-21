@@ -112,6 +112,35 @@ namespace SocietyManagementSystem.Controllers
             // IMPORTANT:
             // Replace with real ResidentId existing in DB
 
+            // YEAR VALIDATION
+            if (maintenance.Year < 2020 ||
+                maintenance.Year > 2100)
+            {
+                TempData["Error"] =
+                    "Enter valid year";
+
+                return View(maintenance);
+            }
+
+            // MONTH VALIDATION
+            if (maintenance.Month < 1 ||
+                maintenance.Month > 12)
+            {
+                TempData["Error"] =
+                    "Invalid month selected";
+
+                return View(maintenance);
+            }
+
+            // AMOUNT VALIDATION
+            if (maintenance.Amount <= 0)
+            {
+                TempData["Error"] =
+                    "Amount must be greater than 0";
+
+                return View(maintenance);
+            }
+
             maintenance.ResidentId = 2;
 
             maintenance.PaymentStatus = "pending";
