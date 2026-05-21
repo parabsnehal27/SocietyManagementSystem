@@ -1,0 +1,66 @@
+﻿@model SocietyManagementSystem.Models.Notice
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mb-4">Add Notice</h2>
+
+<form method="post">
+
+    <div class="mb-3">
+
+        <label>Notice Title</label>
+
+        <input asp-for="Title"
+               class="form-control"
+               required />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Description</label>
+
+        <textarea asp-for="Description"
+                  class="form-control"
+                  rows="4"
+                  required></textarea>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Notice Type</label>
+
+        <select asp-for="NoticeType"
+                class="form-control"
+                required>
+
+            <option value="">-- Select --</option>
+
+            <option>General</option>
+            <option>Emergency</option>
+            <option>Maintenance</option>
+            <option>Event</option>
+
+        </select>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Expiry Date</label>
+
+        <input asp-for="ExpiryDate"
+               type="date"
+               class="form-control"
+               required />
+
+    </div>
+
+    <button class="btn btn-success">
+        Save Notice
+    </button>
+
+</form>

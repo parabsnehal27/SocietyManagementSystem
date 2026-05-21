@@ -1,0 +1,98 @@
+﻿@model List<SocietyManagementSystem.Models.Notice>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<h2 class="mb-4">Notices</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<a href="/Notices/Create"
+   class="btn btn-primary mb-3">
+
+    Add Notice
+
+</a>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Posted</th>
+            <th>Expiry</th>
+            <th>Status</th>
+            <th width="120">Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var notice in Model)
+        {
+            <tr>
+
+                <td>@count</td>
+
+                <td>@notice.Title</td>
+
+                <td>@notice.NoticeType</td>
+
+                <td>
+                    @(notice.PostedDate?.ToString("dd-MM-yyyy"))
+                </td>
+
+                <td>
+                    @(notice.ExpiryDate?.ToString("dd-MM-yyyy"))
+                </td>
+
+                <!-- STATUS -->
+                <td>
+
+                    @if (notice.IsActive == true)
+                    {
+                        <span class="badge bg-success">
+                            Active
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            Expired
+                        </span>
+                    }
+
+                </td>
+
+                <!-- ACTION -->
+                <td>
+
+                    <a href="/Notices/Delete/@notice.NoticeId"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete notice?')">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            count++;
+        }
+
+    </tbody>
+
+</table>

@@ -151,7 +151,6 @@
     <Folder Include="Repositories\" />
     <Folder Include="Views\Maintenance\" />
     <Folder Include="Views\Visitors\" />
-    <Folder Include="Views\Notices\" />
   </ItemGroup>
 
   <ItemGroup>
