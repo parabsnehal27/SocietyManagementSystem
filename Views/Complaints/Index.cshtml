@@ -1,0 +1,131 @@
+﻿@model List<SocietyManagementSystem.Models.Complaint>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<h2 class="mb-4">Complaints</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<a href="/Complaints/Create"
+   class="btn btn-primary mb-3">
+
+    Add Complaint
+
+</a>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th width="180">Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var complaint in Model)
+        {
+            <tr>
+
+                <td>@count</td>
+
+                <td>@complaint.Title</td>
+
+                <td>@complaint.Description</td>
+
+                <td>@complaint.Category</td>
+
+                <!-- PRIORITY -->
+                <td>
+
+                    @if (complaint.Priority == "High")
+                    {
+                        <span class="badge bg-danger">
+                            High
+                        </span>
+                    }
+                    else if (complaint.Priority == "Medium")
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Medium
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">
+                            Low
+                        </span>
+                    }
+
+                </td>
+
+                <!-- STATUS -->
+                <td>
+
+                    @if (complaint.Status == "Resolved")
+                    {
+                        <span class="badge bg-success">
+                            Resolved
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Pending
+                        </span>
+                    }
+
+                </td>
+
+                <td>
+                    @(complaint.CreatedAt?.ToString("dd-MM-yyyy"))
+                </td>
+
+                <!-- ACTIONS -->
+                <td>
+
+                    @if (complaint.Status != "Resolved")
+                    {
+                        <a href="/Complaints/Resolve/@complaint.ComplaintId"
+                           class="btn btn-sm btn-success">
+
+                            Resolve
+
+                        </a>
+                    }
+
+                    <a href="/Complaints/Delete/@complaint.ComplaintId"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete complaint?')">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            count++;
+        }
+
+    </tbody>
+
+</table>
