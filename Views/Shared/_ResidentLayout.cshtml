@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Resident Panel</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+<body style="background:#f4f6f9;">
+
+    <div class="d-flex">
+
+        <!-- SIDEBAR -->
+        <div class="bg-dark text-white p-3"
+             style="width:250px; min-height:100vh;">
+
+            <h3 class="mb-4">
+                Resident Panel
+            </h3>
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item mb-3">
+
+                    <a href="/Dashboard/ResidentDashboard"
+                       class="nav-link text-white">
+
+                        <i class="fas fa-home"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item mb-3">
+
+                    <a href="#"
+                       class="nav-link text-secondary">
+
+                        <i class="fas fa-exclamation-circle"></i>
+
+                        Complaints(Coming Soon)
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item mb-3">
+
+                    <a href="#"
+                       class="nav-link text-secondary">
+
+                        <i class="fas fa-bullhorn"></i>
+
+                        Notices(coming soon)
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item mb-3">
+
+                    <a href="#"
+                       class="nav-link text-secondary">
+
+                        <i class="fas fa-money-bill"></i>
+
+                        Maintenance(coming soon)
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item mt-5">
+
+                    <a href="/Auth/Logout"
+                       class="nav-link text-danger">
+
+                        <i class="fas fa-sign-out-alt"></i>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="p-4 w-100">
+
+            @RenderBody()
+
+        </div>
+
+    </div>
+
+</body>
+</html>

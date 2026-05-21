@@ -63,5 +63,30 @@ namespace SocietyManagementSystem.Controllers
 
             return View();
         }
+
+        //RESIDENTS DASHBOARD
+        public IActionResult ResidentDashboard()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            ViewBag.TotalComplaints =
+                _context.Complaints.Count();
+
+            ViewBag.TotalNotices =
+                _context.Notices.Count();
+
+            ViewBag.PendingMaintenance =
+                _context.Maintenance
+                    .Count(m => m.PaymentStatus != "Paid");
+
+            return View();
+        }
+
     }
 }

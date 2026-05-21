@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+}
+
+<h2 class="mb-4">
+    Resident Dashboard
+</h2>
+
+<div class="row">
+
+    <!-- COMPLAINTS -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card bg-danger
+                    text-white shadow">
+
+            <div class="card-body">
+
+                <h5>Total Complaints</h5>
+
+                <h2>
+                    @ViewBag.TotalComplaints
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NOTICES -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card bg-primary
+                    text-white shadow">
+
+            <div class="card-body">
+
+                <h5>Total Notices</h5>
+
+                <h2>
+                    @ViewBag.TotalNotices
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MAINTENANCE -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card bg-warning
+                    text-dark shadow">
+
+            <div class="card-body">
+
+                <h5>Pending Maintenance</h5>
+
+                <h2>
+                    @ViewBag.PendingMaintenance
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
