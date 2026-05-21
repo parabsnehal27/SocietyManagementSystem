@@ -1,0 +1,213 @@
+﻿@using SocietyManagementSystem.Models
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var recentComplaints =
+        ViewBag.RecentComplaints as List<Complaint>;
+}
+
+<h2 class="mb-4">Dashboard</h2>
+
+<!-- ROW 1 -->
+<div class="row">
+
+    <!-- RESIDENTS -->
+    <div class="col-md-3 mb-4">
+
+        <div class="card bg-primary text-white shadow">
+
+            <div class="card-body">
+
+                <h5>Total Residents</h5>
+
+                <h2>@ViewBag.TotalResidents</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COMPLAINTS -->
+    <div class="col-md-3 mb-4">
+
+        <div class="card bg-danger text-white shadow">
+
+            <div class="card-body">
+
+                <h5>Total Complaints</h5>
+
+                <h2>@ViewBag.TotalComplaints</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NOTICES -->
+    <div class="col-md-3 mb-4">
+
+        <div class="card bg-warning text-dark shadow">
+
+            <div class="card-body">
+
+                <h5>Total Notices</h5>
+
+                <h2>@ViewBag.TotalNotices</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- VISITORS -->
+    <div class="col-md-3 mb-4">
+
+        <div class="card bg-success text-white shadow">
+
+            <div class="card-body">
+
+                <h5>Total Visitors</h5>
+
+                <h2>@ViewBag.TotalVisitors</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ROW 2 -->
+<div class="row">
+
+    <!-- PENDING -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card border-warning shadow">
+
+            <div class="card-body">
+
+                <h5>Pending Complaints</h5>
+
+                <h2 class="text-warning">
+                    @ViewBag.PendingComplaints
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RESOLVED -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card border-success shadow">
+
+            <div class="card-body">
+
+                <h5>Resolved Complaints</h5>
+
+                <h2 class="text-success">
+                    @ViewBag.ResolvedComplaints
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MAINTENANCE -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card border-primary shadow">
+
+            <div class="card-body">
+
+                <h5>Paid Maintenance</h5>
+
+                <h2 class="text-primary">
+                    @ViewBag.PaidMaintenance
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- RECENT COMPLAINTS -->
+<div class="card shadow">
+
+    <div class="card-header bg-dark text-white">
+
+        Recent Complaints
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var complaint in recentComplaints)
+                {
+                    <tr>
+
+                        <td>@complaint.Title</td>
+
+                        <td>@complaint.Category</td>
+
+                        <td>
+
+                            @if (complaint.Status == "Resolved")
+                            {
+                                <span class="badge bg-success">
+                                    Resolved
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            }
+
+                        </td>
+
+                        <td>
+                            @(complaint.CreatedAt?.ToString("dd-MM-yyyy"))
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
