@@ -15,5 +15,6 @@ namespace SocietyManagementSystem.Data
         public DbSet<Resident> Residents { get; set; }
         public DbSet<Complaint> Complaints { get; set; }
         public DbSet<Notice> Notices { get; set; }
+        public DbSet<Maintenance> Maintenance { get; set; }
     }
 }

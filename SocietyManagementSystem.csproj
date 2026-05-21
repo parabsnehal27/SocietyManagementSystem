@@ -149,7 +149,6 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
     <Folder Include="Repositories\" />
-    <Folder Include="Views\Maintenance\" />
     <Folder Include="Views\Visitors\" />
   </ItemGroup>
 
