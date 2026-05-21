@@ -100,6 +100,8 @@ namespace SocietyManagementSystem.Controllers
             return RedirectToAction("Index");
         }
 
+
+
         // SAVE
         [HttpPost]
         public IActionResult Create(Maintenance maintenance)

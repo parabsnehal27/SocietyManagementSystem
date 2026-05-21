@@ -33,7 +33,9 @@
             <th>Due Date</th>
             <th>Status</th>
             <th>Paid Date</th>
+            <th>Remarks</th>
             <th width="180">Actions</th>
+            
         </tr>
 
     </thead>
@@ -87,25 +89,27 @@
                     }
 
                 </td>
+            <td>
+                @(string.IsNullOrEmpty(item.Remarks)
+                                ? "-"
+                                : item.Remarks)
+            </td>
 
                 <!-- ACTIONS -->
                 <td>
 
-                    @if (item.PaymentStatus == "Paid")
+                @if (item.PaymentStatus != "Paid")
                     {
-                        <span class="badge bg-success">
-                            Paid
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-warning text-dark">
-                            Pending
-                        </span>
+                        <a href="/Maintenance/MarkPaid/@item.MaintenanceId"
+                           class="btn btn-warning btn-sm">
+
+                            Mark Paid
+
+                        </a>
                     }
 
                     <a href="/Maintenance/Delete/@item.MaintenanceId"
-                       class="btn btn-sm btn-danger"
+                       class="btn btn-danger btn-sm"
                        onclick="return confirm('Delete maintenance?')">
 
                         Delete

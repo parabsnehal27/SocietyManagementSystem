@@ -10,18 +10,26 @@
 <h2 class="mb-4">Dashboard</h2>
 
 <!-- ROW 1 -->
-<div class="row">
+<div class="row mt-3">
 
     <!-- RESIDENTS -->
     <div class="col-md-3 mb-4">
 
-        <div class="card bg-primary text-white shadow">
+        <div class="card bg-primary text-white shadow-lg border-0">
 
-            <div class="card-body">
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
 
-                <h5>Total Residents</h5>
+                <div>
 
-                <h2>@ViewBag.TotalResidents</h2>
+                    <h5>Total Residents</h5>
+
+                    <h1>@ViewBag.TotalResidents</h1>
+
+                </div>
+
+                <i class="fas fa-users fa-4x opacity-50"></i>
 
             </div>
 
@@ -32,30 +40,21 @@
     <!-- COMPLAINTS -->
     <div class="col-md-3 mb-4">
 
-        <div class="card bg-danger text-white shadow">
+        <div class="card bg-danger text-white shadow-lg border-0">
 
-            <div class="card-body">
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
 
-                <h5>Total Complaints</h5>
+                <div>
 
-                <h2>@ViewBag.TotalComplaints</h2>
+                    <h5>Complaints</h5>
 
-            </div>
+                    <h1>@ViewBag.TotalComplaints</h1>
 
-        </div>
+                </div>
 
-    </div>
-
-    <!-- NOTICES -->
-    <div class="col-md-3 mb-4">
-
-        <div class="card bg-warning text-dark shadow">
-
-            <div class="card-body">
-
-                <h5>Total Notices</h5>
-
-                <h2>@ViewBag.TotalNotices</h2>
+                <i class="fas fa-exclamation-circle fa-4x opacity-50"></i>
 
             </div>
 
@@ -66,13 +65,51 @@
     <!-- VISITORS -->
     <div class="col-md-3 mb-4">
 
-        <div class="card bg-success text-white shadow">
+        <div class="card bg-success text-white shadow-lg border-0">
 
-            <div class="card-body">
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
 
-                <h5>Total Visitors</h5>
+                <div>
 
-                <h2>@ViewBag.TotalVisitors</h2>
+                    <h5>Visitors</h5>
+
+                    <h1>@ViewBag.TotalVisitors</h1>
+
+                </div>
+
+                <i class="fas fa-user-secret fa-4x opacity-50"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MAINTENANCE -->
+    <div class="col-md-3 mb-4">
+
+        <div class="card bg-warning text-dark shadow-lg border-0">
+
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
+
+                <div>
+
+                    <h5>Maintenance</h5>
+
+                    <h1>
+                        ₹@(
+                        ViewBag.PaidMaintenance *
+                        1000
+                                                )
+                    </h1>
+
+                </div>
+
+                <i class="fas fa-money-bill-wave fa-4x opacity-50"></i>
 
             </div>
 
@@ -135,6 +172,57 @@
                 <h2 class="text-primary">
                     @ViewBag.PaidMaintenance
                 </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row mb-4">
+
+    <!-- COMPLAINT CHART -->
+    <div class="col-md-6">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white">
+
+                Complaint Analytics
+
+            </div>
+
+            <div class="card-body">
+
+                <canvas id="complaintChart"
+                        style="max-height:300px">
+                </canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MAINTENANCE CHART -->
+    <div class="col-md-6">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white">
+
+                Maintenance Analytics
+
+            </div>
+
+            <div class="card-body">
+
+                <canvas id="maintenanceChart"
+                        style="max-height:300px">
+                </canvas>
 
             </div>
 
@@ -211,3 +299,82 @@
     </div>
 
 </div>
+
+
+@section Scripts {
+
+    <script>
+
+        window.onload = function () {
+
+            // COMPLAINT PIE CHART
+            const complaintCtx =
+                document.getElementById('complaintChart');
+
+            new Chart(complaintCtx, {
+
+                type: 'pie',
+                
+
+                data: {
+
+                    labels: [
+                        'Pending',
+                        'Resolved'
+                    ],
+
+                    datasets: [{
+
+                        data: [
+                            @ViewBag.PendingComplaints,
+                            @ViewBag.ResolvedComplaints
+                        ],
+
+                        backgroundColor: [
+                            '#ffc107',
+                            '#28a745'
+                        ]
+
+                    }]
+                }
+            });
+
+            // MAINTENANCE BAR CHART
+            const maintenanceCtx =
+                document.getElementById('maintenanceChart');
+
+            new Chart(maintenanceCtx, {
+
+                type: 'bar',
+
+                data: {
+
+                    labels: [
+                        'Paid',
+                        'Pending'
+                    ],
+
+                    datasets: [{
+
+                        label: 'Maintenance',
+
+                        data: [
+                            @ViewBag.PaidMaintenance,
+                            @ViewBag.PendingMaintenance
+                        ],
+
+                        backgroundColor: [
+                            '#007bff',
+                            '#dc3545'
+                        ]
+
+                    }]
+                }
+            });
+
+        };
+
+    </script>
+
+}
+

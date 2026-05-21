@@ -30,9 +30,39 @@ namespace SocietyManagementSystem.Controllers
 
             if (user != null)
             {
-                HttpContext.Session.SetString("AdminSession", user.Email);
+                HttpContext.Session.SetString(
+                    "AdminSession",
+                    user.Email
+                );
 
-                return RedirectToAction("Dashboard", "Admin");
+                // ADMIN
+                if (user.Role == "Admin")
+                {
+                    return RedirectToAction(
+                        "Index",
+                        "Dashboard"
+                    );
+                }
+
+                // RESIDENT
+                else if (user.Role == "Resident")
+                {
+                    return RedirectToAction(
+                        "ResidentDashboard",
+                        "Dashboard"
+                    );
+                }
+
+                // SECURITY
+                else if (user.Role == "Security")
+                {
+                    return RedirectToAction(
+                        "SecurityDashboard",
+                        "Dashboard"
+                    );
+                }
+
+                return RedirectToAction("Login");
             }
 
             ViewBag.Error = "Invalid Email or Password";
