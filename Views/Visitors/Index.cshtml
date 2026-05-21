@@ -1,0 +1,86 @@
+﻿@model List<SocietyManagementSystem.Models.Visitor>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<h2 class="mb-4">Visitors</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<a href="/Visitors/Create"
+   class="btn btn-primary mb-3">
+
+    Add Visitor
+
+</a>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Purpose</th>
+            <th>Vehicle</th>
+            <th>ID Proof</th>
+            <th>Created</th>
+            <th width="120">Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var visitor in Model)
+        {
+            <tr>
+
+                <td>@count</td>
+
+                <td>@visitor.VisitorName</td>
+
+                <td>@visitor.PhoneNumber</td>
+
+                <td>@visitor.Purpose</td>
+
+                <td>@visitor.VehicleNumber</td>
+
+                <td>
+                    @visitor.IDProofType
+                    -
+                    @visitor.IDProofNumber
+                </td>
+
+                <td>
+                    @(visitor.CreatedAt?.ToString("dd-MM-yyyy"))
+                </td>
+
+                <td>
+
+                    <a href="/Visitors/Delete/@visitor.VisitorId"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete visitor?')">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            count++;
+        }
+
+    </tbody>
+
+</table>
