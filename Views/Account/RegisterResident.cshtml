@@ -1,0 +1,102 @@
+﻿@model SocietyManagementSystem.ViewModels.RegisterResidentViewModel
+
+@{
+    ViewData["Title"] = "Resident Registration";
+}
+
+<h2>Resident Registration</h2>
+
+<form asp-action="RegisterResident" method="post">
+
+    <div>
+        <label>Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Confirm Password</label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <hr />
+
+    <div>
+        <label>Flat Number</label>
+        <input asp-for="FlatNumber" class="form-control" />
+        <span asp-validation-for="FlatNumber" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Wing</label>
+        <input asp-for="Wing" class="form-control" />
+        <span asp-validation-for="Wing" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Floor Number</label>
+        <input asp-for="FloorNumber" class="form-control" />
+    </div>
+
+    <div>
+        <label>Owner / Tenant</label>
+        <select asp-for="OwnerOrTenant" class="form-control">
+            <option value="">Select</option>
+            <option>Owner</option>
+            <option>Tenant</option>
+        </select>
+        <span asp-validation-for="OwnerOrTenant" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Family Members Count</label>
+        <input asp-for="FamilyMembersCount" class="form-control" />
+    </div>
+
+    <div>
+        <label>Vehicle Number</label>
+        <input asp-for="VehicleNumber" class="form-control" />
+    </div>
+
+    <div>
+        <label>Emergency Contact Phone</label>
+        <input asp-for="ContactPhone" class="form-control" />
+        <span asp-validation-for="ContactPhone" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Move In Date</label>
+        <input asp-for="MoveInDate" type="date" class="form-control" />
+        <span asp-validation-for="MoveInDate" class="text-danger"></span>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
