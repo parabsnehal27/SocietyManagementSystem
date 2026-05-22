@@ -20,30 +20,39 @@ namespace SocietyManagementSystem.Controllers
         }
 
         // LIST
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            var notices = _context.Notices.ToList();
+            var notices =
+                _context.Notices.AsQueryable();
 
-            foreach (var notice in notices)
+            // SEARCH
+            if (!string.IsNullOrEmpty(search))
             {
-                if (notice.ExpiryDate < DateTime.Now)
-                {
-                    notice.IsActive = false;
-                }
-                else
-                {
-                    notice.IsActive = true;
-                }
+                notices = notices.Where(n =>
+
+                    n.Title.Contains(search)
+
+                    ||
+
+                    n.Description.Contains(search)
+
+                    ||
+
+                    n.NoticeType.Contains(search)
+                );
             }
 
-            _context.SaveChanges();
-
-            return View(notices);
+            return View(
+                notices.ToList()
+            );
         }
 
         // CREATE PAGE

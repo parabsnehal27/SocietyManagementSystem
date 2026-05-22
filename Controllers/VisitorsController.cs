@@ -21,16 +21,52 @@ namespace SocietyManagementSystem.Controllers
         }
 
         // LIST
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            var visitors = _context.Visitors.ToList();
+            var visitors =
+                _context.Visitors.AsQueryable();
 
-            return View(visitors);
+            // SEARCH
+            if (!string.IsNullOrEmpty(search))
+            {
+                visitors = visitors.Where(v =>
+
+                    v.VisitorName.Contains(search)
+
+                    ||
+
+                    v.PhoneNumber.Contains(search)
+
+                    ||
+
+                    v.VehicleNumber.Contains(search)
+
+                    ||
+
+                    v.IDProofType.Contains(search)
+
+                    ||
+
+                    v.IDProofNumber.Contains(search)
+
+                    ||
+
+                    v.Purpose.Contains(search)
+
+                );
+            }
+
+            return View(
+                visitors.ToList()
+            );
         }
 
         // CREATE PAGE

@@ -19,16 +19,45 @@ namespace SocietyManagementSystem.Controllers
             return HttpContext.Session.GetString("AdminSession") != null;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
-            
-            var residents = _context.Residents.ToList();
 
-            return View(residents);
+            var residents =
+                _context.Residents.AsQueryable();
+
+            // SEARCH
+            if (!string.IsNullOrEmpty(search))
+            {
+                residents = residents.Where(r =>
+
+                    r.FlatNumber.ToString()
+                        .Contains(search)
+
+                    ||
+
+                    r.Wing.Contains(search)
+
+                    ||
+
+                    r.OwnerOrTenant.Contains(search)
+
+                    ||
+
+                    r.ContactPhone.Contains(search)
+
+                );
+            }
+
+            return View(
+                residents.ToList()
+            );
         }
 
         public IActionResult Create()

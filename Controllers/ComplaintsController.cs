@@ -20,16 +20,44 @@ namespace SocietyManagementSystem.Controllers
         }
 
         // LIST
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            var complaints = _context.Complaints.ToList();
+            var complaints =
+                _context.Complaints.AsQueryable();
 
-            return View(complaints);
+            // SEARCH
+            if (!string.IsNullOrEmpty(search))
+            {
+                complaints = complaints.Where(c =>
+
+                    c.Title.Contains(search)
+
+                    ||
+
+                    c.Category.Contains(search)
+
+                    ||
+
+                    c.Status.Contains(search)
+
+                    ||
+
+                    c.Priority.Contains(search)
+
+                );
+            }
+
+            return View(
+                complaints.ToList()
+            );
         }
 
         // CREATE PAGE

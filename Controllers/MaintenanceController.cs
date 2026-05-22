@@ -20,16 +20,49 @@ namespace SocietyManagementSystem.Controllers
         }
 
         // LIST
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            var maintenanceList = _context.Maintenance.ToList();
+            var maintenanceList =
+                _context.Maintenance.AsQueryable();
 
-            return View(maintenanceList);
+            // SEARCH
+            if (!string.IsNullOrEmpty(search))
+            {
+                maintenanceList =
+                    maintenanceList.Where(m =>
+
+                        m.Month.ToString()
+                            .Contains(search)
+
+                        ||
+
+                        m.Year.ToString()
+                            .Contains(search)
+
+                        ||
+
+                        m.PaymentStatus
+                            .Contains(search)
+
+                        ||
+
+                        m.Amount.ToString()
+                            .Contains(search)
+
+                    );
+            }
+
+            return View(
+                maintenanceList.ToList()
+            );
         }
 
         // CREATE PAGE

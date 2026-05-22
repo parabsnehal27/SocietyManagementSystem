@@ -27,5 +27,6 @@ namespace SocietyManagementSystem.Models
         public bool? IsApproved { get; set; }
 
         public DateTime? CreatedAt { get; set; }
+        
     }
 }
