@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using ClosedXML.Excel;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 namespace SocietyManagementSystem.Controllers
 {
     public class VisitorsController : Controller
@@ -193,6 +195,18 @@ namespace SocietyManagementSystem.Controllers
                 return RedirectToAction("Login", "Auth");
             }
 
+            ViewBag.Residents =
+    _context.Residents
+    .Select(r => new SelectListItem
+    {
+        Value = r.ResidentId.ToString(),
+
+        Text =
+            r.FlatNumber
+            + " - " +
+            r.OwnerOrTenant
+    })
+    .ToList();
             return View();
         }
 
@@ -301,7 +315,31 @@ namespace SocietyManagementSystem.Controllers
 
            
             visitor.CreatedAt = DateTime.Now;
+            var residentExists =
+    _context.Residents.Any(r =>
+        r.ResidentId ==
+        visitor.ResidentId);
 
+            if (!residentExists)
+            {
+                TempData["Error"] =
+                    "Please select valid resident";
+
+                ViewBag.Residents =
+                    _context.Residents
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.ResidentId.ToString(),
+
+                        Text =
+                            r.FlatNumber
+                            + " - " +
+                            r.OwnerOrTenant
+                    })
+                    .ToList();
+
+                return View(visitor);
+            }
             _context.Visitors.Add(visitor);
 
             _context.SaveChanges();

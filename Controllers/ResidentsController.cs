@@ -213,19 +213,34 @@ namespace SocietyManagementSystem.Controllers
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            var resident = _context.Residents.Find(id);
+            var resident =
+                _context.Residents.Find(id);
 
             if (resident == null)
             {
                 return NotFound();
             }
 
-            _context.Residents.Remove(resident);
+            try
+            {
+                _context.Residents.Remove(resident);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
+
+                TempData["Success"] =
+                    "Resident Deleted Successfully";
+            }
+            catch
+            {
+                TempData["Error"] =
+                    "Cannot delete resident because related records exist.";
+            }
 
             return RedirectToAction("Index");
         }

@@ -5,6 +5,8 @@ using System.Linq;
 using Rotativa.AspNetCore;
 using ClosedXML.Excel;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 namespace SocietyManagementSystem.Controllers
 {
     public class ComplaintsController : Controller
@@ -57,9 +59,9 @@ namespace SocietyManagementSystem.Controllers
                 );
             }
 
-            return View(
-                complaints.ToList()
-            );
+            
+
+            return View(complaints.ToList());
         }
 
         public IActionResult ExportPdf()
@@ -179,22 +181,65 @@ namespace SocietyManagementSystem.Controllers
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
+
+            ViewBag.Residents =
+                _context.Residents
+                .Select(r => new SelectListItem
+                {
+                    Value = r.ResidentId.ToString(),
+
+                    Text =
+                        r.FlatNumber
+                        + " - " +
+                        r.OwnerOrTenant
+                })
+                .ToList();
 
             return View();
         }
 
-        // SAVE COMPLAINT
         [HttpPost]
         public IActionResult Create(Complaint complaint)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            complaint.ResidentId = 2;
+            // VALID RESIDENT CHECK
+            var residentExists =
+                _context.Residents.Any(r =>
+                    r.ResidentId ==
+                    complaint.ResidentId);
+
+            if (!residentExists)
+            {
+                TempData["Error"] =
+                    "Please select valid resident";
+
+                ViewBag.Residents =
+                    _context.Residents
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.ResidentId.ToString(),
+
+                        Text =
+                            r.FlatNumber
+                            + " - " +
+                            r.OwnerOrTenant
+                    })
+                    .ToList();
+
+                return View(complaint);
+            }
 
             complaint.Status = "Pending";
 
@@ -204,7 +249,8 @@ namespace SocietyManagementSystem.Controllers
 
             _context.SaveChanges();
 
-            TempData["Success"] = "Complaint Added Successfully";
+            TempData["Success"] =
+                "Complaint Added Successfully";
 
             return RedirectToAction("Index");
         }

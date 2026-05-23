@@ -65,6 +65,7 @@
 
 </form>
 
+<div class="table-responsive">
 <table class="table table-bordered table-striped table-hover">
 
     <thead class="table-dark">
@@ -81,6 +82,31 @@
             <th width="180">Actions</th>
         </tr>
     </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    // existing rows
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="10"
+                        class="text-center text-muted">
+
+                        No records found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
 
     <tbody>
 
@@ -136,7 +162,7 @@
 
                     <a href="/Residents/Delete/@resident.ResidentId"
                        class="btn btn-sm btn-danger"
-                       onclick="return confirm('Are you sure?')">
+                       onclick="return confirm('Are you sure you want to delete this record?')">
 
                         Delete
 
@@ -152,3 +178,4 @@
     </tbody>
 
 </table>
+</div>

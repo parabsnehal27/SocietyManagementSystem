@@ -5,6 +5,7 @@ namespace SocietyManagementSystem.Models
     public class Visitor
     {
         public int VisitorId { get; set; }
+        public int ResidentId { get; set; }
 
         public string? VisitorName { get; set; }
 
@@ -19,5 +20,6 @@ namespace SocietyManagementSystem.Models
         public string? IDProofNumber { get; set; }
 
         public DateTime? CreatedAt { get; set; }
+
     }
 }

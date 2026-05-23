@@ -7,12 +7,7 @@
 
 <h2 class="mb-4">Maintenance</h2>
 
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Success"]
-    </div>
-}
+
 
 <div class="d-flex justify-content-between mb-4">
 
@@ -75,6 +70,7 @@
 
 </form>
 
+<div class="table-responsive">
 <table class="table table-bordered table-striped table-hover">
 
     <thead class="table-dark">
@@ -178,5 +174,30 @@
         }
 
     </tbody>
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    // existing rows
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="10"
+                        class="text-center text-muted">
+
+                        No records found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
 
 </table>
+</div>

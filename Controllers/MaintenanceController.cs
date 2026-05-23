@@ -5,6 +5,7 @@ using SocietyManagementSystem.Models;
 using System.Linq;
 using ClosedXML.Excel;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace SocietyManagementSystem.Controllers
 {
     public class MaintenanceController : Controller
@@ -20,7 +21,7 @@ namespace SocietyManagementSystem.Controllers
         {
             return HttpContext.Session.GetString("AdminSession") != null;
         }
-
+            
         // LIST
         public IActionResult Index(string search)
         {
@@ -186,6 +187,19 @@ namespace SocietyManagementSystem.Controllers
                 return RedirectToAction("Login", "Auth");
             }
 
+            ViewBag.Residents =
+                _context.Residents
+                .Select(r => new SelectListItem
+                {
+                    Value = r.ResidentId.ToString(),
+
+                    Text =
+                        r.FlatNumber
+                        + " - " +
+                        r.OwnerOrTenant
+                })
+                .ToList();
+
             return View();
         }
 
@@ -289,12 +303,36 @@ namespace SocietyManagementSystem.Controllers
                 return View(maintenance);
             }
 
-            maintenance.ResidentId = 2;
+            
 
             maintenance.PaymentStatus = "pending";
 
             maintenance.CreatedAt = DateTime.Now;
+            var residentExists =
+    _context.Residents.Any(r =>
+        r.ResidentId ==
+        maintenance.ResidentId);
 
+            if (!residentExists)
+            {
+                TempData["Error"] =
+                    "Please select valid resident";
+
+                ViewBag.Residents =
+                    _context.Residents
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.ResidentId.ToString(),
+
+                        Text =
+                            r.FlatNumber
+                            + " - " +
+                            r.OwnerOrTenant
+                    })
+                    .ToList();
+
+                return View(maintenance);
+            }
             _context.Maintenance.Add(maintenance);
 
             _context.SaveChanges();

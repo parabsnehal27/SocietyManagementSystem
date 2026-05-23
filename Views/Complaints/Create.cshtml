@@ -7,7 +7,27 @@
 <h2 class="mb-4">Add Complaint</h2>
 
 <form method="post">
+    <div class="mb-3">
 
+        <label class="form-label">
+
+            Select Resident
+
+        </label>
+
+        <select asp-for="ResidentId"
+                class="form-control"
+                asp-items="ViewBag.Residents">
+
+            <option value="">
+
+                -- Select Resident --
+
+            </option>
+
+        </select>
+
+    </div>
     <div class="mb-3">
 
         <label>Complaint Title</label>
