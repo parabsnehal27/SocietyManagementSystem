@@ -1,0 +1,77 @@
+﻿@model List<SocietyManagementSystem.Models.VisitorEntry>
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Visitor</th>
+                <th>Phone</th>
+                <th>Purpose</th>
+                <th>Flat</th>
+                <th>Status</th>
+                <th>Entry Time</th>
+                <th>Exit Time</th>
+                <th style="width:140px;">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                string badgeClass = "";
+
+                if (item.ExitTime != null)
+                    badgeClass = "exited";
+                else if (item.ApprovalStatus == "Approved")
+                    badgeClass = "approved";
+                else if (item.ApprovalStatus == "Pending")
+                    badgeClass = "pending";
+                else
+                    badgeClass = "rejected";
+
+                <tr>
+                    <td>@item.Visitor.VisitorName</td>
+                    <td>@item.Visitor.PhoneNumber</td>
+                    <td>@item.Visitor.Purpose</td>
+                    <td>@item.Resident.FlatNumber</td>
+
+                    <td>
+                        <span class="badge-status @badgeClass">
+                            @(item.ExitTime != null ? "Exited" : item.ApprovalStatus)
+                        </span>
+                    </td>
+
+                    <td>@item.EntryTime.ToString("dd MMM yyyy hh:mm tt")</td>
+
+                    <td>
+                        @(item.ExitTime != null
+                            ? item.ExitTime.Value.ToString("dd MMM yyyy hh:mm tt")
+                            : "-")
+                    </td>
+
+                    <td style="text-align:center;">
+                        @if (item.ApprovalStatus == "Approved" && item.ExitTime == null)
+                        {
+                            <a asp-action="MarkExit"
+                               asp-route-id="@item.EntryId"
+                               class="exit-btn">
+                                Mark Exit
+                            </a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="empty-text">
+        No visitor records found.
+    </div>
+}

@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using SocietyManagementSystem.ViewModels;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SocietyManagementSystem.Controllers
 {
@@ -52,6 +54,14 @@ namespace SocietyManagementSystem.Controllers
         // GET
         public IActionResult AddVisitorEntry()
         {
+            ViewBag.FlatNumbers = _context.Residents
+                .Select(r => new SelectListItem
+                {
+                    Value = r.FlatNumber,
+                    Text = r.FlatNumber + " - " + r.Wing
+                })
+                .ToList();
+
             return View();
         }
 
@@ -60,7 +70,17 @@ namespace SocietyManagementSystem.Controllers
         public IActionResult AddVisitorEntry(VisitorEntryViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.FlatNumbers = _context.Residents
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.FlatNumber,
+                        Text = r.FlatNumber + " - " + r.Wing
+                    })
+                    .ToList();
+
                 return View(model);
+            }
 
             string userEmail = User.FindFirstValue(ClaimTypes.Email);
 
@@ -73,6 +93,15 @@ namespace SocietyManagementSystem.Controllers
             if (resident == null)
             {
                 ModelState.AddModelError("", "Resident not found.");
+
+                ViewBag.FlatNumbers = _context.Residents
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.FlatNumber,
+                        Text = r.FlatNumber + " - " + r.Wing
+                    })
+                    .ToList();
+
                 return View(model);
             }
 
@@ -148,6 +177,38 @@ namespace SocietyManagementSystem.Controllers
                 .ToList();
 
             return Json(visitorLogs);
+        }
+
+        [HttpGet]
+        public IActionResult FilterVisitorLogs(string searchTerm, string status)
+        {
+            var logs = _context.VisitorEntries
+                .Include(v => v.Visitor)
+                .Include(v => v.Resident)
+                .OrderByDescending(v => v.EntryTime)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                logs = logs.Where(v =>
+                    v.Visitor.VisitorName.Contains(searchTerm) ||
+                    v.Visitor.PhoneNumber.Contains(searchTerm) ||
+                    v.Resident.FlatNumber.Contains(searchTerm));
+            }
+
+            if (!string.IsNullOrEmpty(status) && status != "All")
+            {
+                if (status == "Exited")
+                {
+                    logs = logs.Where(v => v.ExitTime != null);
+                }
+                else
+                {
+                    logs = logs.Where(v => v.ApprovalStatus == status && v.ExitTime == null);
+                }
+            }
+
+            return PartialView("_VisitorLogsTable", logs.ToList());
         }
     }
 }

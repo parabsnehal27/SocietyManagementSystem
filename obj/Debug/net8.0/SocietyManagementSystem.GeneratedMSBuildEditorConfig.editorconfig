@@ -68,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcVmlzaXRvckxvZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/awp/SocietyManagementSystem/Views/Security/_VisitorLogsTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcX1Zpc2l0b3JMb2dzVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/awp/SocietyManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

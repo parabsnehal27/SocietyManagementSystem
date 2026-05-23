@@ -18,117 +18,135 @@
             overflow-x: hidden;
         }
 
+        /* SIDEBAR */
         .sidebar {
-            width: 80px;
+            width: 72px;
             height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
-            background: #FFFFFF;
-            border-right: 1px solid #D1FAE5;
-            padding: 20px;
-            transition: all 0.3s ease;
+            background: #F8FAFC;
+            border-right: 1px solid #CBD5E1;
+            padding: 14px 10px;
+            transition: width 0.3s ease;
             z-index: 1000;
+            overflow: hidden;
         }
 
-            .sidebar.collapsed {
-                width: 80px;
+            .sidebar.expanded {
+                width: 240px;
             }
 
-            .sidebar .logo {
-                font-size: 24px;
-                font-weight: bold;
-                margin-bottom: 30px;
-                white-space: nowrap;
+        /* LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            margin-bottom: 20px;
+            color: #0F766E;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .sidebar.expanded .logo-text {
+            display: inline;
+        }
+
+        /* MENU LINKS */
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            height: 52px;
+            padding: 0 16px;
+            margin-bottom: 12px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #0F172A;
+            transition: 0.3s;
+        }
+
+            .sidebar a:hover {
+                background: #E2E8F0;
             }
 
-            .sidebar.collapsed .logo-text {
-                display: none;
-            }
+        /* ICONS */
+        .sidebar i {
+            font-size: 20px;
+            min-width: 28px;
+            color: #0F766E;
+        }
 
-            .sidebar a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                color: #F8FAFC;
-                text-decoration: none;
-                padding: 14px;
-                margin-bottom: 10px;
-                border-radius: 12px;
-                transition: 0.3s;
-                white-space: nowrap;
-            }
+        /* TEXT HIDDEN BY DEFAULT */
+        .sidebar a span {
+            display: none;
+            margin-left: 12px;
+            white-space: nowrap;
+            font-weight: 500;
+        }
 
-                .sidebar a:hover {
-                    background: #F0FDFA;
-                    color: #0F766E;
-                }
+        /* SHOW TEXT ONLY WHEN EXPANDED */
+        .sidebar.expanded a span {
+            display: inline;
+        }
 
-            .sidebar.collapsed a span {
-                display: none;
-            }
-
-            .sidebar i {
-                font-size: 22px;
-                color: #0F766E;
-            }
-
+        /* TOPBAR */
         .topbar {
             height: 70px;
             background: #FFFFFF;
-            border-bottom: 1px solid #D1FAE5;
-            color: #0F172A; 
+            border-bottom: 1px solid #CBD5E1;
+            position: fixed;
+            top: 0;
+            left: 72px;
+            width: calc(100% - 72px);
             display: flex;
             align-items: center;
             padding: 0 25px;
-            position: fixed;
-            top: 0;
-            left: 80px;
-            width: calc(100% - 80px);
             transition: all 0.3s ease;
             z-index: 999;
         }
 
             .topbar.expanded {
-                left: 260px;
-                width: calc(100% - 260px);
+                left: 240px;
+                width: calc(100% - 240px);
             }
 
-            .topbar.collapsed {
-                left: 80px;
-            }
-
-        .menu-btn {
-            font-size: 28px;
-            cursor: pointer;
-            color: #0F766E;
-        }
-
-        .topbar-title {
-            margin-left: 20px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-
+        /* CONTENT */
         .content {
-            margin-left: 80px;
-            background: #F0FDFA;
+            margin-left: 72px;
             margin-top: 70px;
-            width: calc(100% - 80px);
-            padding: 30px;
+            width: calc(100% - 72px);
+            padding: 25px;
+            background: #F0FDFA;
+            min-height: 100vh;
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
 
             .content.expanded {
-                margin-left: 260px;
-                width: calc(100% - 260px);
+                margin-left: 240px;
+                width: calc(100% - 240px);
             }
+
+        .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            color: #0F766E;
+        }
     </style>
 </head>
 <body>
 
-    <div class="sidebar collapsed" id="sidebar">
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0);" onclick="toggleSidebar()" class="menu-link">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+        </a>
         <a href="/Security/Dashboard">
             <i class="bi bi-speedometer2"></i>
             <span>Dashboard</span>
@@ -144,11 +162,6 @@
             <span>Visitor Logs</span>
         </a>
 
-        <a href="/Security/VisitorLogs">
-            <i class="bi bi-shield-check"></i>
-            <span>Approvals</span>
-        </a>
-
         <a href="/Account/Logout">
             <i class="bi bi-box-arrow-right"></i>
             <span>Logout</span>
@@ -156,17 +169,16 @@
     </div>
 
     <div class="topbar" id="topbar">
-        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        
         <div class="topbar-title">Security Dashboard</div>
     </div>
 
     <div class="content" id="content">
         @RenderBody()
     </div>
-
     <script>
         function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("collapsed");
+            document.getElementById("sidebar").classList.toggle("expanded");
             document.getElementById("topbar").classList.toggle("expanded");
             document.getElementById("content").classList.toggle("expanded");
         }

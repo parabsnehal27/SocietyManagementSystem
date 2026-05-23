@@ -1,57 +1,194 @@
 ﻿@model SocietyManagementSystem.ViewModels.VisitorEntryViewModel
 
-<h2>Add Visitor Entry</h2>
-
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Success"]
-    </div>
+@{
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
+    ViewData["Title"] = "Add Visitor";
 }
 
-<form asp-action="AddVisitorEntry" method="post">
+<style>
+    .page-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: #0F172A;
+        margin-bottom: 10px;
+    }
 
-    <div>
-        <label>Visitor Name</label>
-        <input asp-for="VisitorName" class="form-control" />
+    .page-subtitle {
+        color: #64748B;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .form-card {
+        background: #FFFFFF;
+        border: 1px solid #D1FAE5;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 8px 20px rgba(15, 118, 110, 0.08);
+        max-width: 1000px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-weight: 600;
+        color: #0F172A;
+        margin-bottom: 8px;
+    }
+
+    .form-control,
+    .form-select {
+        border: 1px solid #CBD5E1;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 15px;
+        background: #F8FAFC;
+    }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #0F766E;
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+            outline: none;
+        }
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+        }
+
+    .submit-btn {
+        background: #0F766E;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 30px;
+        transition: 0.3s;
+    }
+
+        .submit-btn:hover {
+            background: #0D5F59;
+        }
+
+    .validation-summary-errors {
+        background: #FEF2F2;
+        border: 1px solid #FECACA;
+        color: #DC2626;
+        padding: 14px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    @@media (max-width: 768px) {
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .page-title {
+            font-size: 32px;
+        }
+
+        .form-card {
+            padding: 20px;
+        }
+    }
+
+</style>
+
+<div>
+    <div class="page-title">Add Visitor Entry</div>
+    <div class="page-subtitle">
+        Register visitor access request for society entry
     </div>
 
-    <div>
-        <label>Phone Number</label>
-        <input asp-for="PhoneNumber" class="form-control" />
-    </div>
+    <div class="form-card">
 
-    <div>
-        <label>Purpose</label>
-        <input asp-for="Purpose" class="form-control" />
-    </div>
+        <div asp-validation-summary="All"></div>
 
-    <div>
-        <label>Vehicle Number</label>
-        <input asp-for="VehicleNumber" class="form-control" />
-    </div>
+        <form asp-action="AddVisitorEntry" method="post">
 
-    <div>
-        <label>Resident Flat Number</label>
-        <input asp-for="FlatNumber" class="form-control" />
-    </div>
-    <div>
-        <label>ID Proof Type</label>
-        <select asp-for="IDProofType" class="form-control">
-            <option>Aadhaar</option>
-            <option>PAN</option>
-            <option>Driving License</option>
-            <option>Passport</option>
-        </select>
-    </div>
+            <div class="form-grid">
 
-    <div>
-        <input asp-for="IsIDVerified" type="checkbox" />
-        <label>ID Verified</label>
-    </div>
-    <br />
+                <div class="form-group">
+                    <label asp-for="VisitorName"></label>
+                    <input asp-for="VisitorName" class="form-control" placeholder="Enter visitor name" />
+                </div>
 
-    <button type="submit" class="btn btn-primary">
-        Add Visitor
-    </button>
-</form>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Purpose"></label>
+                    <select asp-for="Purpose" class="form-select">
+                        <option value="">Select purpose</option>
+                        <option>Guest Visit</option>
+                        <option>Delivery</option>
+                        <option>Courier</option>
+                        <option>Maintenance Staff</option>
+                        <option>Maid</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="VehicleNumber"></label>
+                    <input asp-for="VehicleNumber" class="form-control" placeholder="Optional vehicle number" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="IDProofType"></label>
+                    <select asp-for="IDProofType" class="form-select">
+                        <option value="">Select ID type</option>
+                        <option>Aadhaar</option>
+                        <option>PAN</option>
+                        <option>Driving License</option>
+                        <option>Company ID</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FlatNumber">Resident Flat Number</label>
+
+                    <select asp-for="FlatNumber"
+                            asp-items="ViewBag.FlatNumbers"
+                            class="form-select">
+                        <option value="">Select resident flat</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="checkbox-group">
+                <input asp-for="IsIDVerified" />
+                <label asp-for="IsIDVerified">ID Verified</label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Visitor Entry
+            </button>
+
+        </form>
+    </div>
+</div>

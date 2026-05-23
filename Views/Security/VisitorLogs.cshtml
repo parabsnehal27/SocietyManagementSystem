@@ -1,93 +1,206 @@
 ﻿@model List<SocietyManagementSystem.Models.VisitorEntry>
 
-<h2>Visitor Logs</h2>
-
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Success"]
-    </div>
+@{
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
+    ViewData["Title"] = "Visitor Logs";
 }
 
-<table class="table table-bordered" id="visitorTableBody">
-    <thead>
-        <tr>
-            <th>Visitor Name</th>
-            <th>Phone</th>
-            <th>Purpose</th>
-            <th>Flat Number</th>
-            <th>Approval Status</th>
-            <th>Entry Time</th>
-            <th>Exit Time</th>
-            <th>Action</th>
-        </tr>
-    </thead>
+<style>
+    .page-header {
+        margin-bottom: 25px;
+    }
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Visitor.VisitorName</td>
-                <td>@item.Visitor.PhoneNumber</td>
-                <td>@item.Visitor.Purpose</td>
-                <td>@item.Resident.FlatNumber</td>
-                <td>@item.ApprovalStatus</td>
-                <td>@item.EntryTime</td>
-                <td>
-                    @(item.ExitTime.HasValue ? item.ExitTime.Value.ToString() : "Not Exited")
-                </td>
-                <td>
-                    @if (!item.ExitTime.HasValue)
-                    {
-                        <a asp-action="MarkExit"
-                           asp-route-id="@item.EntryId"
-                           class="btn btn-danger">
-                            Mark Exit
-                        </a>
-                    }
-                </td>
-            </tr>
+    .page-title {
+        font-size: 38px;
+        font-weight: 700;
+        color: #0F172A;
+    }
+
+    .page-subtitle {
+        color: #64748B;
+        margin-top: 6px;
+    }
+
+    .logs-card {
+        background: #FFFFFF;
+        border: 1px solid #D1FAE5;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 6px 18px rgba(15, 118, 110, 0.08);
+        overflow-x: auto;
+    }
+
+    .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        width: 320px;
+        border: 1px solid #CBD5E1;
+        border-radius: 12px;
+        padding: 12px 16px;
+        background: #F8FAFC;
+    }
+
+        .search-box:focus {
+            border-color: #0F766E;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(15,118,110,0.12);
         }
-    </tbody>
-</table>
+
+    .status-filter {
+        width: 220px;
+        border: 1px solid #CBD5E1;
+        border-radius: 12px;
+        padding: 12px 14px;
+        background: #F8FAFC;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background: #F0FDFA;
+    }
+
+    th {
+        padding: 16px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 700;
+        color: #0F172A;
+        border-bottom: 1px solid #D1FAE5;
+    }
+
+    td {
+        padding: 16px;
+        border-bottom: 1px solid #ECFDF5;
+        color: #334155;
+        vertical-align: middle;
+    }
+
+    tr:hover {
+        background: #F8FAFC;
+    }
+
+    .badge-status {
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .approved {
+        background: #DCFCE7;
+        color: #16A34A;
+    }
+
+    .pending {
+        background: #FEF3C7;
+        color: #F59E0B;
+    }
+
+    .rejected {
+        background: #FEE2E2;
+        color: #DC2626;
+    }
+
+    .exited {
+        background: #E0F2FE;
+        color: #0891B2;
+    }
+
+    .exit-btn {
+        background: #0F766E;
+        color: white;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-block;
+        white-space: nowrap;
+        min-width: 95px;
+        text-align: center;
+    }
+
+        .exit-btn:hover {
+            background: #0D5F59;
+            color: white;
+        }
+
+    .empty-text {
+        text-align: center;
+        padding: 40px;
+        color: #64748B;
+        font-size: 16px;
+    }
+
+    @@media (max-width: 992px) {
+        .toolbar {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .search-box,
+        .status-filter {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <div class="page-title">Visitor Logs</div>
+    <div class="page-subtitle">
+        Monitor all visitor entries and approvals
+    </div>
+</div>
+
+<div class="logs-card">
+
+    <div class="toolbar">
+
+        <select class="status-filter" id="statusFilter">
+            <option value="All">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Exited">Exited</option>
+        </select>
+    </div>
+
+    <div id="visitorLogsContainer">
+        @await Html.PartialAsync("_VisitorLogsTable", Model)
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     function loadVisitorLogs() {
-        fetch('/Security/GetVisitorLogs')
-            .then(response => response.json())
-            .then(data => {
-                let tableBody = document.getElementById('visitorTableBody');
-                tableBody.innerHTML = '';
+        var status = $("#statusFilter").val();
 
-                data.forEach(item => {
-                    let actionButton = '';
-
-                    if (item.exitTime === "Not Exited") {
-                        actionButton =
-                            `<a href="/Security/MarkExit/${item.entryId}" class="btn btn-danger">
-                                Mark Exit
-                             </a>`;
-                    }
-
-                    let row = `
-                        <tr>
-                            <td>${item.visitorName}</td>
-                            <td>${item.phoneNumber}</td>
-                            <td>${item.purpose}</td>
-                            <td>${item.flatNumber}</td>
-                            <td>${item.approvalStatus}</td>
-                            <td>${item.entryTime}</td>
-                            <td>${item.exitTime}</td>
-                            <td>${actionButton}</td>
-                        </tr>
-                    `;
-
-                    tableBody.innerHTML += row;
-                });
-            });
+        $.ajax({
+            url: '/Security/FilterVisitorLogs',
+            type: 'GET',
+            data: {
+                status: status
+            },
+            success: function (response) {
+                $("#visitorLogsContainer").html(response);
+            }
+        });
     }
 
-    loadVisitorLogs();
-
-    setInterval(loadVisitorLogs, 5000);
+    $("#statusFilter").on("change", function () {
+        loadVisitorLogs();
+    });
 </script>
