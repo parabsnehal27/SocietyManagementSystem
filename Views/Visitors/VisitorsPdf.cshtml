@@ -1,0 +1,103 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Visitor>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Visitors Report</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>
+        Visitors Report
+    </h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>#</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Purpose</th>
+                <th>Vehicle</th>
+                <th>ID Proof</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @{
+                int count = 1;
+            }
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@count</td>
+
+                    <td>@item.VisitorName</td>
+
+                    <td>@item.PhoneNumber</td>
+
+                    <td>@item.Purpose</td>
+
+                    <td>@item.VehicleNumber</td>
+
+                    <td>
+                        @item.IDProofType
+                        -
+                        @item.IDProofNumber
+                    </td>
+
+                </tr>
+
+                count++;
+            }
+
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>

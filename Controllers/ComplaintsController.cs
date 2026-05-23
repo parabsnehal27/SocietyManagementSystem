@@ -2,7 +2,9 @@
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using System.Linq;
-
+using Rotativa.AspNetCore;
+using ClosedXML.Excel;
+using System.IO;
 namespace SocietyManagementSystem.Controllers
 {
     public class ComplaintsController : Controller
@@ -58,6 +60,118 @@ namespace SocietyManagementSystem.Controllers
             return View(
                 complaints.ToList()
             );
+        }
+
+        public IActionResult ExportPdf()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var complaints =
+                _context.Complaints.ToList();
+
+            return new ViewAsPdf(
+                "ComplaintsPdf",
+                complaints
+            )
+            {
+                FileName = "ComplaintsReport.pdf",
+
+                PageOrientation =
+                    Rotativa.AspNetCore.Options.Orientation.Landscape,
+
+                PageSize =
+                    Rotativa.AspNetCore.Options.Size.A4
+            };
+        }
+
+        public IActionResult ExportExcel()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var complaints =
+                _context.Complaints.ToList();
+
+            using (var workbook =
+                new XLWorkbook())
+            {
+                var worksheet =
+                    workbook.Worksheets
+                        .Add("Complaints");
+
+                // HEADERS
+                worksheet.Cell(1, 1).Value =
+                    "Title";
+
+                worksheet.Cell(1, 2).Value =
+                    "Description";
+
+                worksheet.Cell(1, 3).Value =
+                    "Category";
+
+                worksheet.Cell(1, 4).Value =
+                    "Priority";
+
+                worksheet.Cell(1, 5).Value =
+                    "Status";
+
+                worksheet.Cell(1, 6).Value =
+                    "Created Date";
+
+                int row = 2;
+
+                foreach (var item in complaints)
+                {
+                    worksheet.Cell(row, 1).Value =
+                        item.Title;
+
+                    worksheet.Cell(row, 2).Value =
+                        item.Description;
+
+                    worksheet.Cell(row, 3).Value =
+                        item.Category;
+
+                    worksheet.Cell(row, 4).Value =
+                        item.Priority;
+
+                    worksheet.Cell(row, 5).Value =
+                        item.Status;
+
+                    worksheet.Cell(row, 6).Value =
+                        item.CreatedAt
+                            ?.ToString("dd-MM-yyyy");
+
+                    row++;
+                }
+
+                using (var stream =
+                    new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+
+                    var content =
+                        stream.ToArray();
+
+                    return File(
+                        content,
+
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+
+                        "ComplaintsReport.xlsx"
+                    );
+                }
+            }
         }
 
         // CREATE PAGE

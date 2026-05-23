@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SocietyManagementSystem.Data;
-
+using Rotativa.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -31,5 +31,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+RotativaConfiguration.Setup(
+    builder.Environment.WebRootPath,
+    "Rotativa"
+);
 
 app.Run();

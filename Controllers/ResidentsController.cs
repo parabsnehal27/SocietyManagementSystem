@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
-
+using Rotativa.AspNetCore;
+using ClosedXML.Excel;
+using System.IO;
 namespace SocietyManagementSystem.Controllers
 {
     public class ResidentsController : Controller
@@ -58,6 +60,125 @@ namespace SocietyManagementSystem.Controllers
             return View(
                 residents.ToList()
             );
+        }
+
+        public IActionResult ExportPdf()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var residents =
+                _context.Residents.ToList();
+
+            return new ViewAsPdf(
+                "ResidentsPdf",
+                residents
+            )
+            {
+                FileName = "ResidentsReport.pdf",
+
+                PageOrientation =
+                    Rotativa.AspNetCore.Options.Orientation.Landscape,
+
+                PageSize =
+                    Rotativa.AspNetCore.Options.Size.A4
+            };
+        }
+
+        public IActionResult ExportExcel()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var residents =
+                _context.Residents.ToList();
+
+            using (var workbook =
+                new XLWorkbook())
+            {
+                var worksheet =
+                    workbook.Worksheets
+                        .Add("Residents");
+
+                // HEADERS
+                worksheet.Cell(1, 1).Value =
+                    "Flat";
+
+                worksheet.Cell(1, 2).Value =
+                    "Wing";
+
+                worksheet.Cell(1, 3).Value =
+                    "Floor";
+
+                worksheet.Cell(1, 4).Value =
+                    "Owner/Tenant";
+
+                worksheet.Cell(1, 5).Value =
+                    "Phone";
+
+                worksheet.Cell(1, 6).Value =
+                    "Vehicle";
+
+                worksheet.Cell(1, 7).Value =
+                    "Status";
+
+                int row = 2;
+
+                foreach (var item in residents)
+                {
+                    worksheet.Cell(row, 1).Value =
+                        item.FlatNumber;
+
+                    worksheet.Cell(row, 2).Value =
+                        item.Wing;
+
+                    worksheet.Cell(row, 3).Value =
+                        item.FloorNumber;
+
+                    worksheet.Cell(row, 4).Value =
+                        item.OwnerOrTenant;
+
+                    worksheet.Cell(row, 5).Value =
+                        item.ContactPhone;
+
+                    worksheet.Cell(row, 6).Value =
+                        item.VehicleNumber;
+
+                    worksheet.Cell(row, 7).Value =
+                        item.IsApproved == true
+                        ? "Approved"
+                        : "Pending";
+
+                    row++;
+                }
+
+                using (var stream =
+                    new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+
+                    var content =
+                        stream.ToArray();
+
+                    return File(
+                        content,
+
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+
+                        "ResidentsReport.xlsx"
+                    );
+                }
+            }
         }
 
         public IActionResult Create()

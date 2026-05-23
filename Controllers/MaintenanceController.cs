@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rotativa.AspNetCore;
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using System.Linq;
-
+using ClosedXML.Excel;
+using System.IO;
 namespace SocietyManagementSystem.Controllers
 {
     public class MaintenanceController : Controller
@@ -63,6 +65,117 @@ namespace SocietyManagementSystem.Controllers
             return View(
                 maintenanceList.ToList()
             );
+        }
+
+        public IActionResult ExportPdf()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var maintenance =
+                _context.Maintenance.ToList();
+
+            return new ViewAsPdf(
+                "MaintenancePdf",
+                maintenance
+            )
+            {
+                FileName = "MaintenanceReport.pdf",
+
+                PageOrientation =
+                    Rotativa.AspNetCore.Options.Orientation.Landscape,
+
+                PageSize =
+                    Rotativa.AspNetCore.Options.Size.A4
+            };
+        }
+
+        public IActionResult ExportExcel()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var maintenanceList =
+                _context.Maintenance.ToList();
+
+            using (var workbook =
+                new XLWorkbook())
+            {
+                var worksheet =
+                    workbook.Worksheets
+                        .Add("Maintenance");
+
+                // HEADERS
+                worksheet.Cell(1, 1).Value =
+                    "Month";
+
+                worksheet.Cell(1, 2).Value =
+                    "Year";
+
+                worksheet.Cell(1, 3).Value =
+                    "Amount";
+
+                worksheet.Cell(1, 4).Value =
+                    "Status";
+
+                worksheet.Cell(1, 5).Value =
+                    "Due Date";
+
+                worksheet.Cell(1, 6).Value =
+                    "Remarks";
+
+                int row = 2;
+
+                foreach (var item in maintenanceList)
+                {
+                    worksheet.Cell(row, 1).Value =
+                        item.Month;
+
+                    worksheet.Cell(row, 2).Value =
+                        item.Year;
+
+                    worksheet.Cell(row, 3).Value =
+                        item.Amount;
+
+                    worksheet.Cell(row, 4).Value =
+                        item.PaymentStatus;
+
+                    worksheet.Cell(row, 5).Value =
+                        item.DueDate.ToString("dd-MM-yyyy");
+
+                    worksheet.Cell(row, 6).Value =
+                        item.Remarks;
+
+                    row++;
+                }
+
+                using (var stream =
+                    new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+
+                    var content =
+                        stream.ToArray();
+
+                    return File(
+                        content,
+
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+
+                        "MaintenanceReport.xlsx"
+                    );
+                }
+            }
         }
 
         // CREATE PAGE

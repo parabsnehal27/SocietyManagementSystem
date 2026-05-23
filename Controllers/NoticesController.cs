@@ -2,7 +2,7 @@
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using System.Linq;
-
+using Rotativa.AspNetCore;
 namespace SocietyManagementSystem.Controllers
 {
     public class NoticesController : Controller
@@ -53,6 +53,34 @@ namespace SocietyManagementSystem.Controllers
             return View(
                 notices.ToList()
             );
+        }
+
+        public IActionResult ExportPdf()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var notices =
+                _context.Notices.ToList();
+
+            return new ViewAsPdf(
+                "NoticesPdf",
+                notices
+            )
+            {
+                FileName = "NoticesReport.pdf",
+
+                PageOrientation =
+                    Rotativa.AspNetCore.Options.Orientation.Landscape,
+
+                PageSize =
+                    Rotativa.AspNetCore.Options.Size.A4
+            };
         }
 
         // CREATE PAGE
