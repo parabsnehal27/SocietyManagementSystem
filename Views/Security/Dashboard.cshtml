@@ -1,1 +1,190 @@
-﻿<h2>Security Dashboard</h2>
+﻿@{
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
+    ViewData["Title"] = "Security Dashboard";
+}
+<style>
+    .dashboard-container {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .dashboard-title {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #0F172A;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+
+    .stat-card {
+        background: #FFFFFF;
+        border: 1px solid #D1FAE5;
+        border-radius: 20px;
+        padding: 20px;
+        height: 180px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .stat-title {
+        font-size: 20px;
+        color: #475569;
+        margin-bottom: 20px;
+    }
+
+    .stat-number {
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+    .approved {
+        color: #16A34A;
+    }
+
+    .pending {
+        color: #F59E0B;
+    }
+
+    .denied {
+        color: #DC2626;
+    }
+
+    .active {
+        color: #0891B2;
+    }
+
+    .actions-section {
+        margin-top: 40px;
+    }
+
+    .actions-title {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .actions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .action-card {
+        background: #FFFFFF;
+        border: 1px solid #D1FAE5;
+        border-radius: 18px;
+        padding: 25px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            border-color: #0F766E;
+            text-decoration: none;
+        }
+
+    .action-title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #0F766E;
+    }
+
+    .action-desc {
+        color: #64748B;
+    }
+
+    @@media (max-width: 768px) {
+        .dashboard-title {
+            font-size: 32px;
+        }
+
+        .stat-number {
+            font-size: 40px;
+        }
+    }
+</style>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-title">
+        Security Dashboard
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-title">Total Visitors Today</div>
+            <div class="stat-number" id="totalVisitors">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">Pending Approvals</div>
+            <div class="stat-number pending" id="pendingVisitors">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">Approved Visitors</div>
+            <div class="stat-number approved" id="approvedVisitors">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">Denied Visitors</div>
+            <div class="stat-number denied" id="deniedVisitors">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">Currently Inside</div>
+            <div class="stat-number active" id="activeVisitors">0</div>
+        </div>
+    </div>
+
+    <div class="actions-section">
+        <div class="actions-title">Quick Actions</div>
+
+        <div class="actions-grid">
+            <a href="/Security/AddVisitorEntry" class="action-card">
+                <div class="action-title">Add Visitor Entry</div>
+                <div class="action-desc">Register new visitor</div>
+            </a>
+
+            <a href="/Security/VisitorLogs" class="action-card">
+                <div class="action-title">Visitor Logs</div>
+                <div class="action-desc">View all visitor records</div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function loadDashboardStats() {
+        fetch('/Security/GetDashboardStats')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('totalVisitors').innerText = data.totalVisitors;
+                document.getElementById('pendingVisitors').innerText = data.pendingVisitors;
+                document.getElementById('approvedVisitors').innerText = data.approvedVisitors;
+                document.getElementById('deniedVisitors').innerText = data.deniedVisitors;
+                document.getElementById('activeVisitors').innerText = data.activeVisitors;
+            });
+    }
+
+    loadDashboardStats();
+
+    setInterval(loadDashboardStats, 5000);
+</script>

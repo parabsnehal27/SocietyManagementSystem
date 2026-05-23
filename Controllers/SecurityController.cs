@@ -23,6 +23,32 @@ namespace SocietyManagementSystem.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GetDashboardStats()
+        {
+            DateTime today = DateTime.Today;
+
+            var stats = new
+            {
+                TotalVisitors = _context.VisitorEntries
+                    .Count(v => v.EntryTime.Date == today),
+
+                PendingVisitors = _context.VisitorEntries
+                    .Count(v => v.ApprovalStatus == "Pending"),
+
+                ApprovedVisitors = _context.VisitorEntries
+                    .Count(v => v.ApprovalStatus == "Approved"),
+
+                DeniedVisitors = _context.VisitorEntries
+                    .Count(v => v.ApprovalStatus == "Rejected"),
+
+                ActiveVisitors = _context.VisitorEntries
+                    .Count(v => v.ApprovalStatus == "Approved" && v.ExitTime == null)
+            };
+
+            return Json(stats);
+        }
+
         // GET
         public IActionResult AddVisitorEntry()
         {
