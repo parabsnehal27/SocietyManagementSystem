@@ -1,0 +1,57 @@
+﻿@model SocietyManagementSystem.ViewModels.VisitorEntryViewModel
+
+<h2>Add Visitor Entry</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<form asp-action="AddVisitorEntry" method="post">
+
+    <div>
+        <label>Visitor Name</label>
+        <input asp-for="VisitorName" class="form-control" />
+    </div>
+
+    <div>
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div>
+        <label>Purpose</label>
+        <input asp-for="Purpose" class="form-control" />
+    </div>
+
+    <div>
+        <label>Vehicle Number</label>
+        <input asp-for="VehicleNumber" class="form-control" />
+    </div>
+
+    <div>
+        <label>Resident Flat Number</label>
+        <input asp-for="FlatNumber" class="form-control" />
+    </div>
+    <div>
+        <label>ID Proof Type</label>
+        <select asp-for="IDProofType" class="form-control">
+            <option>Aadhaar</option>
+            <option>PAN</option>
+            <option>Driving License</option>
+            <option>Passport</option>
+        </select>
+    </div>
+
+    <div>
+        <input asp-for="IsIDVerified" type="checkbox" />
+        <label>ID Verified</label>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Add Visitor
+    </button>
+</form>

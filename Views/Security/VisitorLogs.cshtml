@@ -1,0 +1,93 @@
+﻿@model List<SocietyManagementSystem.Models.VisitorEntry>
+
+<h2>Visitor Logs</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<table class="table table-bordered" id="visitorTableBody">
+    <thead>
+        <tr>
+            <th>Visitor Name</th>
+            <th>Phone</th>
+            <th>Purpose</th>
+            <th>Flat Number</th>
+            <th>Approval Status</th>
+            <th>Entry Time</th>
+            <th>Exit Time</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Visitor.VisitorName</td>
+                <td>@item.Visitor.PhoneNumber</td>
+                <td>@item.Visitor.Purpose</td>
+                <td>@item.Resident.FlatNumber</td>
+                <td>@item.ApprovalStatus</td>
+                <td>@item.EntryTime</td>
+                <td>
+                    @(item.ExitTime.HasValue ? item.ExitTime.Value.ToString() : "Not Exited")
+                </td>
+                <td>
+                    @if (!item.ExitTime.HasValue)
+                    {
+                        <a asp-action="MarkExit"
+                           asp-route-id="@item.EntryId"
+                           class="btn btn-danger">
+                            Mark Exit
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function loadVisitorLogs() {
+        fetch('/Security/GetVisitorLogs')
+            .then(response => response.json())
+            .then(data => {
+                let tableBody = document.getElementById('visitorTableBody');
+                tableBody.innerHTML = '';
+
+                data.forEach(item => {
+                    let actionButton = '';
+
+                    if (item.exitTime === "Not Exited") {
+                        actionButton =
+                            `<a href="/Security/MarkExit/${item.entryId}" class="btn btn-danger">
+                                Mark Exit
+                             </a>`;
+                    }
+
+                    let row = `
+                        <tr>
+                            <td>${item.visitorName}</td>
+                            <td>${item.phoneNumber}</td>
+                            <td>${item.purpose}</td>
+                            <td>${item.flatNumber}</td>
+                            <td>${item.approvalStatus}</td>
+                            <td>${item.entryTime}</td>
+                            <td>${item.exitTime}</td>
+                            <td>${actionButton}</td>
+                        </tr>
+                    `;
+
+                    tableBody.innerHTML += row;
+                });
+            });
+    }
+
+    loadVisitorLogs();
+
+    setInterval(loadVisitorLogs, 5000);
+</script>

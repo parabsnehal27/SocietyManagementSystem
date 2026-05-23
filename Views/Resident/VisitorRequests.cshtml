@@ -1,0 +1,102 @@
+﻿@model List<SocietyManagementSystem.Models.VisitorEntry>
+
+<h2>Visitor Requests</h2>
+
+<table class="table table-bordered" id="visitorRequestsBody">
+    <thead>
+        <tr>
+            <th>Visitor Name</th>
+            <th>Phone</th>
+            <th>Purpose</th>
+            <th>ID Proof</th>
+            <th>Verified</th>
+            <th>Status</th>
+            <th>Entry Time</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Visitor.VisitorName</td>
+                <td>@item.Visitor.PhoneNumber</td>
+                <td>@item.Visitor.Purpose</td>
+                <td>@item.Visitor.IDProofType</td>
+                <td>@(item.Visitor.IsIDVerified ? "Yes" : "No")</td>
+                <td>@item.ApprovalStatus</td>
+                <td>@item.EntryTime</td>
+                <td>
+                    @if (item.ApprovalStatus == "Pending")
+                    {
+                        <a asp-action="ApproveVisitor"
+                           asp-route-id="@item.EntryId"
+                           class="btn btn-success">
+                            Approve
+                        </a>
+
+                        <a asp-action="RejectVisitor"
+                           asp-route-id="@item.EntryId"
+                           class="btn btn-danger">
+                            Reject
+                        </a>
+                    }
+                    else
+                    {
+                        <span>No Action</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function loadVisitorRequests() {
+        fetch('/Resident/GetVisitorRequests')
+            .then(response => response.json())
+            .then(data => {
+                let tableBody = document.getElementById('visitorRequestsBody');
+                tableBody.innerHTML = '';
+
+                data.forEach(item => {
+                    let actionButtons = '';
+
+                    if (item.approvalStatus === "Pending") {
+                        actionButtons =
+                            `<a href="/Resident/ApproveVisitor/${item.entryId}" class="btn btn-success">
+                                Approve
+                             </a>
+                             <a href="/Resident/RejectVisitor/${item.entryId}" class="btn btn-danger">
+                                Reject
+                             </a>`;
+                    }
+                    else {
+                        actionButtons = 'No Action';
+                    }
+
+                    let verified = item.isIDVerified ? "Yes" : "No";
+
+                    let row = `
+                        <tr>
+                            <td>${item.visitorName}</td>
+                            <td>${item.phoneNumber}</td>
+                            <td>${item.purpose}</td>
+                            <td>${item.idProofType}</td>
+                            <td>${verified}</td>
+                            <td>${item.approvalStatus}</td>
+                            <td>${item.entryTime}</td>
+                            <td>${actionButtons}</td>
+                        </tr>
+                    `;
+
+                    tableBody.innerHTML += row;
+                });
+            });
+    }
+
+    loadVisitorRequests();
+
+    setInterval(loadVisitorRequests, 5000);
+</script>

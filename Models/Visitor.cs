@@ -18,7 +18,7 @@ namespace SocietyManagementSystem.Models
 
         public string? IDProofType { get; set; }
 
-        public string? IDProofNumber { get; set; }
+        public bool IsIDVerified { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }

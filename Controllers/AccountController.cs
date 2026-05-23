@@ -69,8 +69,7 @@ namespace SocietyManagementSystem.Controllers
                 FamilyMembersCount = model.FamilyMembersCount,
                 VehicleNumber = model.VehicleNumber,
                 ContactPhone = model.ContactPhone,
-                MoveInDate = model.MoveInDate,
-                IsApproved = false
+                MoveInDate = model.MoveInDate
             };
 
             _context.Residents.Add(resident);

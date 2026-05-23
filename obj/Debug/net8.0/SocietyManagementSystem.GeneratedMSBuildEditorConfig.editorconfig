@@ -20,10 +20,6 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/awp/SocietyManagementSystem/Views/Account/Admin/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBZG1pblxEYXNoYm9hcmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/awp/SocietyManagementSystem/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,12 +28,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlclJlc2lkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/awp/SocietyManagementSystem/Views/Account/Resident/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNpZGVudFxEYXNoYm9hcmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/awp/SocietyManagementSystem/Views/Account/Security/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZWN1cml0eVxEYXNoYm9hcmQuY3NodG1s
+[C:/awp/SocietyManagementSystem/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Home/Index.cshtml]
@@ -46,6 +38,34 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/awp/SocietyManagementSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/SubmitComplaint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcU3VibWl0Q29tcGxhaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/TrackComplaints.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcVHJhY2tDb21wbGFpbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/VisitorRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcVmlzaXRvclJlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Security/AddVisitorEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcQWRkVmlzaXRvckVudHJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Security/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Security/VisitorLogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcVmlzaXRvckxvZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Shared/Error.cshtml]

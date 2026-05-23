@@ -31,8 +31,6 @@ namespace SocietyManagementSystem.Models
 
         public DateTime MoveInDate { get; set; }
 
-        public bool IsApproved { get; set; } = false;
-
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public User User { get; set; }
