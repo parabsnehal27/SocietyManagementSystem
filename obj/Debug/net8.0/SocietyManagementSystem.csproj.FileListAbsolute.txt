@@ -150,3 +150,5 @@ C:\awp\SocietyManagementSystem\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.W
 C:\awp\SocietyManagementSystem\obj\Debug\net8.0\SocietyManagementSystem.csproj.AssemblyReference.cache
 C:\awp\SocietyManagementSystem\obj\Debug\net8.0\SocietyManagementSystem.sourcelink.json
 C:\awp\SocietyManagementSystem\obj\Debug\net8.0\SocietyM.F1FA37E7.Up2Date
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\WebPush.dll

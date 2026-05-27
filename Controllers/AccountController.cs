@@ -2,9 +2,6 @@
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using SocietyManagementSystem.ViewModels;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
 using System.Linq;
 using BCrypt.Net;
 
@@ -87,9 +84,8 @@ namespace SocietyManagementSystem.Controllers
             return View();
         }
 
-        // POST Login
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public IActionResult Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -116,22 +112,11 @@ namespace SocietyManagementSystem.Controllers
                 return View(model);
             }
 
-            var claims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Name, user.FullName),
-        new Claim(ClaimTypes.Email, user.Email),
-        new Claim(ClaimTypes.Role, user.Role)
-    };
+            HttpContext.Session.SetInt32("UserId", user.UserId);
+            HttpContext.Session.SetString("UserRole", user.Role);
+            HttpContext.Session.SetString("UserEmail", user.Email);
+            HttpContext.Session.SetString("UserName", user.FullName);
 
-            var claimsIdentity = new ClaimsIdentity(
-                claims,
-                CookieAuthenticationDefaults.AuthenticationScheme);
-
-            await HttpContext.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsIdentity));
-
-            // Role based redirect
             if (user.Role == "Admin")
                 return RedirectToAction("Dashboard", "Admin");
 
@@ -142,6 +127,11 @@ namespace SocietyManagementSystem.Controllers
                 return RedirectToAction("Dashboard", "Security");
 
             return RedirectToAction("Index", "Home");
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }

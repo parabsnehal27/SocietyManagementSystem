@@ -1,1 +1,600 @@
-﻿<h2>Resident Dashboard</h2>
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Resident Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resident Dashboard</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0066CC">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #F0F7FF;
+            color: #1A1A2E;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 72px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #0066CC;
+            padding: 14px 10px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+            box-shadow: 2px 0 12px rgba(0, 102, 204, 0.15);
+        }
+
+            .sidebar.expanded {
+                width: 250px;
+            }
+
+            .sidebar a {
+                display: flex;
+                align-items: center;
+                height: 52px;
+                padding: 0 16px;
+                margin-bottom: 12px;
+                border-radius: 14px;
+                text-decoration: none;
+                color: white;
+                transition: 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background: rgba(255,255,255,0.18);
+                }
+
+            .sidebar i {
+                font-size: 20px;
+                min-width: 28px;
+            }
+
+            .sidebar a span {
+                display: none;
+                margin-left: 12px;
+                white-space: nowrap;
+                font-weight: 500;
+            }
+
+            .sidebar.expanded a span {
+                display: inline;
+            }
+
+        /* Topbar */
+        .topbar {
+            height: 70px;
+            background: white;
+            border-bottom: 1px solid #D8E9FF;
+            position: fixed;
+            top: 0;
+            left: 72px;
+            width: calc(100% - 72px);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.08);
+        }
+
+            .topbar.expanded {
+                left: 250px;
+                width: calc(100% - 250px);
+            }
+
+        .topbar-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-left: 16px;
+        }
+
+        /* Content */
+        .content {
+            margin-left: 72px;
+            margin-top: 70px;
+            width: calc(100% - 72px);
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+            .content.expanded {
+                margin-left: 250px;
+                width: calc(100% - 250px);
+            }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0066CC, #00A8E8);
+            color: white;
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.18);
+        }
+
+            .hero h2 {
+                margin: 0 0 8px;
+                font-size: 30px;
+            }
+
+            .hero p {
+                margin: 0;
+                font-size: 15px;
+                opacity: 0.95;
+            }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+            border-top: 4px solid #00D9FF;
+        }
+
+        .stat-label {
+            color: #5B6B8A;
+            font-size: 15px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-top: 10px;
+        }
+
+        /* Section */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #1A1A2E;
+        }
+
+        /* Quick Actions */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+            transition: 0.3s;
+            border: 1px solid #D8E9FF;
+        }
+
+            .action-card:hover {
+                transform: translateY(-5px);
+                border-color: #00A8E8;
+            }
+
+            .action-card i {
+                font-size: 28px;
+                color: #0066CC;
+                margin-bottom: 12px;
+                display: block;
+            }
+
+        .action-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .action-desc {
+            color: #5B6B8A;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        /* Bottom Panels */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+        }
+
+        .notice-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #EEF5FF;
+        }
+
+            .notice-item:last-child {
+                border-bottom: none;
+            }
+
+        .profile-item {
+            margin-bottom: 12px;
+            color: #5B6B8A;
+        }
+
+            .profile-item strong {
+                color: #1A1A2E;
+            }
+
+        @@media (max-width: 900px) {
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .stats-grid,
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar-title {
+                font-size: 22px;
+            }
+        }
+        @@media (max-width: 768px) {
+            .sidebar
+
+        {
+            left: -260px;
+            width: 250px;
+        }
+
+        .sidebar.expanded {
+            left: 0;
+        }
+
+        .topbar {
+            left: 0;
+            width: 100%;
+            padding: 0 16px;
+        }
+
+            .topbar.expanded {
+                left: 0;
+                width: 100%;
+            }
+
+        .topbar-title {
+            font-size: 20px;
+        }
+
+        .content {
+            margin-left: 0;
+            width: 100%;
+            padding: 16px;
+        }
+
+            .content.expanded {
+                margin-left: 0;
+                width: 100%;
+            }
+
+        .hero {
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .actions-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .bottom-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stat-value {
+            font-size: 28px;
+        }
+
+        .section-title {
+            font-size: 20px;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+
+        <a href="javascript:void(0);" onclick="toggleSidebar()">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+        </a>
+
+        <a href="/Resident/Dashboard">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="/Resident/SubmitComplaint">
+            <i class="bi bi-exclamation-circle"></i>
+            <span>Submit Complaint</span>
+        </a>
+
+        <a href="/Resident/TrackComplaints">
+            <i class="bi bi-journal-text"></i>
+            <span>Track Complaints</span>
+        </a>
+
+        <a href="/Resident/VisitorRequests">
+            <i class="bi bi-people"></i>
+            <span>Visitor Requests</span>
+        </a>
+
+        <a href="#">
+            <i class="bi bi-megaphone"></i>
+            <span>Notices</span>
+        </a>
+
+        <a href="#">
+            <i class="bi bi-person-circle"></i>
+            <span>Profile</span>
+        </a>
+
+        <a href="#">
+            <i class="bi bi-credit-card"></i>
+            <span>Maintenance</span>
+        </a>
+
+        <a href="/Account/Logout">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+    <!-- Topbar -->
+    <div class="topbar" id="topbar">
+        <div class="topbar-title">Resident Dashboard</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+
+        <div class="hero">
+            <h2>Welcome Back, Resident</h2>
+            <p>Manage complaints, visitors, maintenance payments, notices, and your profile from one place.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Complaints</div>
+                <div class="stat-value">05</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Pending Complaints</div>
+                <div class="stat-value">02</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Approved Visitors</div>
+                <div class="stat-value">08</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Maintenance Due</div>
+                <div class="stat-value">₹2500</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="section-title">Quick Actions</div>
+
+        <div class="actions-grid">
+
+            <a href="/Resident/SubmitComplaint" class="action-card">
+                <i class="bi bi-exclamation-circle"></i>
+                <div class="action-title">Submit Complaint</div>
+                <div class="action-desc">Raise society complaints instantly.</div>
+            </a>
+
+            <a href="/Resident/TrackComplaints" class="action-card">
+                <i class="bi bi-journal-text"></i>
+                <div class="action-title">Track Complaints</div>
+                <div class="action-desc">Monitor complaint status and updates.</div>
+            </a>
+
+            <a href="/Resident/VisitorRequests" class="action-card">
+                <i class="bi bi-people"></i>
+                <div class="action-title">Visitor Requests</div>
+                <div class="action-desc">Approve or reject visitor entries.</div>
+            </a>
+
+            <a href="#" class="action-card">
+                <i class="bi bi-credit-card"></i>
+                <div class="action-title">Maintenance</div>
+                <div class="action-desc">Check and manage maintenance dues.</div>
+            </a>
+
+        </div>
+
+        <!-- Bottom Panels -->
+        <div class="bottom-grid">
+
+            <div class="panel">
+                <div class="section-title">Recent Notices</div>
+
+                <div class="notice-item">
+                    Water supply maintenance scheduled on Sunday.
+                </div>
+
+                <div class="notice-item">
+                    Monthly society meeting at 7 PM in clubhouse.
+                </div>
+
+                <div class="notice-item">
+                    Visitor policy updated for weekend access.
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="section-title">Profile Summary</div>
+
+                <div class="profile-item">
+                    <strong>Name:</strong> Resident User
+                </div>
+
+                <div class="profile-item">
+                    <strong>Flat:</strong> A-101
+                </div>
+
+                <div class="profile-item">
+                    <strong>Status:</strong> Active
+                </div>
+
+                <div class="profile-item">
+                    <strong>Wing:</strong> A
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("expanded");
+            document.getElementById("topbar").classList.toggle("expanded");
+            document.getElementById("content").classList.toggle("expanded");
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function (registration) {
+                    console.log('Service Worker Registered:', registration);
+                })
+                .catch(function (error) {
+                    console.log('Service Worker Failed:', error);
+                });
+        }
+    </script>
+    <script>
+        async function subscribeUserToPush() {
+            try {
+                console.log("Step 1: requesting permission");
+
+                const permission = await Notification.requestPermission();
+                console.log("Permission:", permission);
+
+                if (permission !== "granted") {
+                    return;
+                }
+
+                console.log("Step 2: waiting for service worker");
+
+                const registration = await navigator.serviceWorker.ready;
+
+                console.log("Service worker ready");
+
+                let subscription = await registration.pushManager.getSubscription();
+
+                if (!subscription) {
+                    console.log("Creating new subscription");
+
+                    subscription = await registration.pushManager.subscribe({
+                        userVisibleOnly: true,
+                        applicationServerKey: urlBase64ToUint8Array("BBxsjeeYxbSUmOvQJ1kD2BApi5k2Ffe3qhPjmKQy7BHyTZ3cwbcUskSY1qf86fV9bNnXh9A-_-YckGEGV-20Ii8")
+                    });
+                }
+
+                console.log("Subscription:", subscription);
+
+                const response = await fetch('/Resident/SavePushSubscription', {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        endpoint: subscription.endpoint,
+                        p256DH: btoa(String.fromCharCode(...new Uint8Array(subscription.getKey('p256dh')))),
+                        auth: btoa(String.fromCharCode(...new Uint8Array(subscription.getKey('auth'))))
+                    })
+                });
+
+                console.log("Server response:", response.status);
+
+            } catch (error) {
+                console.error("Push error:", error);
+            }
+        }
+
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - base64String.length % 4) % 4);
+            const base64 = (base64String + padding)
+                .replace(/-/g, '+')
+                .replace(/_/g, '/');
+
+            const rawData = window.atob(base64);
+            const outputArray = new Uint8Array(rawData.length);
+
+            for (let i = 0; i < rawData.length; i++) {
+                outputArray[i] = rawData.charCodeAt(i);
+            }
+
+            return outputArray;
+        }
+
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+            subscribeUserToPush();
+        }
+    </script>
+</body>
+</html>

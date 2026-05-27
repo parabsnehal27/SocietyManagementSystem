@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-192.png",
+      "PackagePath": "staticwebassets\\icons\\icon-192.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-512.png",
+      "PackagePath": "staticwebassets\\icons\\icon-512.png"
+    },
+    {
       "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -243,6 +251,22 @@
     {
       "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
+      "PackagePath": "staticwebassets\\manifest.json"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\desktop-dashboard.png",
+      "PackagePath": "staticwebassets\\screenshots\\desktop-dashboard.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\mobile-dashboard.png",
+      "PackagePath": "staticwebassets\\screenshots\\mobile-dashboard.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SocietyManagementSystem.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

@@ -21,6 +21,8 @@ namespace SocietyManagementSystem.Data
         public DbSet<NoticeRead> NoticeReads { get; set; }
         public DbSet<ComplaintAttachment> ComplaintAttachments { get; set; }
 
+        public DbSet<PushSubscription> PushSubscriptions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

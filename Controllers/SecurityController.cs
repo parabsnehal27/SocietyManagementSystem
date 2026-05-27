@@ -1,33 +1,46 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using SocietyManagementSystem.ViewModels;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
+using WebPush;
+using Microsoft.Extensions.Configuration;
 
 namespace SocietyManagementSystem.Controllers
 {
-    [Authorize(Roles = "SecurityGuard")]
     public class SecurityController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public SecurityController(ApplicationDbContext context)
+        private readonly IConfiguration _configuration;
+        public SecurityController( ApplicationDbContext context,IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
+        private bool IsSecurityGuardLoggedIn()
+        {
+            return HttpContext.Session.GetString("UserRole") == "SecurityGuard";
+        }
+
+        // Dashboard
         public IActionResult Dashboard()
         {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
             return View();
         }
 
+        // Dashboard Stats AJAX
         [HttpGet]
         public IActionResult GetDashboardStats()
         {
+            if (!IsSecurityGuardLoggedIn())
+                return Unauthorized();
+
             DateTime today = DateTime.Today;
 
             var stats = new
@@ -51,9 +64,12 @@ namespace SocietyManagementSystem.Controllers
             return Json(stats);
         }
 
-        // GET
+        // GET Add Visitor
         public IActionResult AddVisitorEntry()
         {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
             ViewBag.FlatNumbers = _context.Residents
                 .Select(r => new SelectListItem
                 {
@@ -65,10 +81,13 @@ namespace SocietyManagementSystem.Controllers
             return View();
         }
 
-        // POST
+        // POST Add Visitor
         [HttpPost]
         public IActionResult AddVisitorEntry(VisitorEntryViewModel model)
         {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
             if (!ModelState.IsValid)
             {
                 ViewBag.FlatNumbers = _context.Residents
@@ -82,13 +101,22 @@ namespace SocietyManagementSystem.Controllers
                 return View(model);
             }
 
-            string userEmail = User.FindFirstValue(ClaimTypes.Email);
+            int? userId = HttpContext.Session.GetInt32("UserId");
 
-            var user = _context.Users.FirstOrDefault(u => u.Email == userEmail);
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
 
-            var guard = _context.SecurityGuards.FirstOrDefault(g => g.UserId == user.UserId);
+            var guard = _context.SecurityGuards
+                .FirstOrDefault(g => g.UserId == userId);
 
-            var resident = _context.Residents.FirstOrDefault(r => r.FlatNumber == model.FlatNumber);
+            if (guard == null)
+            {
+                ModelState.AddModelError("", "Security guard not found.");
+                return View(model);
+            }
+
+            var resident = _context.Residents
+                .FirstOrDefault(r => r.FlatNumber == model.FlatNumber);
 
             if (resident == null)
             {
@@ -117,6 +145,32 @@ namespace SocietyManagementSystem.Controllers
 
             _context.Visitors.Add(visitor);
             _context.SaveChanges();
+            var residentUser = _context.Users
+    .FirstOrDefault(u => u.UserId == resident.UserId);
+
+            if (residentUser != null)
+            {
+                var subscriptions = _context.PushSubscriptions
+                    .Where(x => x.UserId == residentUser.UserId)
+                    .ToList();
+
+                foreach (var sub in subscriptions)
+                {
+                    try
+                    {
+                        SendPushNotification(
+                            sub.Endpoint,
+                            sub.P256DH,
+                            sub.Auth,
+                            visitor.VisitorName
+                        );
+                    }
+                    catch
+                    {
+                        // ignore failed subscription
+                    }
+                }
+            }
 
             VisitorEntry entry = new VisitorEntry
             {
@@ -133,8 +187,13 @@ namespace SocietyManagementSystem.Controllers
 
             return RedirectToAction("VisitorLogs");
         }
+
+        // Visitor Logs
         public IActionResult VisitorLogs()
         {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
             var visitorLogs = _context.VisitorEntries
                 .Include(v => v.Visitor)
                 .Include(v => v.Resident)
@@ -144,9 +203,14 @@ namespace SocietyManagementSystem.Controllers
             return View(visitorLogs);
         }
 
+        // Mark Exit
         public IActionResult MarkExit(int id)
         {
-            var entry = _context.VisitorEntries.FirstOrDefault(v => v.EntryId == id);
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
+            var entry = _context.VisitorEntries
+                .FirstOrDefault(v => v.EntryId == id);
 
             if (entry != null)
             {
@@ -156,9 +220,14 @@ namespace SocietyManagementSystem.Controllers
 
             return RedirectToAction("VisitorLogs");
         }
+
+        // AJAX Refresh Visitor Logs
         [HttpGet]
         public IActionResult GetVisitorLogs()
         {
+            if (!IsSecurityGuardLoggedIn())
+                return Unauthorized();
+
             var visitorLogs = _context.VisitorEntries
                 .Include(v => v.Visitor)
                 .Include(v => v.Resident)
@@ -172,16 +241,22 @@ namespace SocietyManagementSystem.Controllers
                     FlatNumber = v.Resident.FlatNumber,
                     ApprovalStatus = v.ApprovalStatus,
                     EntryTime = v.EntryTime.ToString("g"),
-                    ExitTime = v.ExitTime.HasValue ? v.ExitTime.Value.ToString("g") : "Not Exited"
+                    ExitTime = v.ExitTime.HasValue
+                        ? v.ExitTime.Value.ToString("g")
+                        : "Not Exited"
                 })
                 .ToList();
 
             return Json(visitorLogs);
         }
 
+        // AJAX Search + Filter
         [HttpGet]
         public IActionResult FilterVisitorLogs(string searchTerm, string status)
         {
+            if (!IsSecurityGuardLoggedIn())
+                return Unauthorized();
+
             var logs = _context.VisitorEntries
                 .Include(v => v.Visitor)
                 .Include(v => v.Resident)
@@ -204,11 +279,34 @@ namespace SocietyManagementSystem.Controllers
                 }
                 else
                 {
-                    logs = logs.Where(v => v.ApprovalStatus == status && v.ExitTime == null);
+                    logs = logs.Where(v =>
+                        v.ApprovalStatus == status &&
+                        v.ExitTime == null);
                 }
             }
 
             return PartialView("_VisitorLogsTable", logs.ToList());
+        }
+        private void SendPushNotification(string endpoint, string p256dh, string auth, string visitorName)
+        {
+            var publicKey = _configuration["VapidSettings:PublicKey"];
+            var privateKey = _configuration["VapidSettings:PrivateKey"];
+            var subject = _configuration["VapidSettings:Subject"];
+
+            var subscription = new WebPush.PushSubscription(endpoint, p256dh, auth);
+
+            var vapidDetails = new VapidDetails(subject, publicKey, privateKey);
+
+            var client = new WebPushClient();
+
+            var payload = System.Text.Json.JsonSerializer.Serialize(new
+            {
+                title = "New Visitor Request",
+                body = $"{visitorName} is waiting at the gate.",
+                url = "/Resident/VisitorRequests"
+            });
+
+            client.SendNotification(subscription, payload, vapidDetails);
         }
     }
 }

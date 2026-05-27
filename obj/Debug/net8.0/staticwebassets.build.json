@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2p18VtzYni4cHueX30th3If0UDTAe+1kmOxMd7ZM6GQ=",
+  "Hash": "bwpnTdguGYJxbSW467BS7YbS0ZnbfrKs+dKzH1uGPoo=",
   "Source": "SocietyManagementSystem",
   "BasePath": "_content/SocietyManagementSystem",
   "Mode": "Default",
@@ -99,6 +99,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-192.png",
+      "SourceId": "SocietyManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\awp\\SocietyManagementSystem\\wwwroot\\",
+      "BasePath": "_content/SocietyManagementSystem",
+      "RelativePath": "icons/icon-192#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bjp207sm1b",
+      "Integrity": "x6no5f8La5oF7mfLVuhmu0NdGXITUHSu0ttOANTb+mk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\icon-192.png"
+    },
+    {
+      "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-512.png",
+      "SourceId": "SocietyManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\awp\\SocietyManagementSystem\\wwwroot\\",
+      "BasePath": "_content/SocietyManagementSystem",
+      "RelativePath": "icons/icon-512#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jo8q6s4kyp",
+      "Integrity": "jVvKNDHzpIOj1MBboV+qRR49LCQJ1nKzj5/duqNe9Do=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\icon-512.png"
     },
     {
       "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\js\\site.js",
@@ -1317,6 +1359,90 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
+      "SourceId": "SocietyManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\awp\\SocietyManagementSystem\\wwwroot\\",
+      "BasePath": "_content/SocietyManagementSystem",
+      "RelativePath": "manifest#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4cplfsx3sk",
+      "Integrity": "hKJBe5Picg0bR3bCbUI3YmV6poLYY9LKrB4oyz+GMTM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manifest.json"
+    },
+    {
+      "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\desktop-dashboard.png",
+      "SourceId": "SocietyManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\awp\\SocietyManagementSystem\\wwwroot\\",
+      "BasePath": "_content/SocietyManagementSystem",
+      "RelativePath": "screenshots/desktop-dashboard#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m7fqk8fn4n",
+      "Integrity": "fszt6yLIm/bAB6swYF4FwgSn4SZnehQfiZZUkTE2U28=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\screenshots\\desktop-dashboard.png"
+    },
+    {
+      "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\mobile-dashboard.png",
+      "SourceId": "SocietyManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\awp\\SocietyManagementSystem\\wwwroot\\",
+      "BasePath": "_content/SocietyManagementSystem",
+      "RelativePath": "screenshots/mobile-dashboard#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "57ss7pn1lo",
+      "Integrity": "wZhfnk0eJIwwcFpYqVWuKnYWy1YruAtWVpCNolM2PAA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\screenshots\\mobile-dashboard.png"
+    },
+    {
+      "Identity": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
+      "SourceId": "SocietyManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\awp\\SocietyManagementSystem\\wwwroot\\",
+      "BasePath": "_content/SocietyManagementSystem",
+      "RelativePath": "service-worker#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "anuf3vy3xz",
+      "Integrity": "5ucZFTUrI9Acyl3J3MV5gimNg1UiVd65fc+C15ydNxc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\service-worker.js"
     }
   ],
   "Endpoints": [
@@ -1481,6 +1607,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "icons/icon-192.bjp207sm1b.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-192.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16245"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x6no5f8La5oF7mfLVuhmu0NdGXITUHSu0ttOANTb+mk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:14:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bjp207sm1b"
+        },
+        {
+          "Name": "label",
+          "Value": "icons/icon-192.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x6no5f8La5oF7mfLVuhmu0NdGXITUHSu0ttOANTb+mk="
+        }
+      ]
+    },
+    {
+      "Route": "icons/icon-192.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-192.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16245"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x6no5f8La5oF7mfLVuhmu0NdGXITUHSu0ttOANTb+mk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:14:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x6no5f8La5oF7mfLVuhmu0NdGXITUHSu0ttOANTb+mk="
+        }
+      ]
+    },
+    {
+      "Route": "icons/icon-512.jo8q6s4kyp.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-512.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86771"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jVvKNDHzpIOj1MBboV+qRR49LCQJ1nKzj5/duqNe9Do=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jo8q6s4kyp"
+        },
+        {
+          "Name": "label",
+          "Value": "icons/icon-512.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-jVvKNDHzpIOj1MBboV+qRR49LCQJ1nKzj5/duqNe9Do="
+        }
+      ]
+    },
+    {
+      "Route": "icons/icon-512.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-512.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86771"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jVvKNDHzpIOj1MBboV+qRR49LCQJ1nKzj5/duqNe9Do=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-jVvKNDHzpIOj1MBboV+qRR49LCQJ1nKzj5/duqNe9Do="
         }
       ]
     },
@@ -6241,6 +6531,334 @@
       ]
     },
     {
+      "Route": "manifest.4cplfsx3sk.json",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "819"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hKJBe5Picg0bR3bCbUI3YmV6poLYY9LKrB4oyz+GMTM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:32:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4cplfsx3sk"
+        },
+        {
+          "Name": "label",
+          "Value": "manifest.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hKJBe5Picg0bR3bCbUI3YmV6poLYY9LKrB4oyz+GMTM="
+        }
+      ]
+    },
+    {
+      "Route": "manifest.json",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "819"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hKJBe5Picg0bR3bCbUI3YmV6poLYY9LKrB4oyz+GMTM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:32:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hKJBe5Picg0bR3bCbUI3YmV6poLYY9LKrB4oyz+GMTM="
+        }
+      ]
+    },
+    {
+      "Route": "screenshots/desktop-dashboard.m7fqk8fn4n.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\desktop-dashboard.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "178559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fszt6yLIm/bAB6swYF4FwgSn4SZnehQfiZZUkTE2U28=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:25:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m7fqk8fn4n"
+        },
+        {
+          "Name": "label",
+          "Value": "screenshots/desktop-dashboard.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fszt6yLIm/bAB6swYF4FwgSn4SZnehQfiZZUkTE2U28="
+        }
+      ]
+    },
+    {
+      "Route": "screenshots/desktop-dashboard.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\desktop-dashboard.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "178559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fszt6yLIm/bAB6swYF4FwgSn4SZnehQfiZZUkTE2U28=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:25:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fszt6yLIm/bAB6swYF4FwgSn4SZnehQfiZZUkTE2U28="
+        }
+      ]
+    },
+    {
+      "Route": "screenshots/mobile-dashboard.57ss7pn1lo.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\mobile-dashboard.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49199"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wZhfnk0eJIwwcFpYqVWuKnYWy1YruAtWVpCNolM2PAA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:23:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "57ss7pn1lo"
+        },
+        {
+          "Name": "label",
+          "Value": "screenshots/mobile-dashboard.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wZhfnk0eJIwwcFpYqVWuKnYWy1YruAtWVpCNolM2PAA="
+        }
+      ]
+    },
+    {
+      "Route": "screenshots/mobile-dashboard.png",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\mobile-dashboard.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49199"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wZhfnk0eJIwwcFpYqVWuKnYWy1YruAtWVpCNolM2PAA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 07:23:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wZhfnk0eJIwwcFpYqVWuKnYWy1YruAtWVpCNolM2PAA="
+        }
+      ]
+    },
+    {
+      "Route": "service-worker.anuf3vy3xz.js",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5ucZFTUrI9Acyl3J3MV5gimNg1UiVd65fc+C15ydNxc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 09:09:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "anuf3vy3xz"
+        },
+        {
+          "Name": "label",
+          "Value": "service-worker.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5ucZFTUrI9Acyl3J3MV5gimNg1UiVd65fc+C15ydNxc="
+        }
+      ]
+    },
+    {
+      "Route": "service-worker.js",
+      "AssetFile": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5ucZFTUrI9Acyl3J3MV5gimNg1UiVd65fc+C15ydNxc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 May 2026 09:09:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5ucZFTUrI9Acyl3J3MV5gimNg1UiVd65fc+C15ydNxc="
+        }
+      ]
+    },
+    {
       "Route": "SocietyManagementSystem.aj7cwk0ceu.bundle.scp.css",
       "AssetFile": "C:\\awp\\SocietyManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SocietyManagementSystem.bundle.scp.css",
       "Selectors": [],
@@ -6263,7 +6881,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 23 May 2026 08:51:12 GMT"
+          "Value": "Wed, 27 May 2026 09:39:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6308,7 +6926,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 23 May 2026 08:51:12 GMT"
+          "Value": "Wed, 27 May 2026 09:39:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6353,7 +6971,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 23 May 2026 08:51:12 GMT"
+          "Value": "Wed, 27 May 2026 09:39:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6390,7 +7008,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 23 May 2026 08:51:12 GMT"
+          "Value": "Wed, 27 May 2026 09:39:23 GMT"
         },
         {
           "Name": "Cache-Control",
