@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
 <h2 class="mb-4">Add Maintenance</h2>
 @if (TempData["Error"] != null)
 {
@@ -13,28 +19,9 @@
 }
 
 <form method="post">
-    <div class="mb-3">
-
-        <label class="form-label">
-
-            Select Resident
-
-        </label>
-
-        <select asp-for="ResidentId"
-                class="form-control"
-                asp-items="ViewBag.Residents">
-
-            <option value="">
-
-                -- Select Resident --
-
-            </option>
-
-        </select>
-
-    </div>
-    <div class="mb-3">
+    
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Month</label>
 
@@ -60,21 +47,38 @@
         </select>
 
     </div>
+    </div>
 
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Year</label>
 
-        <input asp-for="Year"
-               type="number"
-               min="2020"
-               max="2100"
-               class="form-control"
-               required />
+        <select asp-for="Year"
+                class="form-control">
+
+            <option value="">
+                -- Select Year --
+            </option>
+
+            @for (int year = DateTime.Now.Year;
+                        year <= DateTime.Now.Year + 10;
+                        year++)
+            {
+                <option value="@year">
+
+                    @year
+
+                </option>
+            }
+
+        </select>
 
     </div>
+    </div>
 
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Amount</label>
 
@@ -84,30 +88,34 @@
                required />
 
     </div>
+    </div>
 
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Due Date</label>
 
         <input asp-for="DueDate"
                type="date"
                class="form-control"
+               min="@DateTime.Now.ToString("yyyy-MM-dd")"
                required />
 
-    </div>
 
-    <div class="mb-3">
-
-        <label>Remarks</label>
-
-        <textarea asp-for="Remarks"
-                  class="form-control"
-                  rows="3"></textarea>
 
     </div>
+    </div>
+
+    
 
     <button class="btn btn-success">
         Save Maintenance
     </button>
 
 </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -187,18 +187,6 @@ namespace SocietyManagementSystem.Controllers
                 return RedirectToAction("Login", "Auth");
             }
 
-            ViewBag.Residents =
-                _context.Residents
-                .Select(r => new SelectListItem
-                {
-                    Value = r.ResidentId.ToString(),
-
-                    Text =
-                        r.FlatNumber
-                        + " - " +
-                        r.OwnerOrTenant
-                })
-                .ToList();
 
             return View();
         }
@@ -231,6 +219,38 @@ namespace SocietyManagementSystem.Controllers
 
             TempData["Success"] =
                 "Maintenance Marked As Paid";
+
+            return RedirectToAction("Index");
+        }
+
+        //markpending
+        public IActionResult MarkPending(int id)
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var maintenance =
+                _context.Maintenance.Find(id);
+
+            if (maintenance == null)
+            {
+                return NotFound();
+            }
+
+            maintenance.PaymentStatus =
+                "pending";
+
+            maintenance.PaidDate = null;
+
+            _context.SaveChanges();
+
+            TempData["Success"] =
+                "Payment reverted successfully";
 
             return RedirectToAction("Index");
         }
@@ -308,31 +328,7 @@ namespace SocietyManagementSystem.Controllers
             maintenance.PaymentStatus = "pending";
 
             maintenance.CreatedAt = DateTime.Now;
-            var residentExists =
-    _context.Residents.Any(r =>
-        r.ResidentId ==
-        maintenance.ResidentId);
-
-            if (!residentExists)
-            {
-                TempData["Error"] =
-                    "Please select valid resident";
-
-                ViewBag.Residents =
-                    _context.Residents
-                    .Select(r => new SelectListItem
-                    {
-                        Value = r.ResidentId.ToString(),
-
-                        Text =
-                            r.FlatNumber
-                            + " - " +
-                            r.OwnerOrTenant
-                    })
-                    .ToList();
-
-                return View(maintenance);
-            }
+            maintenance.ResidentId = 2;
             _context.Maintenance.Add(maintenance);
 
             _context.SaveChanges();

@@ -4,30 +4,35 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
 <div class="row justify-content-center">
     <div class="col-lg-8">
 
         <div class="card shadow-sm">
             <div class="card-body">
 
-<h2 class="mb-4">Add Notice</h2>
+<h2 class="mb-4">Update Notice</h2>
 
-<form method="post">
+<form method="post" >
+    <input type="hidden"
+           asp-for="NoticeId" />
+    <input type="hidden"
+           asp-for="PostedBy" />
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
+    <input type="hidden"
+           asp-for="PostedDate" />
+
+
+    <div class="mb-3">
+
         <label>Notice Title</label>
 
         <input asp-for="Title"
                class="form-control"
                required />
-        </div>
 
     </div>
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
+    <div class="mb-3">
 
         <label>Description</label>
 
@@ -35,11 +40,10 @@
                   class="form-control"
                   rows="4"
                   required></textarea>
-        </div>
+
     </div>
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
+    <div class="mb-3">
 
         <label>Notice Type</label>
 
@@ -55,21 +59,19 @@
             <option>Event</option>
 
         </select>
-        </div>
+
     </div>
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
+    <div class="mb-3">
 
         <label>Expiry Date</label>
 
         <input asp-for="ExpiryDate"
-               class="form-control"
                type="date"
-               required
-               min="@DateTime.Now.ToString("yyyy-MM-dd")" />
-    
-        </div>
+               class="form-control"
+               min="@DateTime.Now.ToString("yyyy-MM-dd")"
+               required />
+
     </div>
 
     <button class="btn btn-success">
@@ -77,6 +79,7 @@
     </button>
 
 </form>
+
             </div>
         </div>
 

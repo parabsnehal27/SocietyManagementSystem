@@ -6,6 +6,9 @@
 }
 
 <h2 class="mb-4">Visitors</h2>
+<p class="text-muted mb-4">
+    Monitor visitor entries and activity
+</p>
 
 
 
@@ -46,7 +49,7 @@
         <input type="text"
                name="search"
                class="form-control"
-               placeholder="Search by Visitor, Phone, Vehicle or ID Proof" />
+               placeholder="Search by Visitor, Phone, or  Vehicle" />
 
         <button class="btn btn-primary">
 
@@ -58,16 +61,7 @@
 
     </div>
 
-    <small class="text-muted">
-
-        Search using:
-        Visitor Name,
-        Phone,
-        Vehicle,
-        ID Proof,
-        or Purpose
-
-    </small>
+    
 
 </form>
 
@@ -82,9 +76,7 @@
             <th>Phone</th>
             <th>Purpose</th>
             <th>Vehicle</th>
-            <th>ID Proof</th>
             <th>Created</th>
-            <th width="120">Actions</th>
         </tr>
 
     </thead>
@@ -106,25 +98,7 @@
                 <td>@visitor.VehicleNumber</td>
 
                 <td>
-                    @visitor.IDProofType
-                    -
-                    @visitor.IDProofNumber
-                </td>
-
-                <td>
                     @(visitor.CreatedAt?.ToString("dd-MM-yyyy"))
-                </td>
-
-                <td>
-
-                    <a href="/Visitors/Delete/@visitor.VisitorId"
-                       class="btn btn-sm btn-danger"
-                           onclick="return confirm('Are you sure you want to delete this visitor?')">
-
-                        Delete
-
-                    </a>
-
                 </td>
 
             </tr>
@@ -157,6 +131,6 @@
             }
 
         </tbody>
-
+        
 </table>
 </div>

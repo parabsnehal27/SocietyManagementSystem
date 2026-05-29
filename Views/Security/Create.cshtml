@@ -1,0 +1,112 @@
+﻿@model SocietyManagementSystem.Models.SecurityGuard
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+<h2 class="mb-4">
+    Add Security Guard
+</h2>
+
+<form method="post">
+    <div class="row">
+    <div class="col-md-6 mb-3">
+
+        <label>
+            Employee Code
+        </label>
+
+        <input asp-for="EmployeeCode"
+               class="form-control"
+               required />
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 mb-3">
+
+        <label>
+            Shift Timing
+        </label>
+
+        <select asp-for="ShiftTiming"
+                class="form-control">
+
+            <option value="">
+                -- Select Shift --
+            </option>
+
+            <option>
+                Morning
+            </option>
+
+            <option>
+                Afternoon
+            </option>
+
+            <option>
+                Night
+            </option>
+
+        </select>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 mb-3">
+
+        <label>
+            Address
+        </label>
+
+        <textarea asp-for="Address"
+                  class="form-control" required>
+        </textarea>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 mb-3">
+
+        <label>
+            Aadhaar Number
+        </label>
+
+        <input asp-for="AadhaarNumber"
+               class="form-control" required />
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 mb-3">
+
+        <label>
+            Salary
+        </label>
+
+        <input asp-for="Salary"
+               class="form-control"
+               type="number" required />
+    </div>
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+
+        Save Security Guard
+
+    </button>
+
+</form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

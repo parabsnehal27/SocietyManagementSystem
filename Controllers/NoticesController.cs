@@ -94,6 +94,27 @@ namespace SocietyManagementSystem.Controllers
             return View();
         }
 
+        public IActionResult Edit(int id)
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var notice =
+                _context.Notices.Find(id);
+
+            if (notice == null)
+            {
+                return NotFound();
+            }
+
+            return View(notice);
+        }
+
         // SAVE NOTICE
         [HttpPost]
         public IActionResult Create(Notice notice)
@@ -114,6 +135,50 @@ namespace SocietyManagementSystem.Controllers
             _context.SaveChanges();
 
             TempData["Success"] = "Notice Added Successfully";
+
+            return RedirectToAction("Index");
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Edit(Notice notice)
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var existingNotice =
+    _context.Notices.Find(
+        notice.NoticeId
+    );
+
+            if (existingNotice == null)
+            {
+                return NotFound();
+            }
+
+            existingNotice.Title =
+                notice.Title;
+
+            existingNotice.Description =
+                notice.Description;
+
+            existingNotice.NoticeType =
+                notice.NoticeType;
+
+            existingNotice.ExpiryDate =
+                notice.ExpiryDate;
+
+
+            _context.SaveChanges();
+
+            TempData["Success"] =
+                "Notice Updated Successfully";
 
             return RedirectToAction("Index");
         }

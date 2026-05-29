@@ -176,84 +176,9 @@ namespace SocietyManagementSystem.Controllers
             }
         }
 
-        // CREATE PAGE
-        public IActionResult Create()
-        {
-            if (!IsLoggedIn())
-            {
-                return RedirectToAction(
-                    "Login",
-                    "Auth"
-                );
-            }
+        
 
-            ViewBag.Residents =
-                _context.Residents
-                .Select(r => new SelectListItem
-                {
-                    Value = r.ResidentId.ToString(),
-
-                    Text =
-                        r.FlatNumber
-                        + " - " +
-                        r.OwnerOrTenant
-                })
-                .ToList();
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(Complaint complaint)
-        {
-            if (!IsLoggedIn())
-            {
-                return RedirectToAction(
-                    "Login",
-                    "Auth"
-                );
-            }
-
-            // VALID RESIDENT CHECK
-            var residentExists =
-                _context.Residents.Any(r =>
-                    r.ResidentId ==
-                    complaint.ResidentId);
-
-            if (!residentExists)
-            {
-                TempData["Error"] =
-                    "Please select valid resident";
-
-                ViewBag.Residents =
-                    _context.Residents
-                    .Select(r => new SelectListItem
-                    {
-                        Value = r.ResidentId.ToString(),
-
-                        Text =
-                            r.FlatNumber
-                            + " - " +
-                            r.OwnerOrTenant
-                    })
-                    .ToList();
-
-                return View(complaint);
-            }
-
-            complaint.Status = "Pending";
-
-            complaint.CreatedAt = DateTime.Now;
-
-            _context.Complaints.Add(complaint);
-
-            _context.SaveChanges();
-
-            TempData["Success"] =
-                "Complaint Added Successfully";
-
-            return RedirectToAction("Index");
-        }
+        
 
         public IActionResult Resolve(int id)
         {
@@ -282,25 +207,33 @@ namespace SocietyManagementSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Reject(int id)
         {
             if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
             }
 
-            var complaint = _context.Complaints.Find(id);
+            var complaint =
+                _context.Complaints.Find(id);
 
             if (complaint == null)
             {
                 return NotFound();
             }
 
-            _context.Complaints.Remove(complaint);
+            complaint.Status = "Rejected";
+
+            complaint.UpdatedAt =
+                DateTime.Now;
 
             _context.SaveChanges();
 
-            TempData["Success"] = "Complaint Deleted Successfully";
+            TempData["Success"] =
+                "Complaint Rejected Successfully";
 
             return RedirectToAction("Index");
         }

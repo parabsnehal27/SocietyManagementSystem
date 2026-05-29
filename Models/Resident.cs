@@ -18,7 +18,7 @@ namespace SocietyManagementSystem.Models
 
         public int? FamilyMembersCount { get; set; }
 
-        public string? VehicleNumber { get; set; }
+        public string VehicleNumber { get; set; }
 
         public string? ContactPhone { get; set; }
 

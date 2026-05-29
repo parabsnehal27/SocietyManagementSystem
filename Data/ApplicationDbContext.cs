@@ -17,5 +17,6 @@ namespace SocietyManagementSystem.Data
         public DbSet<Notice> Notices { get; set; }
         public DbSet<Maintenance> Maintenance { get; set; }
         public DbSet<Visitor> Visitors { get; set; }
+        public DbSet<SecurityGuard> SecurityGuards{ get; set; }
     }
 }

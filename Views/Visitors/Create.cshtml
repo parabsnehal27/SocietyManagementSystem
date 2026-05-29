@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
 <h2 class="mb-4">Add Visitor</h2>
 @if (TempData["Error"] != null)
 {
@@ -13,7 +19,8 @@
 }
 
 <form method="post" novalidate="false">
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label class="form-label">
 
@@ -32,19 +39,22 @@
             </option>
 
         </select>
-
+        </div>
     </div>
-    <div class="mb-3">
+
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Visitor Name</label>
 
         <input asp-for="VisitorName"
                class="form-control"
                required />
-
+    </div>
     </div>
 
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Phone Number</label>
 
@@ -54,21 +64,23 @@
                maxlength="10"
                class="form-control"
                required />
-
+    </div>
     </div>
 
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Purpose</label>
 
         <textarea asp-for="Purpose"
                   class="form-control"
                   rows="3"
-                  required></textarea>
-
+                  required ></textarea>
+    </div>
     </div>
 
-    <div class="mb-3">
+    <div class="row">
+    <div class="col-md-6 mb-3">
 
         <label>Vehicle Number</label>
 
@@ -82,44 +94,7 @@
         <small class="text-muted">
             Example: MH12AB1234
         </small>
-
-    </div>
-
-
-    
-    <div class="mb-3">
-
-        <label>ID Proof Type</label>
-
-        <select asp-for="IDProofType"
-                id="idType"
-                class="form-control"
-                required>
-
-            <option value="">-- Select --</option>
-
-            <option>Aadhar Card</option>
-            <option>PAN Card</option>
-            <option>Driving License</option>
-            <option>Passport</option>
-
-        </select>
-
-    </div>
-
-    <div class="mb-3">
-
-        <label>ID Proof Number</label>
-
-        <input asp-for="IDProofNumber"
-               id="idProofInput"
-               class="form-control"
-               required />
-
-        <small class="text-muted" id="idHint">
-            Enter valid ID proof number
-        </small>
-
+        </div>
     </div>
 
     <button class="btn btn-success">
@@ -127,74 +102,8 @@
     </button>
 
 </form>
+            </div>
+        </div>
 
-<script>
-
-    const idType =
-        document.getElementById("idType");
-
-    const idInput =
-        document.getElementById("idProofInput");
-
-    const hint =
-        document.getElementById("idHint");
-
-    idType.addEventListener("change", function () {
-
-        const value = this.value;
-
-        idInput.value = "";
-
-        if (value === "Aadhar Card")
-        {
-            idInput.pattern = "[0-9]{12}";
-            idInput.maxLength = 12;
-
-            hint.innerText =
-                "Enter 12 digit Aadhar number";
-        }
-
-        else if (value === "PAN Card")
-        {
-            idInput.pattern =
-                "[A-Z]{5}[0-9]{4}[A-Z]{1}";
-
-            idInput.maxLength = 10;
-
-            hint.innerText =
-                "Example: ABCDE1234F";
-        }
-
-        else if (value === "Driving License")
-        {
-            idInput.pattern =
-                "[A-Z0-9]{8,18}";
-
-            idInput.maxLength = 18;
-
-            hint.innerText =
-                "Enter valid license number";
-        }
-
-        else if (value === "Passport")
-        {
-            idInput.pattern =
-                "[A-Z][0-9]{7}";
-
-            idInput.maxLength = 8;
-
-            hint.innerText =
-                "Example: A1234567";
-        }
-
-    });
-
-    // AUTO UPPERCASE
-    idInput.addEventListener("input", function () {
-
-        this.value =
-            this.value.toUpperCase();
-
-    });
-
-</script>
+    </div>
+</div>

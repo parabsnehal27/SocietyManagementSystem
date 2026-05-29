@@ -53,13 +53,6 @@ namespace SocietyManagementSystem.Controllers
 
                     v.VehicleNumber.Contains(search)
 
-                    ||
-
-                    v.IDProofType.Contains(search)
-
-                    ||
-
-                    v.IDProofNumber.Contains(search)
 
                     ||
 
@@ -135,9 +128,6 @@ namespace SocietyManagementSystem.Controllers
                     "Vehicle";
 
                 worksheet.Cell(1, 5).Value =
-                    "ID Proof";
-
-                worksheet.Cell(1, 6).Value =
                     "Created Date";
 
                 int row = 2;
@@ -157,11 +147,6 @@ namespace SocietyManagementSystem.Controllers
                         item.VehicleNumber;
 
                     worksheet.Cell(row, 5).Value =
-                        item.IDProofType
-                        + " - " +
-                        item.IDProofNumber;
-
-                    worksheet.Cell(row, 6).Value =
                         item.CreatedAt
                             ?.ToString("dd-MM-yyyy");
 
@@ -210,30 +195,7 @@ namespace SocietyManagementSystem.Controllers
             return View();
         }
 
-        //DELETE
-        public IActionResult Delete(int id)
-        {
-            if (!IsLoggedIn())
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
-            var visitor = _context.Visitors.Find(id);
-
-            if (visitor == null)
-            {
-                return NotFound();
-            }
-
-            _context.Visitors.Remove(visitor);
-
-            _context.SaveChanges();
-
-            TempData["Success"] =
-                "Visitor Deleted Successfully";
-
-            return RedirectToAction("Index");
-        }
+        
 
         // SAVE VISITOR
         [HttpPost]
@@ -277,41 +239,7 @@ namespace SocietyManagementSystem.Controllers
                 }
             }
 
-            // AADHAR VALIDATION
-            if (visitor.IDProofType == "Aadhar Card")
-            {
-                bool validAadhar =
-                    Regex.IsMatch(
-                        visitor.IDProofNumber ?? "",
-                        @"^[0-9]{12}$"
-                    );
-
-                if (!validAadhar)
-                {
-                    TempData["Error"] =
-                        "Invalid Aadhar Number";
-
-                    return View(visitor);
-                }
-            }
-
-            // PAN VALIDATION
-            if (visitor.IDProofType == "PAN Card")
-            {
-                bool validPan =
-                    Regex.IsMatch(
-                        visitor.IDProofNumber ?? "",
-                        @"^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
-                    );
-
-                if (!validPan)
-                {
-                    TempData["Error"] =
-                        "Invalid PAN Number";
-
-                    return View(visitor);
-                }
-            }
+            
 
            
             visitor.CreatedAt = DateTime.Now;
@@ -337,6 +265,14 @@ namespace SocietyManagementSystem.Controllers
                             r.OwnerOrTenant
                     })
                     .ToList();
+
+                return View(visitor);
+            }
+
+            if (string.IsNullOrWhiteSpace(visitor.Purpose))
+            {
+                TempData["Error"] =
+                    "Purpose is required";
 
                 return View(visitor);
             }

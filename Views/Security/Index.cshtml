@@ -1,0 +1,139 @@
+﻿@model List<SocietyManagementSystem.Models.SecurityGuard>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+
+<h2 class="mb-4">Security</h2>
+<p class="text-muted mb-4">
+    Manage security staff information
+</p>
+
+<div class="d-flex justify-content-between mb-3">
+
+    <a href="/Security/Create"
+       class="btn btn-primary">
+
+        Add Security Guard
+
+    </a>
+
+</div>
+
+<form method="get"
+      class="mb-4">
+
+    <div class="input-group w-50">
+
+        <input type="text"
+               name="search"
+               class="form-control"
+               placeholder="Search by Employee Code, Shift or Address" />
+
+        <button class="btn btn-primary">
+                <i class="faq-search faq-search"></i>
+
+            Search
+
+        </button>
+
+    </div>
+
+</form>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+
+            <th>#</th>
+
+            <th>Employee Code</th>
+
+            <th>Shift Timing</th>
+
+            <th>Joining Date</th>
+
+            <th>Address</th>
+
+            <th>Salary</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @if (Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@count</td>
+
+                    <td>@item.EmployeeCode</td>
+
+                        <td>
+
+                            @if (item.ShiftTiming == "Morning")
+                            {
+                                <span class="badge bg-primary">
+
+                                    Morning
+
+                                </span>
+                            }
+                            else if (item.ShiftTiming == "Afternoon")
+                            {
+                                <span class="badge bg-warning text-dark">
+
+                                    Afternoon
+
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-dark">
+
+                                    Night
+
+                                </span>
+                            }
+
+                        </td>
+
+                    <td>
+                        @(item.JoiningDate?.ToString("dd-MM-yyyy"))
+                    </td>
+
+                    <td>@item.Address</td>
+
+                    <td>₹@item.Salary</td>
+
+                </tr>
+
+                count++;
+            }
+        }
+        else
+        {
+            <tr>
+
+                <td colspan="6"
+                    class="text-center text-danger">
+
+                    No Record Found
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+</div>

@@ -181,15 +181,7 @@ namespace SocietyManagementSystem.Controllers
             }
         }
 
-        public IActionResult Create()
-        {
-            if (!IsLoggedIn())
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
-            return View();
-        }
+        
 
         // GET EDIT PAGE
         public IActionResult Edit(int id)
@@ -268,6 +260,34 @@ namespace SocietyManagementSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Reject(int id)
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Auth"
+                );
+            }
+
+            var resident =
+                _context.Residents.Find(id);
+
+            if (resident == null)
+            {
+                return NotFound();
+            }
+
+            resident.IsApproved = false;
+
+            _context.SaveChanges();
+
+            TempData["Success"] =
+                "Resident Rejected Successfully";
+
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public IActionResult Edit(Resident resident)
         {
@@ -283,22 +303,6 @@ namespace SocietyManagementSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Create(Resident resident)
-        {
-            if (!IsLoggedIn())
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
-            resident.UserId = 1;
-            resident.CreatedAt = DateTime.Now;
-
-            _context.Residents.Add(resident);
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
-        }
+        
     }
 }

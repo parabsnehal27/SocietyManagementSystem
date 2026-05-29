@@ -5,25 +5,56 @@
     int count = 1;
 }
 
-<div class="d-flex justify-content-between mb-4">
+<h2 class="fw-bold mb-1">
+        Residents
+</h2>
 
-    <a href="/Residents/Create"
-       class="btn btn-primary">
+<p class="text-muted mb-4">
+    Manage all residents of society
+</p>
 
-        Add Resident
 
-    </a>
+<div class="d-flex
+            justify-content-between
+            align-items-center
+            flex-wrap
+            gap-3
+            mb-4">
 
-    <div>
+    <!-- SEARCH BAR -->
+    <form method="get">
 
-        <a href="/Residents/ExportPdf"
+        <div class="input-group"
+             style="width:800px; max-width:100%;">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search by Title, Category, Status or Priority" />
+
+            <button class="btn btn-primary">
+
+                <i class="fas fa-search"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- EXPORT BUTTONS -->
+    <div class="d-flex gap-2">
+
+        <a href="/Complaints/ExportPdf"
            class="btn btn-danger">
 
             Export PDF
 
         </a>
 
-        <a href="/Residents/ExportExcel"
+        <a href="/Complaints/ExportExcel"
            class="btn btn-success">
 
             Export Excel
@@ -33,37 +64,10 @@
     </div>
 
 </div>
+        
 
-<form method="get" class="mb-4">
+    
 
-    <div class="input-group w-50">
-
-        <input type="text"
-               name="search"
-               class="form-control"
-               placeholder="Search by Flat, Wing, Owner or Phone" />
-
-        <button class="btn btn-primary">
-
-            <i class="fas fa-search"></i>
-
-            Search
-
-        </button>
-
-    </div>
-
-    <small class="text-muted">
-
-        Search using:
-        Flat Number,
-        Wing,
-        Owner/Tenant,
-        or Phone Number
-
-    </small>
-
-</form>
 
 <div class="table-responsive">
 <table class="table table-bordered table-striped table-hover">
@@ -133,42 +137,79 @@
                 </td>
 
                 <td>
-                    @if (resident.IsApproved == true)
-                    {
-                        <span class="badge bg-success">
-                            Approved
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-warning text-dark">
-                            Pending
-                        </span>
+                        <div class="d-flex flex-wrap gap-2">
+                        @if (resident.IsApproved == true)
+                        {
+                            <span class="badge bg-success">
 
-                        <br />
+                                Approved
 
-                        
-                    }
+                            </span>
+                        }
+                        else if (resident.IsApproved == false)
+                        {
+                            <span class="badge bg-danger">
+
+                                Rejected
+
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">
+
+                                Pending
+
+                            </span>
+                        }
+                        </div>
                 </td>
+                    <td>
 
-                <td>
+                        @if (resident.IsApproved == null)
+                        {
+                            <a href="/Residents/Approve/@resident.ResidentId"
+                               class="btn btn-success btn-sm">
 
-                    <a href="/Residents/Edit/@resident.ResidentId"
-                       class="btn btn-sm btn-warning">
+                                Approve
 
-                        Edit
+                            </a>
 
-                    </a>
+                            <a href="/Residents/Reject/@resident.ResidentId"
+                               class="btn btn-danger btn-sm">
 
-                    <a href="/Residents/Delete/@resident.ResidentId"
-                       class="btn btn-sm btn-danger"
-                       onclick="return confirm('Are you sure you want to delete this record?')">
+                                Reject
 
-                        Delete
+                            </a>
+                        }
+                        else if (resident.IsApproved == true)
+                        {
+                            <a href="/Residents/Reject/@resident.ResidentId"
+                               class="btn btn-warning btn-sm">
 
-                    </a>
+                                Reject
 
-                </td>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Residents/Approve/@resident.ResidentId"
+                               class="btn btn-success btn-sm">
+
+                                Approve
+
+                            </a>
+                        }
+
+                        <a href="/Residents/Edit/@resident.ResidentId"
+                           class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                    </td>
+                    
 
             </tr>
 

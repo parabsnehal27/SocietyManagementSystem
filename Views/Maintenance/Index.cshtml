@@ -6,7 +6,9 @@
 }
 
 <h2 class="mb-4">Maintenance</h2>
-
+<p class="text-muted mb-4">
+    Manage maintenance payments and records
+</p>
 
 
 <div class="d-flex justify-content-between mb-4">
@@ -58,15 +60,7 @@
 
     </div>
 
-    <small class="text-muted">
-
-        Search using:
-        Month,
-        Year,
-        Paid/Unpaid Status,
-        or Amount
-
-    </small>
+    
 
 </form>
 
@@ -83,7 +77,6 @@
             <th>Due Date</th>
             <th>Status</th>
             <th>Paid Date</th>
-            <th>Remarks</th>
             <th width="180">Actions</th>
             
         </tr>
@@ -139,34 +132,31 @@
                     }
 
                 </td>
-            <td>
-                @(string.IsNullOrEmpty(item.Remarks)
-                                ? "-"
-                                : item.Remarks)
-            </td>
+            
 
                 <!-- ACTIONS -->
-                <td>
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                        @if (item.PaymentStatus == "pending")
+                        {
+                            <a href="/Maintenance/MarkPaid/@item.MaintenanceId"
+                               class="btn btn-success btn-sm">
 
-                @if (item.PaymentStatus != "Paid")
-                    {
-                        <a href="/Maintenance/MarkPaid/@item.MaintenanceId"
-                           class="btn btn-warning btn-sm">
+                                Mark Paid
 
-                            Mark Paid
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Maintenance/MarkPending/@item.MaintenanceId"
+                               class="btn btn-warning btn-sm">
 
-                        </a>
-                    }
+                                Revert Payment
 
-                    <a href="/Maintenance/Delete/@item.MaintenanceId"
-                       class="btn btn-danger btn-sm"
-                       onclick="return confirm('Delete maintenance?')">
-
-                        Delete
-
-                    </a>
-
-                </td>
+                            </a>
+                        }
+                        </div>
+                    </td>
 
             </tr>
 
