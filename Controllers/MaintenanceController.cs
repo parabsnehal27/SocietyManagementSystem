@@ -255,6 +255,22 @@ namespace SocietyManagementSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        // =========================
+        // EDIT GET
+        // =========================
+        public IActionResult Edit(int id)
+        {
+            var maintenance = _context.Maintenance
+                .FirstOrDefault(m => m.MaintenanceId == id);
+
+            if (maintenance == null)
+            {
+                return NotFound();
+            }
+
+            return View(maintenance);
+        }
+
         //DELETE
         public IActionResult Delete(int id)
         {
@@ -334,6 +350,45 @@ namespace SocietyManagementSystem.Controllers
             _context.SaveChanges();
 
             TempData["Success"] = "Maintenance Added Successfully";
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Maintenance maintenance)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(maintenance);
+            }
+
+            var existingMaintenance =
+                _context.Maintenance
+                .FirstOrDefault(m =>
+                    m.MaintenanceId ==
+                    maintenance.MaintenanceId);
+
+            if (existingMaintenance == null)
+            {
+                return NotFound();
+            }
+
+            existingMaintenance.Amount =
+                maintenance.Amount;
+
+            existingMaintenance.DueDate =
+                maintenance.DueDate;
+
+            existingMaintenance.PaymentStatus =
+                maintenance.PaymentStatus;
+
+            existingMaintenance.PaidDate =
+                maintenance.PaidDate;
+
+            _context.SaveChanges();
+
+            TempData["Success"] =
+                "Maintenance Updated Successfully";
 
             return RedirectToAction("Index");
         }

@@ -155,8 +155,27 @@
 
                             </a>
                         }
+
+                            @if (item.Month == DateTime.Now.Month
+                                                    && item.Year == DateTime.Now.Year)
+                            {
+                                <a href="/Maintenance/Edit/@item.MaintenanceId"
+                                   class="btn btn-warning btn-sm">
+
+                                    <i class="fas fa-edit"></i>
+
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">
+                                    Locked
+                                </span>
+                            }
+
                         </div>
                     </td>
+
 
             </tr>
 

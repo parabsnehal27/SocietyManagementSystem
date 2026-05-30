@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SocietyManagementSystem.Models
 {
@@ -8,20 +9,34 @@ namespace SocietyManagementSystem.Models
         [Key]
         public int GuardId { get; set; }
 
-        public int? UserId { get; set; }
+        // =========================
+        // USER RELATIONSHIP
+        // =========================
 
-        public string? EmployeeCode { get; set; }
+        [Required]
+        public int UserId { get; set; }
 
-        public string? ShiftTiming { get; set; }
+        [ForeignKey("UserId")]
+        public User? User { get; set; }
 
-        public DateTime? JoiningDate { get; set; }
+        // =========================
+        // SECURITY DETAILS
+        // =========================
 
-        public string? Address { get; set; }
+        [Required]
+        public string ShiftTiming { get; set; }
 
-        public string? AadhaarNumber { get; set; }
+        public DateTime JoiningDate { get; set; }
 
-        public decimal? Salary { get; set; }
+        [Required]
+        public string Address { get; set; }
 
-        public DateTime? CreatedAt { get; set; }
+        [Required]
+        public string AadhaarNumber { get; set; }
+
+        [Required]
+        public decimal Salary { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }

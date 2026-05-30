@@ -205,7 +205,14 @@ namespace SocietyManagementSystem.Controllers
             {
                 return RedirectToAction("Login", "Auth");
             }
+            // NAME VALIDATION
+            if (string.IsNullOrWhiteSpace(visitor.VisitorName))
+            {
+                TempData["Error"] =
+                    "Visitor name is required";
 
+                return View(visitor);
+            }
             // PHONE VALIDATION
             bool validPhone =
                 Regex.IsMatch(

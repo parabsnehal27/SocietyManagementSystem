@@ -5,16 +5,43 @@
     int count = 1;
 }
 
+<h2 class="mb-2 fw-bold">
+    Security
+</h2>
 
-<h2 class="mb-4">Security</h2>
 <p class="text-muted mb-4">
     Manage security staff information
 </p>
 
-<div class="d-flex justify-content-between mb-3">
+<div class="d-flex justify-content-between align-items-center mb-4">
 
+    <!-- SEARCH -->
+    <form method="get" class="w-50">
+
+        <div class="input-group">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search by Employee Name, Shift or Address" />
+
+            <button class="btn btn-primary">
+
+                <i class="fas fa-search me-2"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- ADD BUTTON -->
     <a href="/Security/Create"
        class="btn btn-primary">
+
+        <i class="fas fa-plus me-2"></i>
 
         Add Security Guard
 
@@ -22,60 +49,45 @@
 
 </div>
 
-<form method="get"
-      class="mb-4">
-
-    <div class="input-group w-50">
-
-        <input type="text"
-               name="search"
-               class="form-control"
-               placeholder="Search by Employee Code, Shift or Address" />
-
-        <button class="btn btn-primary">
-                <i class="faq-search faq-search"></i>
-
-            Search
-
-        </button>
-
-    </div>
-
-</form>
 <div class="table-responsive">
+
     <table class="table table-bordered table-striped table-hover">
 
-    <thead class="table-dark">
+        <thead class="table-dark">
 
-        <tr>
+            <tr>
 
-            <th>#</th>
+                <th>#</th>
 
-            <th>Employee Code</th>
+                <th>Employee Name</th>
 
-            <th>Shift Timing</th>
+                <th>Shift Timing</th>
 
-            <th>Joining Date</th>
+                <th>Joining Date</th>
 
-            <th>Address</th>
+                <th>Address</th>
 
-            <th>Salary</th>
+                <th>Salary</th>
 
-        </tr>
+                <th>Actions</th>
 
-    </thead>
+            </tr>
 
-    <tbody>
+        </thead>
 
-        @if (Model.Any())
-        {
-            @foreach (var item in Model)
+        <tbody>
+
+            @if (Model.Any())
             {
-                <tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
 
-                    <td>@count</td>
+                        <td>@count</td>
 
-                    <td>@item.EmployeeCode</td>
+                        <td>
+                            @item.User.FullName
+                        </td>
 
                         <td>
 
@@ -106,34 +118,50 @@
 
                         </td>
 
-                    <td>
-                        @(item.JoiningDate?.ToString("dd-MM-yyyy"))
+                        <td>
+                            @item.JoiningDate.ToString("dd-MM-yyyy")
+                        </td>
+
+                        <td>
+                            @item.Address
+                        </td>
+
+                        <td>
+                            ₹@item.Salary
+                        </td>
+
+                        <td>
+
+                            <a href="/Security/Edit/@item.GuardId"
+                               class="btn btn-warning btn-sm">
+
+                                <i class="fas fa-edit"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    count++;
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="7"
+                        class="text-center text-danger">
+
+                        No Record Found
+
                     </td>
 
-                    <td>@item.Address</td>
-
-                    <td>₹@item.Salary</td>
-
                 </tr>
-
-                count++;
             }
-        }
-        else
-        {
-            <tr>
 
-                <td colspan="6"
-                    class="text-center text-danger">
+        </tbody>
 
-                    No Record Found
+    </table>
 
-                </td>
-
-            </tr>
-        }
-
-    </tbody>
-
-</table>
 </div>

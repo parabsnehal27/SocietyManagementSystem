@@ -13,14 +13,17 @@
             <div class="card-body">
 
                 <h2 class="mb-2 fw-bold">
-                    Add Security Guard
+                    Edit Security Guard
                 </h2>
 
                 <p class="text-muted mb-4">
-                    Add and manage security staff information
+                    Update and manage security staff information
                 </p>
 
                 <form method="post">
+
+                    <input type="hidden"
+                           asp-for="GuardId" />
 
                     <!-- EMPLOYEE -->
                     <div class="row">
@@ -49,10 +52,6 @@
                                 }
 
                             </select>
-
-                            <span asp-validation-for="UserId"
-                                  class="text-danger">
-                            </span>
 
                         </div>
 
@@ -89,10 +88,6 @@
 
                             </select>
 
-                            <span asp-validation-for="ShiftTiming"
-                                  class="text-danger">
-                            </span>
-
                         </div>
 
                     </div>
@@ -112,10 +107,6 @@
                                       required>
                             </textarea>
 
-                            <span asp-validation-for="Address"
-                                  class="text-danger">
-                            </span>
-
                         </div>
 
                     </div>
@@ -133,10 +124,6 @@
                                    class="form-control"
                                    maxlength="12"
                                    required />
-
-                            <span asp-validation-for="AadhaarNumber"
-                                  class="text-danger">
-                            </span>
 
                         </div>
 
@@ -156,10 +143,6 @@
                                    type="number"
                                    required />
 
-                            <span asp-validation-for="Salary"
-                                  class="text-danger">
-                            </span>
-
                         </div>
 
                     </div>
@@ -170,7 +153,7 @@
 
                         <i class="fas fa-save me-2"></i>
 
-                        Save Security Guard
+                        Update Security Guard
 
                     </button>
 

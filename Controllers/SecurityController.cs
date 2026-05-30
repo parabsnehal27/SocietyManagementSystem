@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SocietyManagementSystem.Data;
 using SocietyManagementSystem.Models;
 using System;
@@ -10,8 +11,7 @@ namespace SocietyManagementSystem.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public SecurityController(
-            ApplicationDbContext context)
+        public SecurityController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -21,8 +21,9 @@ namespace SocietyManagementSystem.Controllers
         // =========================
         public IActionResult Index(string search)
         {
-            var guards =
-                _context.SecurityGuards
+            var guards = _context.SecurityGuards
+                .Include(s => s.User)
+                .Where(s => s.User.Role == "Security")
                 .AsQueryable();
 
             // SEARCH
@@ -30,7 +31,7 @@ namespace SocietyManagementSystem.Controllers
             {
                 guards = guards.Where(s =>
 
-                    s.EmployeeCode.Contains(search)
+                    s.User.FullName.Contains(search)
 
                     ||
 
@@ -38,14 +39,11 @@ namespace SocietyManagementSystem.Controllers
 
                     ||
 
-                    (s.Address != null &&
-                     s.Address.Contains(search))
+                    s.Address.Contains(search)
                 );
             }
 
-            return View(
-                guards.ToList()
-            );
+            return View(guards.ToList());
         }
 
         // =========================
@@ -53,6 +51,8 @@ namespace SocietyManagementSystem.Controllers
         // =========================
         public IActionResult Create()
         {
+            LoadSecurityUsers();
+
             return View();
         }
 
@@ -60,15 +60,15 @@ namespace SocietyManagementSystem.Controllers
         // CREATE POST
         // =========================
         [HttpPost]
-        public IActionResult Create(
-            SecurityGuard security)
+        public IActionResult Create(SecurityGuard security)
         {
-            // EMPLOYEE CODE VALIDATION
-            if (string.IsNullOrWhiteSpace(
-                security.EmployeeCode))
+            LoadSecurityUsers();
+
+            // USER VALIDATION
+            if (security.UserId <= 0)
             {
                 TempData["Error"] =
-                    "Employee Code is required";
+                    "Please select employee";
 
                 return View(security);
             }
@@ -103,8 +103,7 @@ namespace SocietyManagementSystem.Controllers
 
                 ||
 
-                !security.AadhaarNumber.All(
-                    char.IsDigit))
+                !security.AadhaarNumber.All(char.IsDigit))
             {
                 TempData["Error"] =
                     "Enter valid 12 digit Aadhaar Number";
@@ -113,8 +112,7 @@ namespace SocietyManagementSystem.Controllers
             }
 
             // SALARY VALIDATION
-            if (security.Salary == null ||
-                security.Salary <= 0)
+            if (security.Salary <= 0)
             {
                 TempData["Error"] =
                     "Salary must be greater than 0";
@@ -122,36 +120,29 @@ namespace SocietyManagementSystem.Controllers
                 return View(security);
             }
 
-            // DUPLICATE EMPLOYEE CODE
-            var codeExists =
+            // DUPLICATE USER CHECK
+            var alreadyAssigned =
                 _context.SecurityGuards.Any(s =>
 
-                    s.EmployeeCode ==
-                    security.EmployeeCode
+                    s.UserId == security.UserId
                 );
 
-            if (codeExists)
+            if (alreadyAssigned)
             {
                 TempData["Error"] =
-                    "Employee Code already exists";
+                    "This employee is already assigned";
 
                 return View(security);
             }
 
-            // IMPORTANT:
-            // Use existing UserId from Users table
-            security.UserId =
-    _context.SecurityGuards
-    .Max(s => s.UserId) + 1;
-
+            // AUTO DATES
             security.CreatedAt =
                 DateTime.Now;
 
             security.JoiningDate =
                 DateTime.Now;
 
-            _context.SecurityGuards.Add(
-                security);
+            _context.SecurityGuards.Add(security);
 
             _context.SaveChanges();
 
@@ -159,6 +150,80 @@ namespace SocietyManagementSystem.Controllers
                 "Security Guard Added Successfully";
 
             return RedirectToAction("Index");
+        }
+
+        // =========================
+        // EDIT GET
+        // =========================
+        public IActionResult Edit(int id)
+        {
+            LoadSecurityUsers();
+
+            var guard = _context.SecurityGuards
+                .FirstOrDefault(s => s.GuardId == id);
+
+            if (guard == null)
+            {
+                return NotFound();
+            }
+
+            return View(guard);
+        }
+
+        // =========================
+        // EDIT POST
+        // =========================
+        [HttpPost]
+        public IActionResult Edit(SecurityGuard security)
+        {
+            LoadSecurityUsers();
+
+            if (!ModelState.IsValid)
+            {
+                return View(security);
+            }
+
+            var existingGuard =
+                _context.SecurityGuards
+                .FirstOrDefault(s =>
+                    s.GuardId == security.GuardId);
+
+            if (existingGuard == null)
+            {
+                return NotFound();
+            }
+
+            existingGuard.UserId =
+                security.UserId;
+
+            existingGuard.ShiftTiming =
+                security.ShiftTiming;
+
+            existingGuard.Address =
+                security.Address;
+
+            existingGuard.AadhaarNumber =
+                security.AadhaarNumber;
+
+            existingGuard.Salary =
+                security.Salary;
+
+            _context.SaveChanges();
+
+            TempData["Success"] =
+                "Security Guard Updated Successfully";
+
+            return RedirectToAction("Index");
+        }
+
+        // =========================
+        // LOAD SECURITY USERS
+        // =========================
+        private void LoadSecurityUsers()
+        {
+            ViewBag.Users = _context.Users
+                .Where(u => u.Role == "Security")
+                .ToList();
         }
     }
 }
