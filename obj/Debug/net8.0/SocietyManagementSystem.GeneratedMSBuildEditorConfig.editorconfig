@@ -40,8 +40,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/awp/SocietyManagementSystem/Views/Resident/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/awp/SocietyManagementSystem/Views/Resident/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Resident/SubmitComplaint.cshtml]
@@ -60,8 +72,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcQWRkVmlzaXRvckVudHJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/awp/SocietyManagementSystem/Views/Security/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/awp/SocietyManagementSystem/Views/Security/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Security/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Security/VisitorLogs.cshtml]
@@ -74,6 +94,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/awp/SocietyManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Shared/_ResidentLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZXNpZGVudExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Shared/_SecurityLayout.cshtml]

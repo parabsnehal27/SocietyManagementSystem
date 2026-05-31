@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\awp\\SocietyManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\residentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\residentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,128 +11,44 @@
       "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\wwwroot\\service-worker.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:wwwroot\\service-worker.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\pushsubscriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\pushsubscriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\pushsubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\pushsubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\wwwroot\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:wwwroot\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\visitorlogs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\visitorlogs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\addvisitorentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\addvisitorentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\_visitorlogstable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\_visitorlogstable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\shared\\_securitylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\shared\\_securitylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\resident\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\resident\\visitorrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\visitorrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\visitorentryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\visitorentryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\visitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\visitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\resident\\trackcomplaints.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\trackcomplaints.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\resident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\resident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\complaintviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\complaintviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\resident\\submitcomplaint.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\submitcomplaint.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\registerresidentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\registerresidentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\complaintattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\complaintattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\changepasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\changepasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\noticeread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\noticeread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\shared\\_residentlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\shared\\_residentlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\visitorentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\visitorentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\residentprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\residentprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\complaint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\complaint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\notice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\notice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\models\\securityguard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:models\\securityguard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\securityprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\securityprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -153,7 +57,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 187,
           "SelectedChildIndex": 4,
           "Children": [
             {
@@ -163,435 +67,151 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAAwHQAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:35:14.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PushSubscriptionViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\PushSubscriptionViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\PushSubscriptionViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\PushSubscriptionViewModel.cs",
-              "RelativeToolTip": "ViewModels\\PushSubscriptionViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T08:57:50.925Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-22T14:18:46.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SecurityController.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SecurityController.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
-              "RelativeToolTip": "Controllers\\SecurityController.cs",
-              "ViewState": "AgIAACIBAAAAAAAAAAAAwDUBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T14:00:01.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Resident\\Dashboard.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\Resident\\Dashboard.cshtml",
-              "ViewState": "AgIAACICAAAAAAAAAAAYwDECAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-22T15:38:28.868Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResidentController.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\ResidentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ResidentController.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\ResidentController.cs",
-              "RelativeToolTip": "Controllers\\ResidentController.cs",
-              "ViewState": "AgIAANAAAAAAAAAAAAAzwPQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T15:35:47.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "service-worker.js",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
-              "RelativeDocumentMoniker": "wwwroot\\service-worker.js",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
-              "RelativeToolTip": "wwwroot\\service-worker.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-05-27T06:42:22.165Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PushSubscription.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\PushSubscription.cs",
-              "RelativeDocumentMoniker": "Models\\PushSubscription.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\PushSubscription.cs",
-              "RelativeToolTip": "Models\\PushSubscription.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T08:56:58.85Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-27T08:40:53.137Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAkwBcAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:30:35.727Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "manifest.json",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
-              "RelativeDocumentMoniker": "wwwroot\\manifest.json",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
-              "RelativeToolTip": "wwwroot\\manifest.json",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBUAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-27T06:35:04.937Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T15:36:05.934Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AddVisitorEntry.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\AddVisitorEntry.cshtml",
-              "RelativeDocumentMoniker": "Views\\Security\\AddVisitorEntry.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\AddVisitorEntry.cshtml",
-              "RelativeToolTip": "Views\\Security\\AddVisitorEntry.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAHkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T06:53:41.504Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:31:58.43Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VisitorLogs.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\VisitorLogs.cshtml",
-              "RelativeDocumentMoniker": "Views\\Security\\VisitorLogs.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\VisitorLogs.cshtml",
-              "RelativeToolTip": "Views\\Security\\VisitorLogs.cshtml",
-              "ViewState": "AgIAAKEAAAAAAAAAAAAYwMEAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T08:25:42.677Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "_VisitorLogsTable.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\_VisitorLogsTable.cshtml",
-              "RelativeDocumentMoniker": "Views\\Security\\_VisitorLogsTable.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\_VisitorLogsTable.cshtml",
-              "RelativeToolTip": "Views\\Security\\_VisitorLogsTable.cshtml",
-              "ViewState": "AgIAACgAAAAAAAAAAAAQwEwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T14:49:30.475Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "_SecurityLayout.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_SecurityLayout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_SecurityLayout.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_SecurityLayout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_SecurityLayout.cshtml",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAQwKIAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T11:00:09.104Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Views\\Security\\Dashboard.cshtml",
               "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Dashboard.cshtml",
               "RelativeToolTip": "Views\\Security\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAALEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-22T15:38:14.599Z"
+              "WhenOpened": "2026-05-31T09:54:05.339Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "VisitorRequests.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\VisitorRequests.cshtml",
-              "RelativeDocumentMoniker": "Views\\Resident\\VisitorRequests.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\VisitorRequests.cshtml",
-              "RelativeToolTip": "Views\\Resident\\VisitorRequests.cshtml",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAYwGUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T08:31:58.511Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Visitor.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\Visitor.cs",
-              "RelativeDocumentMoniker": "Models\\Visitor.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\Visitor.cs",
-              "RelativeToolTip": "Models\\Visitor.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:28:30.501Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "VisitorEntryViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\VisitorEntryViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\VisitorEntryViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\VisitorEntryViewModel.cs",
-              "RelativeToolTip": "ViewModels\\VisitorEntryViewModel.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBIAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T06:46:04.548Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "TrackComplaints.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\TrackComplaints.cshtml",
-              "RelativeDocumentMoniker": "Views\\Resident\\TrackComplaints.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\TrackComplaints.cshtml",
-              "RelativeToolTip": "Views\\Resident\\TrackComplaints.cshtml",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T06:42:29.582Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "SubmitComplaint.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\SubmitComplaint.cshtml",
-              "RelativeDocumentMoniker": "Views\\Resident\\SubmitComplaint.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\SubmitComplaint.cshtml",
-              "RelativeToolTip": "Views\\Resident\\SubmitComplaint.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T06:14:01.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ComplaintViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ComplaintViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ComplaintViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ComplaintViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ComplaintViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T06:10:35.314Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Resident.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\Resident.cs",
-              "RelativeDocumentMoniker": "Models\\Resident.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\Resident.cs",
-              "RelativeToolTip": "Models\\Resident.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAkwB8AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:25:35.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 1,
               "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Admin\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\Dashboard.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Admin\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\Admin\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Resident\\Dashboard.cshtml",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Resident\\Dashboard.cshtml",
+              "ViewState": "AgIAAFABAAAAAAAAAAAQwOYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-22T15:37:41.423Z"
+              "WhenOpened": "2026-05-31T09:21:02.993Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Views\\Resident\\Profile.cshtml",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Profile.cshtml",
+              "RelativeToolTip": "Views\\Resident\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-22T15:34:46.684Z"
+              "WhenOpened": "2026-05-29T14:24:06.038Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 0,
+              "Title": "ResidentController.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\ResidentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ResidentController.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\ResidentController.cs",
+              "RelativeToolTip": "Controllers\\ResidentController.cs",
+              "ViewState": "AgIAABgCAAAAAAAAAAAAwBwCAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T14:16:57.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_SecurityLayout.cshtml",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_SecurityLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_SecurityLayout.cshtml",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_SecurityLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_SecurityLayout.cshtml",
+              "ViewState": "AgIAAE0BAAAAAAAAAAAAACcBAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-29T14:32:26.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "RegisterResidentViewModel.cs",
               "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\RegisterResidentViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\RegisterResidentViewModel.cs",
               "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\RegisterResidentViewModel.cs",
               "RelativeToolTip": "ViewModels\\RegisterResidentViewModel.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAswC8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:18:35.698Z"
+              "WhenOpened": "2026-05-29T16:46:53.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "ChangePasswordViewModel.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ChangePasswordViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ChangePasswordViewModel.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ChangePasswordViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ChangePasswordViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:25:15.501Z"
+              "WhenOpened": "2026-05-29T15:04:13.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ComplaintAttachment.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\ComplaintAttachment.cs",
-              "RelativeDocumentMoniker": "Models\\ComplaintAttachment.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\ComplaintAttachment.cs",
-              "RelativeToolTip": "Models\\ComplaintAttachment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "SecurityController.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SecurityController.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
+              "RelativeToolTip": "Controllers\\SecurityController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:29:58.092Z"
+              "WhenOpened": "2026-05-29T14:16:54.509Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "NoticeRead.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\NoticeRead.cs",
-              "RelativeDocumentMoniker": "Models\\NoticeRead.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\NoticeRead.cs",
-              "RelativeToolTip": "Models\\NoticeRead.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:29:29.544Z"
+              "DocumentIndex": 7,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Views\\Security\\Profile.cshtml",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Profile.cshtml",
+              "RelativeToolTip": "Views\\Security\\Profile.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-29T14:24:01.384Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "VisitorEntry.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\VisitorEntry.cs",
-              "RelativeDocumentMoniker": "Models\\VisitorEntry.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\VisitorEntry.cs",
-              "RelativeToolTip": "Models\\VisitorEntry.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAQwCUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:28:53.941Z"
+              "DocumentIndex": 9,
+              "Title": "_ResidentLayout.cshtml",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_ResidentLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ResidentLayout.cshtml",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_ResidentLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ResidentLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABABAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-29T14:32:08.546Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Maintenance.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\Maintenance.cs",
-              "RelativeDocumentMoniker": "Models\\Maintenance.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\Maintenance.cs",
-              "RelativeToolTip": "Models\\Maintenance.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "ResidentProfileViewModel.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ResidentProfileViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ResidentProfileViewModel.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ResidentProfileViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ResidentProfileViewModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA7wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:28:10.165Z"
+              "WhenOpened": "2026-05-29T14:25:59.996Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Complaint.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\Complaint.cs",
-              "RelativeDocumentMoniker": "Models\\Complaint.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\Complaint.cs",
-              "RelativeToolTip": "Models\\Complaint.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAYwCQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "SecurityProfileViewModel.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\SecurityProfileViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\SecurityProfileViewModel.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\SecurityProfileViewModel.cs",
+              "RelativeToolTip": "ViewModels\\SecurityProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:27:46.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Notice.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\Notice.cs",
-              "RelativeDocumentMoniker": "Models\\Notice.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\Notice.cs",
-              "RelativeToolTip": "Models\\Notice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:26:44.588Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "SecurityGuard.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Models\\SecurityGuard.cs",
-              "RelativeDocumentMoniker": "Models\\SecurityGuard.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Models\\SecurityGuard.cs",
-              "RelativeToolTip": "Models\\SecurityGuard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T14:25:56.023Z"
+              "WhenOpened": "2026-05-29T14:21:55.246Z"
             }
           ]
         }

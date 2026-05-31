@@ -7,6 +7,7 @@ using SocietyManagementSystem.ViewModels;
 using Microsoft.AspNetCore.Http;
 using WebPush;
 using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
 
 namespace SocietyManagementSystem.Controllers
 {
@@ -22,7 +23,7 @@ namespace SocietyManagementSystem.Controllers
 
         private bool IsSecurityGuardLoggedIn()
         {
-            return HttpContext.Session.GetString("UserRole") == "SecurityGuard";
+            return User.Identity.IsAuthenticated && User.IsInRole("SecurityGuard");
         }
 
         // Dashboard
@@ -101,7 +102,12 @@ namespace SocietyManagementSystem.Controllers
                 return View(model);
             }
 
-            int? userId = HttpContext.Session.GetInt32("UserId");
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim))
+                return RedirectToAction("Login", "Account");
+
+            int userId = int.Parse(userIdClaim);
 
             if (userId == null)
                 return RedirectToAction("Login", "Account");
@@ -145,8 +151,20 @@ namespace SocietyManagementSystem.Controllers
 
             _context.Visitors.Add(visitor);
             _context.SaveChanges();
+
+            VisitorEntry entry = new VisitorEntry
+            {
+                VisitorId = visitor.VisitorId,
+                ResidentId = resident.ResidentId,
+                AddedByGuardId = guard.GuardId,
+                ApprovalStatus = "Pending"
+            };
+
+            _context.VisitorEntries.Add(entry);
+            _context.SaveChanges();
+
             var residentUser = _context.Users
-    .FirstOrDefault(u => u.UserId == resident.UserId);
+                .FirstOrDefault(u => u.UserId == resident.UserId);
 
             if (residentUser != null)
             {
@@ -162,47 +180,21 @@ namespace SocietyManagementSystem.Controllers
                             sub.Endpoint,
                             sub.P256DH,
                             sub.Auth,
-                            visitor.VisitorName
+                            visitor.VisitorName,
+                            entry.EntryId
                         );
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        // ignore failed subscription
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
 
-            VisitorEntry entry = new VisitorEntry
-            {
-                VisitorId = visitor.VisitorId,
-                ResidentId = resident.ResidentId,
-                AddedByGuardId = guard.GuardId,
-                ApprovalStatus = "Pending"
-            };
-
-            _context.VisitorEntries.Add(entry);
-            _context.SaveChanges();
-
             TempData["Success"] = "Visitor entry added successfully.";
 
-            return RedirectToAction("VisitorLogs");
+            return RedirectToAction("VisitorLogs", "Security");
         }
-
-        // Visitor Logs
-        public IActionResult VisitorLogs()
-        {
-            if (!IsSecurityGuardLoggedIn())
-                return RedirectToAction("Login", "Account");
-
-            var visitorLogs = _context.VisitorEntries
-                .Include(v => v.Visitor)
-                .Include(v => v.Resident)
-                .OrderByDescending(v => v.EntryTime)
-                .ToList();
-
-            return View(visitorLogs);
-        }
-
         // Mark Exit
         public IActionResult MarkExit(int id)
         {
@@ -249,6 +241,19 @@ namespace SocietyManagementSystem.Controllers
 
             return Json(visitorLogs);
         }
+        public IActionResult VisitorLogs()
+        {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
+            var visitorLogs = _context.VisitorEntries
+                .Include(v => v.Visitor)
+                .Include(v => v.Resident)
+                .OrderByDescending(v => v.EntryTime)
+                .ToList();
+
+            return View(visitorLogs);
+        }
 
         // AJAX Search + Filter
         [HttpGet]
@@ -287,7 +292,7 @@ namespace SocietyManagementSystem.Controllers
 
             return PartialView("_VisitorLogsTable", logs.ToList());
         }
-        private void SendPushNotification(string endpoint, string p256dh, string auth, string visitorName)
+        private void SendPushNotification(string endpoint,string p256dh,string auth,string visitorName,int entryId)
         {
             var publicKey = _configuration["VapidSettings:PublicKey"];
             var privateKey = _configuration["VapidSettings:PrivateKey"];
@@ -303,10 +308,106 @@ namespace SocietyManagementSystem.Controllers
             {
                 title = "New Visitor Request",
                 body = $"{visitorName} is waiting at the gate.",
-                url = "/Resident/VisitorRequests"
+                url = "/Resident/VisitorRequests",
+                entryId = entryId
             });
 
             client.SendNotification(subscription, payload, vapidDetails);
+        }
+        public IActionResult Profile()
+        {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
+            var userIdClaim =User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim))
+                return RedirectToAction("Login", "Account");
+
+            int userId = int.Parse(userIdClaim);
+
+            var user = _context.Users
+                .FirstOrDefault(u => u.UserId == userId);
+
+            if (user == null)
+                return RedirectToAction("Login", "Account");
+
+            var model = new SecurityProfileViewModel
+            {
+                FullName = user.FullName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+
+                EmployeeId = user.UserId.ToString(),
+                Shift = "Day Shift",
+                Role = "Security Guard"
+            };
+
+            return View(model);
+        }
+        public IActionResult ChangePassword()
+        {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if (!IsSecurityGuardLoggedIn())
+                return RedirectToAction("Login", "Account");
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim))
+                return RedirectToAction("Login", "Account");
+
+            int userId = int.Parse(userIdClaim);
+
+            var user = _context.Users
+                .FirstOrDefault(u => u.UserId == userId);
+
+            if (user == null)
+                return RedirectToAction("Login", "Account");
+
+            // Verify current password
+            bool isValid = BCrypt.Net.BCrypt.Verify(
+                model.CurrentPassword,
+                user.PasswordHash);
+
+            if (!isValid)
+            {
+                ModelState.AddModelError(
+                    "",
+                    "Current password is incorrect.");
+
+                return View(model);
+            }
+
+            // Prevent same password
+            if (model.CurrentPassword == model.NewPassword)
+            {
+                ModelState.AddModelError(
+                    "",
+                    "New password must be different from current password.");
+
+                return View(model);
+            }
+
+            // Hash and save new password
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(
+                model.NewPassword);
+
+            _context.SaveChanges();
+
+            TempData["Success"] =
+                "Password changed successfully.";
+
+            return RedirectToAction("Profile");
         }
     }
 }

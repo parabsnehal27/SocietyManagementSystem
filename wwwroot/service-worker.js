@@ -15,14 +15,40 @@ self.addEventListener("push", function (event) {
             icon: "/icons/icon-192.png",
             badge: "/icons/icon-192.png",
             data: {
-                url: data.url
-            }
+                url: data.url,
+                entryId: data.entryId
+            },
+            actions: [
+                {
+                    action: "approve",
+                    title: "Approve"
+                },
+                {
+                    action: "reject",
+                    title: "Reject"
+                }
+            ]
         })
     );
 });
-
 self.addEventListener("notificationclick", function (event) {
     event.notification.close();
+
+    const entryId = event.notification.data.entryId;
+
+    if (event.action === "approve") {
+        event.waitUntil(
+            clients.openWindow(`/Resident/ApproveVisitorFromNotification?entryId=${entryId}`)
+        );
+        return;
+    }
+
+    if (event.action === "reject") {
+        event.waitUntil(
+            clients.openWindow(`/Resident/RejectVisitorFromNotification?entryId=${entryId}`)
+        );
+        return;
+    }
 
     event.waitUntil(
         clients.openWindow(event.notification.data.url)

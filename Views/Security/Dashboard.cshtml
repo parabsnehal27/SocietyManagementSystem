@@ -5,32 +5,85 @@
 <style>
     .dashboard-container {
         width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
     }
 
-    .dashboard-title {
-        font-size: 42px;
-        font-weight: 700;
+    .hero-section {
+        background: linear-gradient(135deg, #0B8F3A, #22C55E);
+        border-radius: 20px;
+        padding: 28px;
+        color: white;
         margin-bottom: 30px;
-        color: #0F172A;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 102, 204, 0.18);
     }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 220px;
+            height: 220px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+        .hero-content h2 {
+            font-size: 30px;
+            font-weight: 800;
+            margin: 0 0 8px;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 720px;
+        }
+
+    .hero-icon {
+        position: relative;
+        z-index: 2;
+        width: 130px;
+        height: 130px;
+        background: rgba(255,255,255,0.12);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .hero-icon i {
+            font-size: 64px;
+            color: rgba(255,255,255,0.9);
+        }
+
 
     .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 20px;
-        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        margin-bottom: 25px;
     }
 
     .stat-card {
         background: #FFFFFF;
         border: 1px solid #D1FAE5;
-        border-radius: 20px;
-        padding: 20px;
-        height: 180px;
-        width: 100%;
-        max-width: 280px;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+        position:relative;
+        overflow:hidden;
+        border-top:4px solid #22C55E;
     }
 
         .stat-card:hover {
@@ -38,15 +91,17 @@
         }
 
     .stat-title {
-        font-size: 20px;
+        font-size: 15px;
         color: #475569;
-        margin-bottom: 20px;
     }
 
     .stat-number {
-        font-size: 48px;
-        font-weight: bold;
+        font-size: 36px;
+        font-weight: 700;
+        color: #1A1A2E;
+        margin-top: 10px;
     }
+
 
     .approved {
         color: #16A34A;
@@ -109,8 +164,21 @@
     }
 
     @@media (max-width: 768px) {
-        .dashboard-title {
-            font-size: 32px;
+        .hero-section {
+            padding: 26px;
+            border-radius: 22px;
+        }
+
+        .hero-content h2 {
+            font-size: 30px;
+        }
+
+        .hero-content p {
+            font-size: 14px;
+        }
+
+        .hero-icon {
+            display: none;
         }
 
         .stat-number {
@@ -121,12 +189,26 @@
 
 <div class="dashboard-container">
 
-    <div class="dashboard-title">
-        Security Dashboard
+    <!-- HERO -->
+
+    <div class="hero-section">
+
+        <div class="hero-content">
+
+            <h2>Welcome Back, Security</h2>
+
+            <p>
+                Monitor visitor entries, manage approvals,
+                track deliveries, and maintain society security efficiently.
+            </p>
+
+        </div>
+
     </div>
 
     <div class="stats-grid">
         <div class="stat-card">
+            
             <div class="stat-title">Total Visitors Today</div>
             <div class="stat-number" id="totalVisitors">0</div>
         </div>

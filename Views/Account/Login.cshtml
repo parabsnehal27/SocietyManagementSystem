@@ -5,13 +5,6 @@
 
 <h2>Login</h2>
 
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Success"]
-    </div>
-}
-
 <form method="post" asp-action="Login">
     <div>
         <label>Email</label>

@@ -269,6 +269,18 @@
       "PackagePath": "staticwebassets\\service-worker.js"
     },
     {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\99b55af0-87e2-428c-8c19-0eafee90c3ae.png",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\99b55af0-87e2-428c-8c19-0eafee90c3ae.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SocietyManagementSystem.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

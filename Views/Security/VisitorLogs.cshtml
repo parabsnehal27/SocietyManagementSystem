@@ -1,110 +1,90 @@
-﻿@model List<SocietyManagementSystem.Models.VisitorEntry>
+﻿@model IEnumerable<SocietyManagementSystem.Models.VisitorEntry>
 
 @{
-    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
     ViewData["Title"] = "Visitor Logs";
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
 }
 
 <style>
-    .page-header {
-        margin-bottom: 25px;
+    /* GRID */
+
+    .visitor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
     }
 
-    .page-title {
-        font-size: 38px;
-        font-weight: 700;
-        color: #0F172A;
+    /* CARD */
+
+    .visitor-card {
+        background: white;
+        border-radius: 24px;
+        padding: 18px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        border: 1px solid #DCFCE7;
+        transition: 0.3s ease;
     }
 
-    .page-subtitle {
-        color: #64748B;
-        margin-top: 6px;
-    }
+        .visitor-card:hover {
+            transform: translateY(-6px);
+        }
 
-    .logs-card {
-        background: #FFFFFF;
-        border: 1px solid #D1FAE5;
-        border-radius: 20px;
-        padding: 25px;
-        box-shadow: 0 6px 18px rgba(15, 118, 110, 0.08);
-        overflow-x: auto;
-    }
+    /* TOP */
 
-    .toolbar {
+    .visitor-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 25px;
-        gap: 15px;
-        flex-wrap: wrap;
+        margin-bottom: 22px;
     }
 
-    .search-box {
-        width: 320px;
-        border: 1px solid #CBD5E1;
-        border-radius: 12px;
-        padding: 12px 16px;
-        background: #F8FAFC;
+    .visitor-user {
+        display: flex;
+        align-items: center;
+        gap: 14px;
     }
 
-        .search-box:focus {
-            border-color: #0F766E;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(15,118,110,0.12);
-        }
-
-    .status-filter {
-        width: 220px;
-        border: 1px solid #CBD5E1;
-        border-radius: 12px;
-        padding: 12px 14px;
-        background: #F8FAFC;
+    .visitor-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #16A34A, #4ADE80);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
     }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    thead {
-        background: #F0FDFA;
-    }
-
-    th {
-        padding: 16px;
-        text-align: left;
-        font-size: 14px;
-        font-weight: 700;
+    .visitor-user h3 {
+        font-size: 18px;
         color: #0F172A;
-        border-bottom: 1px solid #D1FAE5;
+        margin-bottom: 4px;
+        font-weight: 700;
     }
 
-    td {
-        padding: 16px;
-        border-bottom: 1px solid #ECFDF5;
-        color: #334155;
-        vertical-align: middle;
+    .visitor-user p {
+        color: #64748B;
+        font-size: 14px;
     }
 
-    tr:hover {
-        background: #F8FAFC;
-    }
+    /* STATUS */
 
-    .badge-status {
+    .status-badge {
         padding: 8px 14px;
         border-radius: 30px;
-        font-size: 13px;
-        font-weight: 600;
+        font-size: 12px;
+        font-weight: 700;
     }
 
     .approved {
         background: #DCFCE7;
-        color: #16A34A;
+        color: #15803D;
     }
 
     .pending {
         background: #FEF3C7;
-        color: #F59E0B;
+        color: #D97706;
     }
 
     .rejected {
@@ -112,95 +92,244 @@
         color: #DC2626;
     }
 
-    .exited {
-        background: #E0F2FE;
-        color: #0891B2;
+    /* DETAILS */
+
+    .visitor-details {
+        display: grid;
+        gap: 14px;
+    }
+
+    .detail-box {
+        background: #F8FAFC;
+        border-radius: 16px;
+        padding: 10px 12px;
+    }
+
+    .detail-label {
+        color: #64748B;
+        font-size: 12px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .detail-value {
+        color: #0F172A;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .visitor-footer {
+        margin-top: 16px;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .exit-btn {
-        background: #0F766E;
-        color: white;
-        border: none;
-        padding: 10px 14px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: 600;
         display: inline-block;
-        white-space: nowrap;
-        min-width: 95px;
-        text-align: center;
+        text-decoration: none;
+        background: linear-gradient(135deg, #16A34A, #22C55E);
+        color: white;
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        transition: 0.3s;
     }
 
         .exit-btn:hover {
-            background: #0D5F59;
-            color: white;
+            transform: translateY(-2px);
         }
 
-    .empty-text {
+    .exited-badge {
+        background: #DCFCE7;
+        color: #15803D;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    /* EMPTY */
+
+    .empty-state {
+        background: white;
+        padding: 70px 30px;
+        border-radius: 24px;
         text-align: center;
-        padding: 40px;
-        color: #64748B;
-        font-size: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
-    @@media (max-width: 992px) {
-        .toolbar {
+        .empty-state i {
+            font-size: 64px;
+            color: #22C55E;
+            margin-bottom: 18px;
+        }
+
+        .empty-state h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #0F172A;
+        }
+
+        .empty-state p {
+            color: #64748B;
+            font-size: 16px;
+        }
+
+    /* MOBILE */
+
+    @@media(max-width:768px) {
+        .visitor-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .visitor-card {
+            padding: 20px;
+        }
+
+        .visitor-user h3 {
+            font-size: 18px;
+        }
+
+        .visitor-top {
             flex-direction: column;
-            align-items: stretch;
-        }
-
-        .search-box,
-        .status-filter {
-            width: 100%;
+            align-items: flex-start;
+            gap: 14px;
         }
     }
+
 </style>
 
-<div class="page-header">
-    <div class="page-title">Visitor Logs</div>
-    <div class="page-subtitle">
-        Monitor all visitor entries and approvals
+@if (Model != null && Model.Any())
+{
+    <div class="visitor-grid">
+
+        @foreach (var item in Model)
+        {
+            string statusClass = item.ApprovalStatus switch
+            {
+                "Approved" => "approved",
+                "Rejected" => "rejected",
+                _ => "pending"
+            };
+
+            <div class="visitor-card">
+
+                <!-- TOP -->
+
+                <div class="visitor-top">
+
+                    <div class="visitor-user">
+
+                        <div class="visitor-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+
+                        <div>
+                            <h3>@item.Visitor.VisitorName</h3>
+                            <p>@item.Visitor.PhoneNumber</p>
+                        </div>
+
+                    </div>
+
+                    <span class="status-badge @statusClass">
+                        @item.ApprovalStatus
+                    </span>
+
+                </div>
+
+                <!-- DETAILS -->
+
+                <div class="visitor-details">
+
+                    <div class="detail-box">
+                        <div class="detail-label">Purpose</div>
+                        <div class="detail-value">
+                            @item.Visitor.Purpose
+                        </div>
+                    </div>
+
+                    <div class="detail-box">
+                        <div class="detail-label">Flat Number</div>
+                        <div class="detail-value">
+                            @item.Resident.FlatNumber
+                        </div>
+                    </div>
+
+                    <div class="detail-box">
+                        <div class="detail-label">Entry Time</div>
+                        <div class="detail-value">
+                            @item.EntryTime.ToString("dd MMM yyyy hh:mm tt")
+                        </div>
+                    </div>
+
+                    <div class="detail-box">
+                        <div class="detail-label">Exit Time</div>
+                        <div class="detail-value">
+
+                            @if (item.ApprovalStatus == "Rejected")
+                            {
+                                <span style="color:#DC2626; font-weight:700;">
+                                    Entry Rejected
+                                </span>
+                            }
+                            else if (item.ApprovalStatus == "Pending")
+                            {
+                                <span style="color:#D97706; font-weight:700;">
+                                    Awaiting Approval
+                                </span>
+                            }
+                            else if (item.ExitTime.HasValue)
+                            {
+                                @item.ExitTime.Value.ToString("dd MMM yyyy hh:mm tt")
+                            }
+                            else
+                            {
+                                <span style="color:#16A34A; font-weight:700;">
+                                    Inside Society
+                                </span>
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="visitor-footer">
+
+                    @if (item.ApprovalStatus == "Approved" && !item.ExitTime.HasValue)
+                    {
+                        <a href="/Security/MarkExit/@item.EntryId"
+                           class="exit-btn">
+
+                            Mark Exit
+
+                        </a>
+                    }
+                    else if (item.ExitTime.HasValue)
+                    {
+                        <span class="exited-badge">
+                            Exited
+                        </span>
+                    }
+
+                </div>
+
+            </div>
+        }
+
     </div>
-</div>
+}
+else
+{
+    <div class="empty-state">
 
-<div class="logs-card">
+        <i class="fas fa-clipboard-list"></i>
 
-    <div class="toolbar">
+        <h3>No Visitor Logs Found</h3>
 
-        <select class="status-filter" id="statusFilter">
-            <option value="All">All Status</option>
-            <option value="Pending">Pending</option>
-            <option value="Approved">Approved</option>
-            <option value="Rejected">Rejected</option>
-            <option value="Exited">Exited</option>
-        </select>
+        <p>
+            Visitor activity will appear here once entries are added.
+        </p>
+
     </div>
-
-    <div id="visitorLogsContainer">
-        @await Html.PartialAsync("_VisitorLogsTable", Model)
-    </div>
-
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
-    function loadVisitorLogs() {
-        var status = $("#statusFilter").val();
-
-        $.ajax({
-            url: '/Security/FilterVisitorLogs',
-            type: 'GET',
-            data: {
-                status: status
-            },
-            success: function (response) {
-                $("#visitorLogsContainer").html(response);
-            }
-        });
-    }
-
-    $("#statusFilter").on("change", function () {
-        loadVisitorLogs();
-    });
-</script>
+}

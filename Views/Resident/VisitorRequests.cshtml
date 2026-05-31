@@ -1,102 +1,301 @@
-﻿@model List<SocietyManagementSystem.Models.VisitorEntry>
+﻿@model IEnumerable<SocietyManagementSystem.Models.VisitorEntry>
 
-<h2>Visitor Requests</h2>
+@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+    ViewData["Title"] = "Visitor Requests";
+}
 
-<table class="table table-bordered" id="visitorRequestsBody">
-    <thead>
-        <tr>
-            <th>Visitor Name</th>
-            <th>Phone</th>
-            <th>Purpose</th>
-            <th>ID Proof</th>
-            <th>Verified</th>
-            <th>Status</th>
-            <th>Entry Time</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Visitor.VisitorName</td>
-                <td>@item.Visitor.PhoneNumber</td>
-                <td>@item.Visitor.Purpose</td>
-                <td>@item.Visitor.IDProofType</td>
-                <td>@(item.Visitor.IsIDVerified ? "Yes" : "No")</td>
-                <td>@item.ApprovalStatus</td>
-                <td>@item.EntryTime</td>
-                <td>
-                    @if (item.ApprovalStatus == "Pending")
-                    {
-                        <a asp-action="ApproveVisitor"
-                           asp-route-id="@item.EntryId"
-                           class="btn btn-success">
-                            Approve
-                        </a>
-
-                        <a asp-action="RejectVisitor"
-                           asp-route-id="@item.EntryId"
-                           class="btn btn-danger">
-                            Reject
-                        </a>
-                    }
-                    else
-                    {
-                        <span>No Action</span>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<script>
-    function loadVisitorRequests() {
-        fetch('/Resident/GetVisitorRequests')
-            .then(response => response.json())
-            .then(data => {
-                let tableBody = document.getElementById('visitorRequestsBody');
-                tableBody.innerHTML = '';
-
-                data.forEach(item => {
-                    let actionButtons = '';
-
-                    if (item.approvalStatus === "Pending") {
-                        actionButtons =
-                            `<a href="/Resident/ApproveVisitor/${item.entryId}" class="btn btn-success">
-                                Approve
-                             </a>
-                             <a href="/Resident/RejectVisitor/${item.entryId}" class="btn btn-danger">
-                                Reject
-                             </a>`;
-                    }
-                    else {
-                        actionButtons = 'No Action';
-                    }
-
-                    let verified = item.isIDVerified ? "Yes" : "No";
-
-                    let row = `
-                        <tr>
-                            <td>${item.visitorName}</td>
-                            <td>${item.phoneNumber}</td>
-                            <td>${item.purpose}</td>
-                            <td>${item.idProofType}</td>
-                            <td>${verified}</td>
-                            <td>${item.approvalStatus}</td>
-                            <td>${item.entryTime}</td>
-                            <td>${actionButtons}</td>
-                        </tr>
-                    `;
-
-                    tableBody.innerHTML += row;
-                });
-            });
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #0066CC, #00A8E8);
+        color: white;
+        padding: 28px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0, 102, 204, 0.18);
     }
 
-    loadVisitorRequests();
+        .page-header h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
 
-    setInterval(loadVisitorRequests, 5000);
-</script>
+        .page-header p {
+            margin: 0;
+            font-size: 15px;
+            opacity: 0.95;
+        }
+
+    .visitor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 20px;
+    }
+
+    .visitor-card {
+        background: white;
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.08);
+        border: 1px solid #D8E9FF;
+        transition: 0.3s ease;
+    }
+
+        .visitor-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(0, 102, 204, 0.14);
+        }
+
+    .visitor-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .visitor-avatar {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0066CC, #00A8E8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 22px;
+    }
+
+    .visitor-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1A1A2E;
+    }
+
+    .visitor-status {
+        margin-top: 4px;
+    }
+
+    .status-badge {
+        padding: 7px 14px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .status-pending {
+        background: #FFF4E5;
+        color: #E67E22;
+    }
+
+    .status-approved {
+        background: #E8F8EE;
+        color: #27AE60;
+    }
+
+    .status-rejected {
+        background: #FFECEC;
+        color: #E74C3C;
+    }
+
+    .visitor-details {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .detail-item {
+        background: #F8FCFF;
+        padding: 12px 14px;
+        border-radius: 12px;
+    }
+
+    .detail-label {
+        font-size: 12px;
+        color: #7A8CA5;
+        margin-bottom: 4px;
+        font-weight: 600;
+    }
+
+    .detail-value {
+        color: #1A1A2E;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .btn-action {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .btn-approve {
+        background: linear-gradient(135deg, #27AE60, #2ECC71);
+        color: white;
+    }
+
+    .btn-reject {
+        background: linear-gradient(135deg, #E74C3C, #FF6B6B);
+        color: white;
+    }
+
+    .btn-action:hover {
+        transform: translateY(-2px);
+    }
+
+    .empty-state {
+        background: white;
+        padding: 60px 30px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.08);
+    }
+
+        .empty-state i {
+            font-size: 55px;
+            color: #00A8E8;
+            margin-bottom: 16px;
+        }
+
+        .empty-state h3 {
+            color: #1A1A2E;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #5B6B8A;
+        }
+
+    @@media (max-width: 768px) {
+        .page-header {
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+            .page-header h2 {
+                font-size: 22px;
+            }
+
+        .visitor-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .visitor-card {
+            padding: 18px;
+        }
+
+        .visitor-name {
+            font-size: 18px;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2>Visitor Requests</h2>
+    <p>Approve or reject incoming visitor requests instantly.</p>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <div class="visitor-grid">
+        @foreach (var item in Model)
+        {
+            string statusClass = item.ApprovalStatus switch
+            {
+                "Pending" => "status-pending",
+                "Approved" => "status-approved",
+                "Rejected" => "status-rejected",
+                _ => "status-pending"
+            };
+
+            <div class="visitor-card">
+
+                <div class="visitor-top">
+                    <div class="visitor-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div>
+                        <div class="visitor-name">@item.Visitor.VisitorName</div>
+
+                        <div class="visitor-status">
+                            <span class="status-badge @statusClass">
+                                @item.ApprovalStatus
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visitor-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Purpose</div>
+                        <div class="detail-value">@item.Visitor.Purpose</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Phone Number</div>
+                        <div class="detail-value">@item.Visitor.PhoneNumber</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Vehicle Number</div>
+                        <div class="detail-value">@item.Visitor.VehicleNumber</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Requested On</div>
+                        <div class="detail-value">@item.CreatedAt.ToString("dd MMM yyyy hh:mm tt")</div>
+                    </div>
+                </div>
+
+                @if (item.ApprovalStatus == "Pending")
+                {
+                    <div class="action-buttons">
+                        <a asp-controller="Resident"
+                           asp-action="ApproveVisitor"
+                           asp-route-id="@item.EntryId"
+                           class="btn-action btn-approve">
+
+                            Approve
+
+                        </a>
+
+                        <a asp-controller="Resident"
+                           asp-action="RejectVisitor"
+                           asp-route-id="@item.EntryId"
+                           class="btn-action btn-reject">
+
+                            Reject
+
+                        </a>
+                    </div>
+                }
+
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="empty-state">
+        <i class="fas fa-user-check"></i>
+        <h3>No Visitor Requests</h3>
+        <p>No pending or recent visitor requests found.</p>
+    </div>
+}

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace SocietyManagementSystem.ViewModels
 {
@@ -12,5 +13,7 @@ namespace SocietyManagementSystem.ViewModels
 
         [Required]
         public string Description { get; set; }
+
+        public IFormFile AttachmentFile { get; set; }
     }
 }

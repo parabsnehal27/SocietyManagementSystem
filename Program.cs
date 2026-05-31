@@ -1,9 +1,35 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using SocietyManagementSystem.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services
+    .AddAuthentication(
+        CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
 
+        options.AccessDeniedPath =
+            "/Account/Login";
+
+        options.ExpireTimeSpan =
+            TimeSpan.FromDays(7);
+
+        options.SlidingExpiration = true;
+
+        options.Cookie.HttpOnly = true;
+
+        options.Cookie.IsEssential = true;
+
+        options.Cookie.SameSite =
+            SameSiteMode.Lax;
+    });
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSession();
@@ -13,14 +39,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Cookie Authentication
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Account/Login";
-        options.AccessDeniedPath = "/Account/AccessDenied";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-    });
 
 var app = builder.Build();
 
@@ -40,6 +58,7 @@ app.UseRouting();
 
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

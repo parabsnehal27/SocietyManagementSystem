@@ -1182,8 +1182,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>anuf3vy3xz</Fingerprint>
-      <Integrity>5ucZFTUrI9Acyl3J3MV5gimNg1UiVd65fc+C15ydNxc=</Integrity>
+      <Fingerprint>11dkoydtsf</Fingerprint>
+      <Integrity>C5FHUo5bxS61xvpj/AMPGFJM2QF7c98WMZpaGQff6yY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\service-worker.js'))</OriginalItemSpec>
@@ -1205,6 +1205,60 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SocietyManagementSystem.aj7cwk0ceu.bundle.scp.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\complaints\699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SocietyManagementSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SocietyManagementSystem</BasePath>
+      <RelativePath>uploads/complaints/699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>stulqupw9v</Fingerprint>
+      <Integrity>ULG+b/z1Tx9mDsBTjVnAGYMTmQ4jJDivgOGkVd31qHE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\complaints\699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\complaints\6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SocietyManagementSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SocietyManagementSystem</BasePath>
+      <RelativePath>uploads/complaints/6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ud2vw4gwp</Fingerprint>
+      <Integrity>jPG0TeSC0qU6UmfiYW0cqdX/UQyPInhW0kRFahTjRLg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\complaints\6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\complaints\99b55af0-87e2-428c-8c19-0eafee90c3ae.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SocietyManagementSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SocietyManagementSystem</BasePath>
+      <RelativePath>uploads/complaints/99b55af0-87e2-428c-8c19-0eafee90c3ae.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>hq8siixs09</Fingerprint>
+      <Integrity>x/qaqbMHo7D35CGGOsYsHSmGFHjOaOyBPqAHBkuptG0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\complaints\99b55af0-87e2-428c-8c19-0eafee90c3ae.png'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

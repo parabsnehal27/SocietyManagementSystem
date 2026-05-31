@@ -1,44 +1,232 @@
-﻿@model List<SocietyManagementSystem.Models.Complaint>
+﻿@model IEnumerable<SocietyManagementSystem.Models.Complaint>
 
-<h2>My Complaints</h2>
-
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Success"]
-    </div>
+@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+    ViewData["Title"] = "Track Complaints";
 }
 
-@if (Model.Count == 0)
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #0066CC, #00A8E8);
+        color: white;
+        padding: 28px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0, 102, 204, 0.18);
+    }
+
+        .page-header h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        .page-header p {
+            margin: 0;
+            font-size: 15px;
+            opacity: 0.95;
+        }
+
+    .complaints-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    .complaint-card {
+        background: white;
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.08);
+        border: 1px solid #D8E9FF;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .complaint-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(0, 102, 204, 0.14);
+        }
+
+    .complaint-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1A1A2E;
+        margin-bottom: 10px;
+    }
+
+    .complaint-category {
+        display: inline-block;
+        background: #EAF6FF;
+        color: #0066CC;
+        padding: 6px 12px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .complaint-description {
+        color: #5B6B8A;
+        font-size: 14px;
+        line-height: 1.6;
+        min-height: 70px;
+        margin-bottom: 20px;
+    }
+
+    .complaint-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .status-badge {
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .status-pending {
+        background: #FFF4E5;
+        color: #E67E22;
+    }
+
+    .status-progress {
+        background: #EAF6FF;
+        color: #0066CC;
+    }
+
+    .status-resolved {
+        background: #E8F8EE;
+        color: #27AE60;
+    }
+
+    .status-rejected {
+        background: #FFECEC;
+        color: #E74C3C;
+    }
+
+    .complaint-date {
+        color: #7A8CA5;
+        font-size: 13px;
+    }
+
+    .attachment-btn {
+        display: inline-block;
+        text-decoration: none;
+        background: linear-gradient(135deg, #0066CC, #00A8E8);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+        .attachment-btn:hover {
+            opacity: 0.9;
+        }
+
+    .empty-state {
+        background: white;
+        padding: 50px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.08);
+    }
+
+        .empty-state i {
+            font-size: 50px;
+            color: #00A8E8;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            color: #1A1A2E;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #5B6B8A;
+        }
+
+    @@media (max-width: 768px) {
+        .page-header {
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+            .page-header h2 {
+                font-size: 22px;
+            }
+
+        .complaints-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .complaint-card {
+            padding: 18px;
+        }
+
+        .complaint-title {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2>Track Complaints</h2>
+</div>
+
+@if (Model != null && Model.Any())
 {
-    <p>No complaints submitted yet.</p>
+    <div class="complaints-grid">
+        @foreach (var complaint in Model)
+        {
+            string statusClass = complaint.Status switch
+            {
+                "Pending" => "status-pending",
+                "In Progress" => "status-progress",
+                "Resolved" => "status-resolved",
+                "Rejected" => "status-rejected",
+                _ => "status-pending"
+            };
+
+            <div class="complaint-card">
+                <div class="complaint-title">@complaint.Title</div>
+
+                <div class="complaint-category">
+                    @complaint.Category
+                </div>
+
+                <div class="complaint-description">
+                    @(complaint.Description.Length > 120
+                        ? complaint.Description.Substring(0, 120) + "..."
+                        : complaint.Description)
+                </div>
+
+                <div class="complaint-footer">
+                    <span class="status-badge @statusClass">
+                        @complaint.Status
+                    </span>
+
+                    <span class="complaint-date">
+                        @complaint.CreatedAt.ToString("dd MMM yyyy")
+                    </span>
+                </div>
+            </div>
+        }
+    </div>
 }
 else
 {
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Priority</th>
-                <th>Submitted On</th>
-                <th>Resolution Remarks</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var complaint in Model)
-            {
-                <tr>
-                    <td>@complaint.Title</td>
-                    <td>@complaint.Category</td>
-                    <td>@complaint.Status</td>
-                    <td>@(complaint.Priority ?? "Not Assigned")</td>
-                    <td>@complaint.CreatedAt.ToShortDateString()</td>
-                    <td>@(complaint.ResolutionRemarks ?? "Pending")</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="empty-state">
+        <i class="fas fa-clipboard-list"></i>
+        <h3>No Complaints Found</h3>
+        <p>You haven't submitted any complaints yet.</p>
+    </div>
 }

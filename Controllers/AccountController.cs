@@ -4,17 +4,60 @@ using SocietyManagementSystem.Models;
 using SocietyManagementSystem.ViewModels;
 using System.Linq;
 using BCrypt.Net;
-
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace SocietyManagementSystem.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public AccountController(ApplicationDbContext context)
+        private readonly IConfiguration _configuration;
+        public AccountController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var claims = new[]
+            {
+        new Claim(ClaimTypes.NameIdentifier,
+            user.UserId.ToString()),
+
+        new Claim(ClaimTypes.Email,
+            user.Email),
+
+        new Claim(ClaimTypes.Role,
+            user.Role),
+
+        new Claim(ClaimTypes.Name,
+            user.FullName)
+    };
+
+            var key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(
+                    _configuration["Jwt:Key"]));
+
+            var credentials = new SigningCredentials(
+                key,
+                SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddDays(7),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler()
+                .WriteToken(token);
         }
 
         // GET Register
@@ -81,11 +124,23 @@ namespace SocietyManagementSystem.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                    return RedirectToAction("Dashboard", "Admin");
+
+                if (User.IsInRole("Resident"))
+                    return RedirectToAction("Dashboard", "Resident");
+
+                if (User.IsInRole("SecurityGuard"))
+                    return RedirectToAction("Dashboard", "Security");
+            }
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> LoginAsync(LoginViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -117,6 +172,39 @@ namespace SocietyManagementSystem.Controllers
             HttpContext.Session.SetString("UserEmail", user.Email);
             HttpContext.Session.SetString("UserName", user.FullName);
 
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier,
+                    user.UserId.ToString()),
+
+                new Claim(ClaimTypes.Name,
+                    user.FullName),
+
+                new Claim(ClaimTypes.Email,
+                    user.Email),
+
+                new Claim(ClaimTypes.Role,
+                    user.Role)
+            };
+
+            var claimsIdentity =
+                new ClaimsIdentity(
+                    claims,
+                    CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var authProperties =
+                new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7)
+                };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
+
+
             if (user.Role == "Admin")
                 return RedirectToAction("Dashboard", "Admin");
 
@@ -128,9 +216,13 @@ namespace SocietyManagementSystem.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult Logout()
+
+        public async Task<IActionResult> Logout()
         {
             HttpContext.Session.Clear();
+
+            await HttpContext.SignOutAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
     }
