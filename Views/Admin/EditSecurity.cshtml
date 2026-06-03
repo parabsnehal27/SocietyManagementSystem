@@ -1,0 +1,159 @@
+﻿@model SocietyManagementSystem.ViewModels.EditSecurityGuardViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+
+    ```
+    <div class="col-lg-10">
+
+        <div class="card shadow-sm">
+
+            <div class="card-header bg-warning text-dark">
+                <h3 class="mb-0">
+                    Edit Security Guard
+                </h3>
+            </div>
+
+            <div class="card-body">
+
+                <form method="post">
+
+                    <input type="hidden" asp-for="GuardId" />
+                    <input type="hidden" asp-for="UserId" />
+
+                    <h5 class="mb-3">
+                        Personal Information
+                    </h5>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Full Name</label>
+                            <input asp-for="FullName"
+                                   class="form-control" />
+                            <span asp-validation-for="FullName"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Email</label>
+                            <input asp-for="Email"
+                                   type="email"
+                                   class="form-control" />
+                            <span asp-validation-for="Email"
+                                  class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Phone Number</label>
+                            <input asp-for="PhoneNumber"
+                                   class="form-control" />
+                            <span asp-validation-for="PhoneNumber"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Shift Timing</label>
+
+                            <select asp-for="ShiftTiming"
+                                    class="form-select">
+
+                                <option value="">-- Select Shift --</option>
+                                <option>Morning</option>
+                                <option>Afternoon</option>
+                                <option>Night</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <h5 class="mb-3">
+                        Employment Details
+                    </h5>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Employee Code</label>
+                            <input asp-for="EmployeeCode"
+                                   class="form-control" />
+                            <span asp-validation-for="EmployeeCode"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Salary</label>
+                            <input asp-for="Salary"
+                                   class="form-control" />
+                            <span asp-validation-for="Salary"
+                                  class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <h5 class="mb-3">
+                        Identity Details
+                    </h5>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Aadhaar Number</label>
+                            <input asp-for="AadhaarNumber"
+                                   maxlength="12"
+                                   class="form-control" />
+                            <span asp-validation-for="AadhaarNumber"
+                                  class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 mb-4">
+                            <label>Address</label>
+                            <textarea asp-for="Address"
+                                      rows="3"
+                                      class="form-control"></textarea>
+                        </div>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success">
+
+                        <i class="fas fa-save me-2"></i>
+                        Update Security Guard
+
+                    </button>
+
+                    <a asp-action="Security"
+                       class="btn btn-secondary">
+
+                        Cancel
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    ```
+
+</div>

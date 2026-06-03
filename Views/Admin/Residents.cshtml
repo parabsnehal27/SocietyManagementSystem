@@ -1,0 +1,222 @@
+﻿@model List<SocietyManagementSystem.Models.Resident>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<h2 class="fw-bold mb-1">
+    Residents
+</h2>
+
+<p class="text-muted mb-4">
+    Manage all residents of society
+</p>
+
+
+<div class="d-flex
+            justify-content-between
+            align-items-center
+            flex-wrap
+            gap-3
+            mb-4">
+
+    <!-- SEARCH BAR -->
+    <form method="get">
+
+        <div class="input-group"
+             style="width:800px; max-width:100%;">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search by Title, Category, Status or Priority" />
+
+            <button class="btn btn-primary">
+
+                <i class="fas fa-search"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- EXPORT BUTTONS -->
+    <div class="d-flex gap-2">
+
+        <a href="/Admin/ExportResidentPdf"
+           class="btn btn-danger">
+
+            Export PDF
+
+        </a>
+
+        <a href="/Admin/ExportResidentExcel"
+           class="btn btn-success">
+
+            Export Excel
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Flat</th>
+                <th>Wing</th>
+                <th>Floor</th>
+                <th>Owner/Tenant</th>
+                <th>Phone</th>
+                <th>Vehicle</th>
+                <th>Move In</th>
+                <th>Status</th>
+                <th width="180">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    // existing rows
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="10"
+                        class="text-center text-muted">
+
+                        No records found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+        <tbody>
+
+            @foreach (var resident in Model)
+            {
+                <tr>
+
+                    <td>@count</td>
+
+                    <td>@resident.FlatNumber</td>
+
+                    <td>@resident.Wing</td>
+
+                    <td>@resident.FloorNumber</td>
+
+                    <td>@resident.OwnerOrTenant</td>
+
+                    <td>@resident.ContactPhone</td>
+
+                    <td>@resident.VehicleNumber</td>
+
+                    <td>
+                        @(resident.MoveInDate.ToString("dd-MM-yyyy"))
+                    </td>
+
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            @if (resident.User?.ApprovalStatus == "Approved")
+                            {
+                                <span class="badge bg-success">
+
+                                    Approved
+
+                                </span>
+                            }
+                            else if (resident.User?.ApprovalStatus == "Rejected")
+                            {
+                                <span class="badge bg-danger">
+
+                                    Rejected
+
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">
+
+                                    Pending
+
+                                </span>
+                            }
+                        </div>
+                    </td>
+                    <td>
+
+                        @if (resident.User?.ApprovalStatus == "Approved")
+                        {
+                            <a href="/Admin/ApproveResident/@resident.ResidentId"
+                               class="btn btn-success btn-sm">
+
+                                Approve
+
+                            </a>
+
+                            <a href="/Admin/RejectResident/@resident.ResidentId"
+                               class="btn btn-danger btn-sm">
+
+                                Reject
+
+                            </a>
+                        }
+                        else if (resident.User?.ApprovalStatus == "Rejected")
+                        {
+                            <a href="/Admin/RejectResident/@resident.ResidentId"
+                               class="btn btn-warning btn-sm">
+
+                                Reject
+
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Admin/ApproveResident/@resident.ResidentId"
+                               class="btn btn-success btn-sm">
+
+                                Approve
+
+                            </a>
+                        }
+
+                        <a href="/Admin/EditResident/@resident.ResidentId"
+                           class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                    </td>
+
+
+                </tr>
+
+                count++;
+            }
+
+        </tbody>
+
+    </table>
+</div>

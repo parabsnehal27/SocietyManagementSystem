@@ -1,0 +1,181 @@
+﻿@model SocietyManagementSystem.ViewModels.ComplaintViewModel
+
+@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+    ViewData["Title"] = "Submit Complaint";
+}
+
+    <style>
+
+    .complaint-container {
+        width: 100%;
+    }
+
+        .complaint-header {
+            background: linear-gradient(135deg, #0066CC, #00A8E8);
+            color: white;
+            padding: 30px;
+        }
+
+        .complaint-header h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .complaint-header p {
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .complaint-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #1A1A2E;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d9e7f7;
+            border-radius: 12px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            border-color: #00A8E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(0,168,232,0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .upload-box {
+            border: 2px dashed #00A8E8;
+            padding: 20px;
+            border-radius: 14px;
+            background: #f8fcff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #0066CC, #00A8E8);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .success-msg {
+            background: #dff6e8;
+            color: #146c43;
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .validation-summary-errors {
+            background: #ffe5e5;
+            color: #b30000;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        @@media (max-width: 768px) {
+            .complaint-body
+
+        {
+            padding: 20px;
+        }
+
+        .complaint-header {
+            padding: 22px;
+        }
+
+            .complaint-header h2 {
+                font-size: 24px;
+            }
+
+        .complaint-container {
+            border-radius: 16px;
+        }
+
+        }
+    </style>
+
+
+    <div class="complaint-container">
+
+        <div class="complaint-header">
+            <h2>Submit Complaint</h2>
+            <p>Raise issues quickly and track resolution progress.</p>
+        </div>
+
+        <div class="complaint-body">
+
+            @Html.ValidationSummary()
+
+            <form asp-action="SubmitComplaint" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label>Complaint Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter complaint title" />
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select asp-for="Category" class="form-control">
+                        <option value="">Select Category</option>
+                        <option>Maintenance</option>
+                        <option>Security</option>
+                        <option>Cleaning</option>
+                        <option>Water Supply</option>
+                        <option>Electricity</option>
+                        <option>Parking</option>
+                        <option>Lift Issue</option>
+                        <option>Noise Complaint</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Describe your issue"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Attachment </label>
+                    <div class="upload-box">
+                        <input asp-for="AttachmentFile" type="file" class="form-control" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Submit Complaint
+                </button>
+
+            </form>
+
+        </div>
+    </div>

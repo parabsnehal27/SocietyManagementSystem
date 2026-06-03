@@ -1,0 +1,211 @@
+﻿@model SocietyManagementSystem.Models.Maintenance
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h2 class="mb-3">
+                    Generate Monthly Maintenance
+                </h2>
+
+                <p class="text-muted">
+                    Generate maintenance bills for all owners in the society.
+                </p>
+
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Error"]
+                    </div>
+                }
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Success"]
+                    </div>
+                }
+
+                <div class="alert alert-info">
+                    <strong>Note:</strong>
+                    Maintenance will be generated automatically using the values
+                    configured in Maintenance Settings.
+                </div>
+
+                <form method="post">
+
+                    <div class="row">
+
+                        <!-- Month -->
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Month
+                            </label>
+
+                            <select asp-for="Month"
+                                    class="form-control"
+                                    required>
+
+                                <option value="">
+                                    -- Select Month --
+                                </option>
+
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Year -->
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Year
+                            </label>
+
+                            <select asp-for="Year"
+                                    class="form-control"
+                                    required>
+
+                                <option value="">
+                                    -- Select Year --
+                                </option>
+
+                                @for (int year = DateTime.Now.Year;
+                                year <= DateTime.Now.Year + 10;
+                                year++)
+                                {
+                                    <option value="@year">
+                                        @year
+                                    </option>
+                                }
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Due Date -->
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Due Date
+                            </label>
+
+                            <input asp-for="DueDate"
+                                   type="date"
+                                   class="form-control"
+                                   required />
+
+                        </div>
+
+                        <!-- Late Fee -->
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Late Fee Rate
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   value="18% (From Maintenance Settings)"
+                                   readonly />
+
+                        </div>
+
+                    </div>
+
+                    <div class="alert alert-primary">
+
+                        <strong>
+                            Maintenance Calculation
+                        </strong>
+
+                        <ul class="mb-0 mt-2">
+                            <li>Repair & Maintenance Charges</li>
+                            <li>Water Charges</li>
+                            <li>Service Charges</li>
+                            <li>Electricity Charges</li>
+                            <li>Parking Charges (Only if Vehicle Exists)</li>
+                            <li>House Keeping Charges</li>
+                            <li>Municipal Taxes</li>
+                            <li>Previous Outstanding Dues</li>
+                            <li>Late Fee on Outstanding Amount</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="alert alert-warning">
+
+                        <strong>
+                            Generation Rules
+                        </strong>
+
+                        <ul class="mb-0 mt-2">
+                            <li>
+                                Maintenance will be generated for all owners.
+                            </li>
+
+                            <li>
+                                Previous unpaid dues will be carried forward.
+                            </li>
+
+                            <li>
+                                Late fee will be applied on outstanding dues.
+                            </li>
+
+                            <li>
+                                Parking charges will be skipped if no vehicle is registered.
+                            </li>
+
+                            <li>
+                                Maintenance can only be generated once per month.
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success btn-lg">
+
+                        <i class="fas fa-file-invoice-dollar"></i>
+
+                        Generate Maintenance For All Owners
+
+                    </button>
+
+                    <a href="/Admin/Maintenance"
+                       class="btn btn-secondary btn-lg">
+
+                        Cancel
+
+                    </a>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

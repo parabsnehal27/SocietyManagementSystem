@@ -1,0 +1,183 @@
+﻿@model SocietyManagementSystem.Models.Maintenance
+
+@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+    ViewData["Title"] = "Maintenance Details";
+}
+
+<style>
+
+    .page-header {
+        background: linear-gradient(135deg, #0066CC, #00A8E8);
+        color: white;
+        padding: 25px;
+        border-radius: 20px;
+        margin-bottom: 25px;
+    }
+
+    .bill-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 8px 20px rgba(0,102,204,.08);
+        border: 1px solid #D8E9FF;
+    }
+
+    .bill-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .bill-label {
+        color: #666;
+        font-weight: 600;
+    }
+
+    .bill-value {
+        font-weight: 700;
+        color: #1A1A2E;
+    }
+
+    .total-section {
+        margin-top: 20px;
+        background: #F3F8FF;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .total-amount {
+        font-size: 32px;
+        font-weight: 700;
+        color: #0066CC;
+    }
+
+    .status-paid {
+        background: #E8F8EE;
+        color: #27AE60;
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-weight: 700;
+    }
+
+    .status-pending {
+        background: #FFF4E5;
+        color: #E67E22;
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-weight: 700;
+    }
+
+    .action-buttons {
+        margin-top: 25px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .view-btn {
+        background: linear-gradient(135deg,#0066CC,#00A8E8);
+        color: white;
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: 600;
+    }
+
+</style>
+
+<div class="page-header">
+
+    <h2>
+        Maintenance Bill
+    </h2>
+
+</div>
+
+<div class="bill-card">
+
+    <div class="bill-row">
+        <span class="bill-label">Current Maintenance</span>
+        <span class="bill-value">₹ @Model.Amount</span>
+    </div>
+
+    <div class="bill-row">
+        <span class="bill-label">Previous Due</span>
+        <span class="bill-value">₹ @Model.PreviousDue</span>
+    </div>
+
+    <div class="bill-row">
+        <span class="bill-label">Late Fee</span>
+        <span class="bill-value">₹ @Model.LateFee</span>
+    </div>
+
+    <div class="bill-row">
+        <span class="bill-label">Due Date</span>
+        <span class="bill-value">
+            @Model.DueDate.ToString("dd MMM yyyy")
+        </span>
+    </div>
+
+    <div class="bill-row">
+        <span class="bill-label">Payment Status</span>
+
+        @if (Model.PaymentStatus == "Paid")
+        {
+            <span class="status-paid">
+                Paid
+            </span>
+        }
+        else
+        {
+            <span class="status-pending">
+                Pending
+            </span>
+        }
+
+    </div>
+
+    <div class="total-section">
+
+        <div>Total Amount Payable</div>
+
+        <div class="total-amount">
+            ₹ @Model.TotalDue
+        </div>
+
+    </div>
+
+    <div class="action-buttons">
+
+        <a asp-action="MyMaintenance"
+           class="view-btn">
+
+            Back
+
+        </a>
+
+        @if (Model.PaymentStatus == "Paid")
+        {
+            <a asp-action="DownloadReceipt"
+               asp-route-id="@Model.MaintenanceId"
+               class="view-btn">
+
+                Download Receipt
+
+            </a>
+        }
+        else
+        {
+            <a asp-action="DownloadMaintenanceBill"
+               asp-route-id="@Model.MaintenanceId"
+               class="view-btn">
+
+                Download Bill
+
+            </a>
+        }
+
+    </div>
+
+</div>

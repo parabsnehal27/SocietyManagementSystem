@@ -1,0 +1,484 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+    ViewData["Title"] = "Resident Dashboard";
+}
+    <style>
+    .dashboard-content {
+        width: 100%;
+    }
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0066CC, #00A8E8);
+            color: white;
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.18);
+        }
+
+            .hero h2 {
+                margin: 0 0 8px;
+                font-size: 30px;
+            }
+
+            .hero p {
+                margin: 0;
+                font-size: 15px;
+                opacity: 0.95;
+            }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+            border-top: 4px solid #00D9FF;
+        }
+
+        .stat-label {
+            color: #5B6B8A;
+            font-size: 15px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-top: 10px;
+        }
+
+        /* Section */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #1A1A2E;
+        }
+
+        /* Quick Actions */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+            transition: 0.3s;
+            border: 1px solid #D8E9FF;
+        }
+
+            .action-card:hover {
+                transform: translateY(-5px);
+                border-color: #00A8E8;
+            }
+
+            .action-card i {
+                font-size: 28px;
+                color: #0066CC;
+                margin-bottom: 12px;
+                display: block;
+            }
+
+        .action-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .action-desc {
+            color: #5B6B8A;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        /* Bottom Panels */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.08);
+        }
+
+        .notice-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #EEF5FF;
+        }
+
+            .notice-item:last-child {
+                border-bottom: none;
+            }
+
+        .profile-item {
+            margin-bottom: 12px;
+            color: #5B6B8A;
+        }
+
+            .profile-item strong {
+                color: #1A1A2E;
+            }
+
+    .notice-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        background: #F8FAFC;
+        border: 1px solid #E5E7EB;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        .notice-card:hover {
+            background: #EEF4FF;
+            transform: translateY(-2px);
+        }
+
+    .notice-title {
+        color: #111827;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .notice-date {
+        color: #6B7280;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    .notice-arrow {
+        font-size: 20px;
+        color: #6B7280;
+    }
+
+    .view-all-btn {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+        @@media (max-width: 900px) {
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .stats-grid,
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar-title {
+                font-size: 22px;
+            }
+        }
+        @@media (max-width: 768px) {
+            .sidebar
+
+        {
+            left: -260px;
+            width: 250px;
+        }
+
+        .sidebar.expanded {
+            left: 0;
+        }
+
+        .topbar {
+            left: 0;
+            width: 100%;
+            padding: 0 16px;
+        }
+
+            .topbar.expanded {
+                left: 0;
+                width: 100%;
+            }
+
+        .topbar-title {
+            font-size: 20px;
+        }
+
+        .hero {
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .actions-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .bottom-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stat-value {
+            font-size: 28px;
+        }
+
+        .section-title {
+            font-size: 20px;
+        }
+
+        }
+    </style>
+    <!-- Main Content -->
+    <div class="dashboard-content">
+        <div class="hero">
+            <h2>Welcome Back, Resident</h2>
+            <p>Manage complaints, visitors, maintenance payments, notices, and your profile from one place.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Complaints</div>
+            <div class="stat-value" id="totalcomplaint">0</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Pending Complaints</div>
+                <div class="stat-value" id="pendingcomplaint">0</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Total Visitors</div>
+                <div class="stat-value" id="totalvisitors">0</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="section-title">Quick Actions</div>
+
+        <div class="actions-grid">
+
+            <a href="/Resident/SubmitComplaint" class="action-card">
+                <i class="bi bi-exclamation-circle"></i>
+                <div class="action-title">Submit Complaint</div>
+                <div class="action-desc">Raise society complaints instantly.</div>
+            </a>
+
+            <a href="/Resident/TrackComplaints" class="action-card">
+                <i class="bi bi-journal-text"></i>
+                <div class="action-title">Track Complaints</div>
+                <div class="action-desc">Monitor complaint status and updates.</div>
+            </a>
+
+            <a href="/Resident/VisitorRequests" class="action-card">
+                <i class="bi bi-people"></i>
+                <div class="action-title">Visitor Requests</div>
+                <div class="action-desc">Approve or reject visitor entries.</div>
+            </a>
+
+        <a href="/Resident/MyMaintenance" class="action-card">
+                <i class="bi bi-credit-card"></i>
+                <div class="action-title">Maintenance</div>
+                <div class="action-desc">Check and manage maintenance dues.</div>
+            </a>
+
+        </div>
+
+        <!-- Bottom Panels -->
+        <div class="bottom-grid">
+
+        <div class="panel">
+
+            <div class="section-title">
+                Recent Notices
+            </div>
+
+            @foreach (var notice in ViewBag.RecentNotices)
+            {
+                <a asp-action="NoticeDetails"
+                   asp-route-id="@notice.NoticeId"
+                   class="notice-card">
+
+                    <div class="notice-content">
+
+                        <div class="notice-title">
+                            @notice.Title
+                        </div>
+
+                        <div class="notice-date">
+                            @notice.PostedDate.ToString("dd MMM yyyy")
+                        </div>
+
+                    </div>
+
+                    <div class="notice-arrow">
+                        →
+                    </div>
+
+                </a>
+            }
+
+            <a asp-action="Notice"
+               class="view-all-btn">
+
+                View All Notices
+
+            </a>
+
+        </div>
+
+            <div class="panel">
+                <div class="section-title">Profile Summary</div>
+
+                <div class="profile-item">
+                    <strong>Name:</strong> @ViewBag.Name
+                </div>
+
+                <div class="profile-item">
+                    <strong>Flat:</strong> @ViewBag.FlatNumber
+                </div>
+
+                <div class="profile-item">
+                    <strong>Status:</strong> @ViewBag.Status
+                </div>
+
+                <div class="profile-item">
+                    <strong>Wing:</strong> @ViewBag.Wing
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function (registration) {
+                    console.log('Service Worker Registered:', registration);
+                })
+                .catch(function (error) {
+                    console.log('Service Worker Failed:', error);
+                });
+        }
+
+    </script>
+    <script>
+        async function subscribeUserToPush() {
+            try {
+                console.log("Step 1: requesting permission");
+
+                const permission = await Notification.requestPermission();
+                console.log("Permission:", permission);
+
+                if (permission !== "granted") {
+                    return;
+                }
+
+                console.log("Step 2: waiting for service worker");
+
+                const registration = await navigator.serviceWorker.ready;
+
+                console.log("Service worker ready");
+
+                let subscription = await registration.pushManager.getSubscription();
+
+                if (!subscription) {
+                    console.log("Creating new subscription");
+
+                    subscription = await registration.pushManager.subscribe({
+                        userVisibleOnly: true,
+                        applicationServerKey: urlBase64ToUint8Array("BBxsjeeYxbSUmOvQJ1kD2BApi5k2Ffe3qhPjmKQy7BHyTZ3cwbcUskSY1qf86fV9bNnXh9A-_-YckGEGV-20Ii8")
+                    });
+                }
+
+                console.log("Subscription:", subscription);
+
+                const response = await fetch('/Resident/SavePushSubscription', {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        endpoint: subscription.endpoint,
+                        p256DH: btoa(String.fromCharCode(...new Uint8Array(subscription.getKey('p256dh')))),
+                        auth: btoa(String.fromCharCode(...new Uint8Array(subscription.getKey('auth'))))
+                    })
+                });
+
+                console.log("Server response:", response.status);
+
+            } catch (error) {
+                console.error("Push error:", error);
+            }
+        }
+
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - base64String.length % 4) % 4);
+            const base64 = (base64String + padding)
+                .replace(/-/g, '+')
+                .replace(/_/g, '/');
+
+            const rawData = window.atob(base64);
+            const outputArray = new Uint8Array(rawData.length);
+
+            for (let i = 0; i < rawData.length; i++) {
+                outputArray[i] = rawData.charCodeAt(i);
+            }
+
+            return outputArray;
+        }
+
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+            subscribeUserToPush();
+        }
+    </script>
+
+<script>
+    function loadDashboardStats() {
+        fetch('/Resident/GetDashboardStats')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('totalcomplaint').innerText = data.totalcomplaint;
+                document.getElementById('pendingcomplaint').innerText = data.pendingcomplaint;
+                document.getElementById('totalvisitors').innerText = data.totalvisitors;
+                document.getElementById('deniedVisitors').innerText = data.deniedVisitors;
+                document.getElementById('activeVisitors').innerText = data.activeVisitors;
+            });
+    }
+
+    loadDashboardStats();
+
+    setInterval(loadDashboardStats, 5000);
+</script>
+    

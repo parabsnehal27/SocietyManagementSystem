@@ -5,12 +5,504 @@
       "PackagePath": "staticwebassets\\SocietyManagementSystem.aj7cwk0ceu.bundle.scp.css"
     },
     {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "PackagePath": "staticwebassets\\Rotativa\\wkhtmltopdf.exe"
+    },
+    {
       "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\UI\\general.html",
+      "PackagePath": "staticwebassets\\dist\\UI\\general.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\UI\\icons.html",
+      "PackagePath": "staticwebassets\\dist\\UI\\icons.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\UI\\timeline.html",
+      "PackagePath": "staticwebassets\\dist\\UI\\timeline.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\AdminLTEFullLogo.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\AdminLTEFullLogo.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\AdminLTELogo.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\AdminLTELogo.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\avatar.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\avatar.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\avatar2.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\avatar2.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\avatar3.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\avatar3.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\avatar4.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\avatar4.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\avatar5.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\avatar5.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\boxed-bg.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\boxed-bg.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\boxed-bg.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\boxed-bg.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\credit\\american-express.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\credit\\american-express.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\credit\\cirrus.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\credit\\cirrus.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\credit\\mastercard.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\credit\\mastercard.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\credit\\paypal.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\credit\\paypal.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\credit\\paypal2.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\credit\\paypal2.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\credit\\visa.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\credit\\visa.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\default-150x150.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\default-150x150.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\icons.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\icons.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\photo1.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\photo1.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\photo2.png",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\photo2.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\photo3.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\photo3.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\photo4.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\photo4.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\prod-1.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\prod-1.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\prod-2.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\prod-2.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\prod-3.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\prod-3.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\prod-4.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\prod-4.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\prod-5.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\prod-5.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user1-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user1-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user2-160x160.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user2-160x160.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user3-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user3-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user4-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user4-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user5-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user5-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user6-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user6-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user7-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user7-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\assets\\img\\user8-128x128.jpg",
+      "PackagePath": "staticwebassets\\dist\\assets\\img\\user8-128x128.jpg"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.css",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.css"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.css.map",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.css.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.min.css",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.min.css"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.min.css.map",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.min.css.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.rtl.css",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.rtl.css"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.rtl.css.map",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.rtl.css.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.rtl.min.css",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.rtl.min.css"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\css\\adminlte.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\browser-support.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\browser-support.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\color-mode.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\color-mode.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\components\\main-header.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\components\\main-header.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\components\\main-sidebar.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\components\\main-sidebar.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\customization.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\customization.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\deployment.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\deployment.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\faq.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\faq.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\getting-started.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\getting-started.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\how-to-contribute.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\how-to-contribute.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\index.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\index.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\integrations.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\integrations.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\introduction.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\introduction.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\accessibility.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\accessibility.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\card-widget.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\card-widget.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\direct-chat.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\direct-chat.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\fullscreen.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\fullscreen.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\layout.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\layout.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\plugins-overview.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\plugins-overview.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\pushmenu.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\pushmenu.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\javascript\\treeview.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\javascript\\treeview.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\layout-blueprint.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\layout-blueprint.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\layout.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\layout.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\license.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\license.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\migration.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\migration.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\recipes.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\recipes.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\docs\\rtl.html",
+      "PackagePath": "staticwebassets\\dist\\docs\\rtl.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\examples\\lockscreen.html",
+      "PackagePath": "staticwebassets\\dist\\examples\\lockscreen.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\examples\\login-v2.html",
+      "PackagePath": "staticwebassets\\dist\\examples\\login-v2.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\examples\\login.html",
+      "PackagePath": "staticwebassets\\dist\\examples\\login.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\examples\\register-v2.html",
+      "PackagePath": "staticwebassets\\dist\\examples\\register-v2.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\examples\\register.html",
+      "PackagePath": "staticwebassets\\dist\\examples\\register.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\forms\\elements.html",
+      "PackagePath": "staticwebassets\\dist\\forms\\elements.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\forms\\layout.html",
+      "PackagePath": "staticwebassets\\dist\\forms\\layout.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\forms\\validation.html",
+      "PackagePath": "staticwebassets\\dist\\forms\\validation.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\forms\\wizard.html",
+      "PackagePath": "staticwebassets\\dist\\forms\\wizard.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\generate\\theme.html",
+      "PackagePath": "staticwebassets\\dist\\generate\\theme.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\index.html",
+      "PackagePath": "staticwebassets\\dist\\index.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\index2.html",
+      "PackagePath": "staticwebassets\\dist\\index2.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\index3.html",
+      "PackagePath": "staticwebassets\\dist\\index3.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\js\\adminlte.js",
+      "PackagePath": "staticwebassets\\dist\\js\\adminlte.js"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\js\\adminlte.js.map",
+      "PackagePath": "staticwebassets\\dist\\js\\adminlte.js.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\js\\adminlte.min.js",
+      "PackagePath": "staticwebassets\\dist\\js\\adminlte.min.js"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\js\\adminlte.min.js.map",
+      "PackagePath": "staticwebassets\\dist\\js\\adminlte.min.js.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\collapsed-sidebar-without-hover.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\collapsed-sidebar-without-hover.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\collapsed-sidebar.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\collapsed-sidebar.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\fixed-complete.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\fixed-complete.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\fixed-footer.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\fixed-footer.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\fixed-header.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\fixed-header.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\fixed-sidebar.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\fixed-sidebar.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\layout-custom-area.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\layout-custom-area.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\layout-rtl.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\layout-rtl.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\logo-switch.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\logo-switch.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\sidebar-mini.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\sidebar-mini.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\layout\\unfixed-sidebar.html",
+      "PackagePath": "staticwebassets\\dist\\layout\\unfixed-sidebar.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\mailbox\\compose.html",
+      "PackagePath": "staticwebassets\\dist\\mailbox\\compose.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\mailbox\\inbox.html",
+      "PackagePath": "staticwebassets\\dist\\mailbox\\inbox.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\mailbox\\read.html",
+      "PackagePath": "staticwebassets\\dist\\mailbox\\read.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\404.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\404.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\500.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\500.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\calendar.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\calendar.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\chat.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\chat.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\faq.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\faq.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\file-manager.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\file-manager.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\invoice.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\invoice.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\kanban.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\kanban.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\maintenance.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\maintenance.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\pricing.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\pricing.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\profile.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\profile.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\projects.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\projects.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\pages\\settings.html",
+      "PackagePath": "staticwebassets\\dist\\pages\\settings.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\tables\\data.html",
+      "PackagePath": "staticwebassets\\dist\\tables\\data.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\tables\\simple.html",
+      "PackagePath": "staticwebassets\\dist\\tables\\simple.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\widgets\\cards.html",
+      "PackagePath": "staticwebassets\\dist\\widgets\\cards.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\widgets\\info-box.html",
+      "PackagePath": "staticwebassets\\dist\\widgets\\info-box.html"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\dist\\widgets\\small-box.html",
+      "PackagePath": "staticwebassets\\dist\\widgets\\small-box.html"
+    },
+    {
       "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-192.png",
+      "PackagePath": "staticwebassets\\icons\\icon-192.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\icons\\icon-512.png",
+      "PackagePath": "staticwebassets\\icons\\icon-512.png"
     },
     {
       "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\js\\site.js",
@@ -243,6 +735,38 @@
     {
       "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\manifest.json",
+      "PackagePath": "staticwebassets\\manifest.json"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\desktop-dashboard.png",
+      "PackagePath": "staticwebassets\\screenshots\\desktop-dashboard.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\screenshots\\mobile-dashboard.png",
+      "PackagePath": "staticwebassets\\screenshots\\mobile-dashboard.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\service-worker.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\699878e1-f8b1-4a8e-b93c-0bede1f6c6d6.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\6f87b2c4-9714-467d-b8e1-95a0d2a3e521.pdf"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\99b55af0-87e2-428c-8c19-0eafee90c3ae.png",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\99b55af0-87e2-428c-8c19-0eafee90c3ae.png"
+    },
+    {
+      "Id": "C:\\awp\\SocietyManagementSystem\\wwwroot\\uploads\\complaints\\f858c21e-9bdc-49d8-906b-e6326d61be36.png",
+      "PackagePath": "staticwebassets\\uploads\\complaints\\f858c21e-9bdc-49d8-906b-e6326d61be36.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SocietyManagementSystem.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

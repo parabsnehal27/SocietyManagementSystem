@@ -1,0 +1,175 @@
+﻿@model SocietyManagementSystem.ViewModels.CreateSecurityGuardViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+
+            <div class="card-body">
+
+                <form method="post">
+
+                    <h5 class="mb-3">
+                        Personal Information
+                    </h5>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Full Name</label>
+                            <input asp-for="FullName"
+                                   class="form-control"
+                                   placeholder="Enter Full Name" 
+                                   required/>
+                    <span asp-validation-for="FullName"
+                          class="text-danger"></span>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Email</label>
+                            <input asp-for="Email"
+                                   type="email"
+                                   class="form-control"
+                                   placeholder="Enter Email Address"
+                           required />
+                    <span asp-validation-for="Email"
+                          class="text-danger"></span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Phone Number</label>
+                            <input asp-for="PhoneNumber"
+                                   class="form-control"
+                                   maxlength="10"
+                                   placeholder="Enter Mobile Number"
+                           required />
+                    <span asp-validation-for="PhoneNumber"
+                          class="text-danger"></span>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Password</label>
+                            <input asp-for="Password"
+                                   type="password"
+                                   class="form-control"
+                                   placeholder="Enter Password"
+                           required />
+                    <span asp-validation-for="Password"
+                          class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <h5 class="mb-3">
+                        Employment Details
+                    </h5>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Employee Code</label>
+                            <input asp-for="EmployeeCode"
+                                   class="form-control"
+                                   placeholder="EMP001"
+                           required />
+                    <span asp-validation-for="EmployeeCode"
+                          class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Shift Timing</label>
+
+                            <select asp-for="ShiftTiming"
+                                    class="form-select">
+
+                                <option value="">
+                                    -- Select Shift --
+                                </option>
+
+                                <option>Morning</option>
+                                <option>Afternoon</option>
+                                <option>Night</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Salary</label>
+                            <input asp-for="Salary"
+                                   class="form-control"
+                           required />
+                    <span asp-validation-for="Salary"
+                          class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <h5 class="mb-3">
+                        Identity Details
+                    </h5>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Aadhaar Number</label>
+                            <input asp-for="AadhaarNumber"
+                                   maxlength="12"
+                                   class="form-control"
+                           required />
+                    <span asp-validation-for="AadhaarNumber"
+                          class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 mb-4">
+                            <label>Address</label>
+                            <textarea asp-for="Address"
+                                      rows="3"
+                                      class="form-control"
+                              required></textarea>
+                        </div>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success">
+
+                        <i class="fas fa-save me-2"></i>
+                        Save Security Guard
+
+                    </button>
+
+                    <a asp-action="Security"
+                       class="btn btn-secondary">
+
+                        Cancel
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

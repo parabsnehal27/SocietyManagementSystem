@@ -1,0 +1,112 @@
+﻿@model List<SocietyManagementSystem.Models.Visitor>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+<h2 class="mb-2 fw-bold">
+    Security
+</h2>
+
+<p class="text-muted mb-4">
+    Manage Visitors
+</p>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <!-- SEARCH -->
+    <form method="get" class="w-50">
+
+        <div class="input-group">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search by Visitors Name" />
+
+            <button class="btn btn-primary">
+
+                <i class="fas fa-search me-2"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>#</th>
+
+                <th>Visitor Name</th>
+
+                <th>Phone Number</th>
+
+                <th>Purpose</th>
+
+                <th>Vehicle Number</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@count</td>
+
+                        <td>
+                            @item.VisitorName
+                        </td>
+
+                        <td>
+                            @item.PhoneNumber
+                        </td>
+
+                        <td>
+                            @item.Purpose
+                        </td>
+
+                        <td>
+                            @item.VehicleNumber
+                        </td>
+
+                    </tr>
+
+                    count++;
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="7"
+                        class="text-center text-danger">
+
+                        No Record Found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

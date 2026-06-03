@@ -1,19 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\awp\\SocietyManagementSystem\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\addvisitorentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\addvisitorentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 187,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SecurityController.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SecurityController.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
+              "RelativeToolTip": "Controllers\\SecurityController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAvwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T19:08:46.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddVisitorEntry.cshtml",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\AddVisitorEntry.cshtml",
+              "RelativeDocumentMoniker": "Views\\Security\\AddVisitorEntry.cshtml",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\AddVisitorEntry.cshtml",
+              "RelativeToolTip": "Views\\Security\\AddVisitorEntry.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAIoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-03T19:07:38.581Z",
+              "EditorCaption": ""
             }
           ]
         }

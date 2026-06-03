@@ -1,0 +1,166 @@
+﻿@model List<SocietyManagementSystem.Models.SecurityGuard>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+<h2 class="mb-2 fw-bold">
+    Security
+</h2>
+
+<p class="text-muted mb-4">
+    Manage security staff information
+</p>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <!-- SEARCH -->
+    <form method="get" class="w-50">
+
+        <div class="input-group">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search by Employee Name, Shift or Address" />
+
+            <button class="btn btn-primary">
+
+                <i class="fas fa-search me-2"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- ADD BUTTON -->
+    <a href="/Admin/CreateSecurity"
+       class="btn btn-primary">
+
+        <i class="fas fa-plus me-2"></i>
+
+        Add Security Guard
+
+    </a>
+
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>#</th>
+
+                <th>Employee Name</th>
+
+                <th>Shift Timing</th>
+
+                <th>Joining Date</th>
+
+                <th>Address</th>
+
+                <th>Salary</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@count</td>
+
+                        <td>
+                            @item.User.FullName
+                        </td>
+
+                        <td>
+
+                            @if (item.ShiftTiming == "Morning")
+                            {
+                                <span class="badge bg-primary">
+
+                                    Morning
+
+                                </span>
+                            }
+                            else if (item.ShiftTiming == "Afternoon")
+                            {
+                                <span class="badge bg-warning text-dark">
+
+                                    Afternoon
+
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-dark">
+
+                                    Night
+
+                                </span>
+                            }
+
+                        </td>
+
+                        <td>
+                            @item.JoiningDate.ToString("dd-MM-yyyy")
+                        </td>
+
+                        <td>
+                            @item.Address
+                        </td>
+
+                        <td>
+                            ₹@item.Salary
+                        </td>
+
+                        <td>
+
+                            <a href="/Admin/EditSecurity/@item.GuardId"
+                               class="btn btn-warning btn-sm">
+
+                                <i class="fas fa-edit"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    count++;
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="7"
+                        class="text-center text-danger">
+
+                        No Record Found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

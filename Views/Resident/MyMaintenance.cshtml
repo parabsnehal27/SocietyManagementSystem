@@ -1,0 +1,183 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Maintenance>
+
+@{
+    Layout = "~/Views/Shared/_ResidentLayout.cshtml";
+    ViewData["Title"] = "My Maintenance";
+}
+
+<style>
+
+    .page-header {
+        background: linear-gradient(135deg, #0066CC, #00A8E8);
+        color: white;
+        padding: 28px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0,102,204,.18);
+    }
+
+    .maintenance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+        gap: 20px;
+    }
+
+    .maintenance-card {
+        background: white;
+        border-radius: 20px;
+        padding: 22px;
+        border: 1px solid #D8E9FF;
+        box-shadow: 0 8px 20px rgba(0,102,204,.08);
+        transition: .3s;
+    }
+
+        .maintenance-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .month-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1A1A2E;
+        margin-bottom: 15px;
+    }
+
+    .amount-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .total-due {
+        background: #F3F8FF;
+        padding: 12px;
+        border-radius: 12px;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: #0066CC;
+    }
+
+    .card-footer-custom {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .status-paid {
+        background: #E8F8EE;
+        color: #27AE60;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-weight: 700;
+    }
+
+    .status-pending {
+        background: #FFF4E5;
+        color: #E67E22;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-weight: 700;
+    }
+
+    .view-btn {
+        background: linear-gradient(135deg,#0066CC,#00A8E8);
+        color: white;
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: 600;
+    }
+
+</style>
+
+<div class="page-header">
+    <h2>My Maintenance</h2>
+</div>
+
+@if (Model.Any())
+{
+    <div class="maintenance-grid">
+
+        @foreach (var item in Model)
+        {
+            <div class="maintenance-card">
+
+                <div class="month-title">
+
+                        @(System.Globalization.CultureInfo
+                            .CurrentCulture
+                            .DateTimeFormat
+                            .GetMonthName(item.Month))
+
+                    @item.Year
+
+                </div>
+
+                <div class="amount-row">
+                    <span>Current Amount</span>
+                    <strong>₹ @item.Amount</strong>
+                </div>
+
+                <div class="amount-row">
+                    <span>Previous Due</span>
+                    <strong>₹ @item.PreviousDue</strong>
+                </div>
+
+                <div class="amount-row">
+                    <span>Late Fee</span>
+                    <strong>₹ @item.LateFee</strong>
+                </div>
+
+                <div class="amount-row">
+                    <span>Due Date</span>
+                    <strong>
+                        @item.DueDate.ToString("dd MMM yyyy")
+                    </strong>
+                </div>
+
+                <div class="total-due">
+                    Total Due ₹ @item.TotalDue
+                </div>
+
+                <div class="card-footer-custom">
+
+                    @if (item.PaymentStatus == "Paid")
+                    {
+                        <span class="status-paid">
+                            Paid
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="status-pending">
+                            Pending
+                        </span>
+                    }
+
+                    <a asp-action="MaintenanceDetails"
+                       asp-route-id="@item.MaintenanceId"
+                       class="view-btn">
+
+                        View Bill
+
+                    </a>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        No maintenance records found.
+    </div>
+}

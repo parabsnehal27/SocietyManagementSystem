@@ -1,0 +1,318 @@
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - Resident Panel</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #F0F7FF;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 85px;
+            left: 0;
+            background: linear-gradient(180deg, #0066CC, #00A8E8);
+            color: white;
+            transition: 0.3s ease;
+            overflow: hidden;
+            position: fixed;
+            height: 100%;
+            z-index: 2000;
+        }
+
+            .sidebar.expanded {
+                width: 260px;
+            }
+
+        .sidebar-header {
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .toggle-btn {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+            .menu li {
+                margin: 8px 0;
+            }
+
+            .menu a {
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                padding: 14px 24px;
+                transition: 0.3s;
+                border-radius: 12px;
+                margin: 0 10px;
+            }
+
+                .menu a:hover {
+                    background: rgba(255,255,255,0.18);
+                }
+
+                .menu a.active {
+                    background: rgba(255,255,255,0.25);
+                }
+
+            .menu i {
+                font-size: 20px;
+                min-width: 24px;
+                text-align: center;
+            }
+
+            .menu span {
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.2s;
+                white-space: nowrap;
+            }
+
+        .sidebar.expanded .menu span {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 85px;
+            transition: 0.3s ease;
+        }
+
+            .main-content.expanded {
+                margin-left: 260px;
+            }
+
+        .topbar {
+            height: 75px;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1500;
+        }
+
+        .panel-title {
+            color: #1A1A2E;
+            font-size: 24px;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        .user-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+            .user-box i {
+                font-size: 20px;
+                color: #0066CC;
+            }
+
+        .page-content {
+            padding: 30px;
+        }
+
+        /* MOBILE */
+        @@media (max-width: 768px) {
+            .sidebar
+
+        {
+            width: 260px;
+            left: -260px;
+        }
+
+        .sidebar.expanded {
+            left: 0;
+        }
+
+        .sidebar-header {
+            display: none;
+        }
+
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+        }
+
+            .main-content.expanded {
+                margin-left: 0;
+            }
+
+        .topbar {
+            padding: 0 16px;
+        }
+
+        .panel-title {
+            font-size: 16px;
+        }
+
+        .user-box span {
+            display: none;
+        }
+
+        .page-content {
+            padding: 16px;
+        }
+
+        }
+
+        @@media (max-width: 480px) {
+            .user-box .fa-bell
+
+        {
+            display: none;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars toggle-btn" onclick="toggleSidebar()"></i>
+            </div>
+
+            <ul class="menu">
+                <li>
+                    <a asp-controller="Resident" asp-action="Dashboard"
+                       class="@(currentAction == "Dashboard" ? "active" : "")">
+                        <i class="fas fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Resident" asp-action="SubmitComplaint"
+                       class="@(currentAction == "SubmitComplaint" ? "active" : "")">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <span>Submit Complaint</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Resident" asp-action="TrackComplaints"
+                       class="@(currentAction == "TrackComplaints" ? "active" : "")">
+                        <i class="fas fa-list-check"></i>
+                        <span>Track Complaints</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Resident" asp-action="VisitorRequests"
+                       class="@(currentAction == "VisitorRequests" ? "active" : "")">
+                        <i class="fas fa-user-check"></i>
+                        <span>Visitor Requests</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Resident" asp-action="MyMaintenance"
+                       class="@(currentAction == "MyMaintenance" ? "active" : "")">
+                        <i class="fas fa-wallet"></i>
+                        <span>Maintenance</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Resident" asp-action="Notices"
+                       class="@(currentAction == "Notices" ? "active" : "")">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Notices</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Resident"
+                       asp-action="Profile"
+                       class="@(currentAction == "Profile" ? "active" : "")">
+
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Account" asp-action="Logout">
+                        <i class="fas fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <div class="main-content" id="mainContent">
+
+            <!-- Topbar -->
+            <div class="topbar">
+
+                <div style="display:flex; align-items:center; gap:15px;">
+                    <i class="fas fa-bars toggle-btn"
+                       onclick="toggleSidebar()"
+                       style="font-size:22px; cursor:pointer; color:#0066CC;"></i>
+
+                    <h2 class="panel-title">Resident Panel</h2>
+                </div>
+
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                @RenderBody()
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("expanded");
+            document.getElementById("mainContent").classList.toggle("expanded");
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿@model SocietyManagementSystem.Models.Maintenance
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Mark Maintenance Paid";
+}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-success text-white">
+
+                <h4 class="mb-0">
+                    Mark Maintenance Paid
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="mb-4">
+
+                    <h5>
+                        Resident Details
+                    </h5>
+
+                    <hr />
+
+                    <p>
+                        <strong>Name:</strong>
+                        @Model.Resident.User.FullName
+                    </p>
+
+                    <p>
+                        <strong>Flat:</strong>
+                        @Model.Resident.Wing-@Model.Resident.FlatNumber
+                    </p>
+
+                    <p>
+                        <strong>Month:</strong>
+                        @(System.Globalization.CultureInfo
+                            .CurrentCulture
+                            .DateTimeFormat
+                            .GetMonthName(Model.Month)
+                            )
+                        @Model.Year
+                    </p>
+
+                    <p>
+                        <strong>Total Due:</strong>
+                        ₹ @Model.TotalDue
+                    </p>
+
+                </div>
+
+                <form method="post">
+
+                    <input type="hidden"
+                           name="id"
+                           value="@Model.MaintenanceId" />
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Payment Method
+                        </label>
+
+                        <select name="paymentMethod"
+                                class="form-control"
+                                required>
+
+                            <option value="">
+                                Select Payment Method
+                            </option>
+
+                            <option value="Cash">
+                                Cash
+                            </option>
+
+                            <option value="UPI">
+                                UPI
+                            </option>
+
+                            <option value="Bank Transfer">
+                                Bank Transfer
+                            </option>
+
+                            <option value="Cheque">
+                                Cheque
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Transaction Reference
+                        </label>
+
+                        <input type="text"
+                               name="transactionReference"
+                               class="form-control"
+                               placeholder="UPI Ref / Cheque No / Transaction Id" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Remarks
+                        </label>
+
+                        <textarea name="remarks"
+                                  class="form-control"
+                                  rows="3"
+                                  placeholder="Optional remarks"></textarea>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success">
+
+                        Save Payment
+
+                    </button>
+
+                    <a asp-action="Maintenance"
+                       class="btn btn-secondary">
+
+                        Cancel
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

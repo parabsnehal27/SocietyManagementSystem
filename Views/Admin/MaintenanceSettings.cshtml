@@ -1,0 +1,144 @@
+﻿@model SocietyManagementSystem.Models.MaintenanceConfiguration
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h2 class="mb-3">
+                    Maintenance Settings
+                </h2>
+
+                <p class="text-muted">
+                    Configure society maintenance charges.
+                </p>
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Success"]
+                    </div>
+                }
+
+                <form method="post">
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Repair & Maintenance</label>
+                            <input asp-for="RepairMaintenance"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Water Charges</label>
+                            <input asp-for="WaterCharges"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Service Charges</label>
+                            <input asp-for="ServiceCharges"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Electricity Charges</label>
+                            <input asp-for="ElectricityCharges"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Parking Charges</label>
+                            <input asp-for="ParkingCharges"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Non Occupancy Charges</label>
+                            <input asp-for="NonOccupancyCharges"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>House Keeping Charges</label>
+                            <input asp-for="HouseKeepingCharges"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Municipal Taxes</label>
+                            <input asp-for="MunicipalTaxes"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>Late Fee Percentage</label>
+                            <input asp-for="LateFeePercentage"
+                                   class="form-control"
+                                   type="number"
+                                   min="1"
+                                   required />
+                        </div>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success">
+
+                        Save Settings
+
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
