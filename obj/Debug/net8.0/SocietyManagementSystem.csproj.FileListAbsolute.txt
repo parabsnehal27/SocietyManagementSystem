@@ -153,3 +153,15 @@ C:\awp\SocietyManagementSystem\obj\Debug\net8.0\refint\SocietyManagementSystem.d
 C:\awp\SocietyManagementSystem\obj\Debug\net8.0\SocietyManagementSystem.pdb
 C:\awp\SocietyManagementSystem\obj\Debug\net8.0\SocietyManagementSystem.genruntimeconfig.cache
 C:\awp\SocietyManagementSystem\obj\Debug\net8.0\ref\SocietyManagementSystem.dll
+C:\awp\SocietyManagementSystem\obj\Debug\net8.0\SocietyManagementSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\ClosedXML.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\ClosedXML.Parser.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\ExcelNumberFormat.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\RBush.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\Rotativa.AspNetCore.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\System.IO.Packaging.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\awp\SocietyManagementSystem\bin\Debug\net8.0\itextsharp.dll

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Maintenance>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Maintenance Report</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>
+        Maintenance Report
+    </h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>#</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Due Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @{
+                int count = 1;
+            }
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@count</td>
+
+                    <td>@item.Month</td>
+
+                    <td>@item.Year</td>
+
+                    <td>@item.Amount</td>
+
+                    <td>@item.PaymentStatus</td>
+
+                    <td>@item.DueDate</td>
+
+                </tr>
+
+                count++;
+            }
+
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>

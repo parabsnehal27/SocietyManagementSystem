@@ -1,0 +1,84 @@
+﻿@model SocietyManagementSystem.Models.Notice
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h2 class="mb-4">Add Notice</h2>
+
+                <form method="post">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Notice Title</label>
+
+                            <input asp-for="Title"
+                                   class="form-control"
+                                   required />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Description</label>
+
+                            <textarea asp-for="Description"
+                                      class="form-control"
+                                      rows="4"
+                                      required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Notice Type</label>
+
+                            <select asp-for="NoticeType"
+                                    class="form-control"
+                                    required>
+
+                                <option value="">-- Select --</option>
+
+                                <option>General</option>
+                                <option>Emergency</option>
+                                <option>Maintenance</option>
+                                <option>Event</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Expiry Date</label>
+
+                            <input asp-for="ExpiryDate"
+                                   class="form-control"
+                                   type="date"
+                                   required
+                                   min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success">
+                        Save Notice
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

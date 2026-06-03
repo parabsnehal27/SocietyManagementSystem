@@ -22,6 +22,7 @@ namespace SocietyManagementSystem.Data
         public DbSet<ComplaintAttachment> ComplaintAttachments { get; set; }
 
         public DbSet<PushSubscription> PushSubscriptions { get; set; }
+        public DbSet<MaintenanceConfiguration> MaintenanceConfigurations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

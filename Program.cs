@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
@@ -51,6 +52,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -64,5 +67,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}");
+
+RotativaConfiguration.Setup(
+    builder.Environment.WebRootPath,
+    "Rotativa"
+);
 
 app.Run();

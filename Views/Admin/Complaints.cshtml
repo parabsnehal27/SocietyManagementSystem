@@ -1,0 +1,203 @@
+﻿@model List<SocietyManagementSystem.Models.Complaint>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<h2 class="mb-4">Complaints</h2>
+<p class="text-muted mb-4">
+    Track and manage resident complaints
+</p>
+
+
+<div class="d-flex
+            justify-content-between
+            align-items-center
+            flex-wrap
+            gap-3
+            mb-4">
+
+    <!-- SEARCH BAR -->
+    <form method="get">
+
+        <div class="input-group w-50"
+             style="min-width:500px;">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search by Title, Category, Status or Priority" />
+
+            <button class="btn btn-primary">
+
+                <i class="fas fa-search"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- EXPORT BUTTONS -->
+    <div class="d-flex gap-2">
+
+        <a href="/Admin/ExportComplaintPdf"
+           class="btn btn-danger">
+
+            Export PDF
+
+        </a>
+
+        <a href="/Admin/ExportComplaintExcel"
+           class="btn btn-success">
+
+            Export Excel
+
+        </a>
+
+    </div>
+
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th width="180">Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var complaint in Model)
+            {
+                <tr>
+
+                    <td>@count</td>
+
+                    <td>@complaint.Title</td>
+
+                    <td>@complaint.Description</td>
+
+                    <td>@complaint.Category</td>
+
+                    <!-- STATUS -->
+                    <td>
+
+                        @if (complaint.Status == "Pending")
+                        {
+                            <span class="badge bg-warning">
+
+                                Pending
+
+                            </span>
+                        }
+                        else if (complaint.Status == "Resolved")
+                        {
+                            <span class="badge bg-success">
+
+                                Resolved
+
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">
+
+                                Rejected
+
+                            </span>
+                        }
+
+                    </td>
+
+                    <td>
+                        @(complaint.CreatedAt.ToString("dd-MM-yyyy"))
+                    </td>
+
+                    <!-- ACTIONS -->
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            @if (complaint.Status == "Pending")
+                            {
+                                <a href="/Admin/ResolveComplaint/@complaint.ComplaintId"
+                                   class="btn btn-success btn-sm">
+
+                                    Resolve
+
+                                </a>
+
+                                <a href="/Admin/RejectComplaint/@complaint.ComplaintId"
+                                   class="btn btn-danger btn-sm">
+
+                                    Reject
+
+                                </a>
+                            }
+                            else if (complaint.Status == "Resolved")
+                            {
+                                <a href="/Admin/RejectComplaint/@complaint.ComplaintId"
+                                   class="btn btn-warning btn-sm">
+
+                                    Reject
+
+                                </a>
+                            }
+                            else if (complaint.Status == "Rejected")
+                            {
+                                <a href="/Admin/ResolveComplaint/@complaint.ComplaintId"
+                                   class="btn btn-success btn-sm">
+
+                                    Resolve
+
+                                </a>
+                            }
+                        </div>
+                    </td>
+
+                </tr>
+
+                count++;
+            }
+
+        </tbody>
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    // existing rows
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="10"
+                        class="text-center text-muted">
+
+                        No records found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

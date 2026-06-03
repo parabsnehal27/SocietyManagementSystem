@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
+using System.Diagnostics;
 
 namespace SocietyManagementSystem.Controllers
 {
@@ -71,17 +71,118 @@ namespace SocietyManagementSystem.Controllers
         [HttpPost]
         public IActionResult RegisterResident(RegisterResidentViewModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
-
-            // Check email already exists
-            var existingUser = _context.Users.FirstOrDefault(u => u.Email == model.Email);
+            // Email already exists
+            var existingUser =
+                _context.Users
+                .FirstOrDefault(u =>
+                    u.Email == model.Email);
 
             if (existingUser != null)
             {
-                ModelState.AddModelError("", "Email already registered.");
+                ModelState.AddModelError(
+                    "Email",
+                    "Email already registered.");
+
                 return View(model);
             }
+
+            // Phone number validation
+            if (!System.Text.RegularExpressions.Regex
+                .IsMatch(model.PhoneNumber ?? "",
+                @"^[6-9]\d{9}$"))
+            {
+                ModelState.AddModelError(
+                    "PhoneNumber",
+                    "Enter valid 10 digit mobile number.");
+
+                return View(model);
+            }
+
+            // Password validation
+            if (!System.Text.RegularExpressions.Regex
+                .IsMatch(model.Password ?? "",
+                @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{6,}$"))
+            {
+                ModelState.AddModelError(
+                    "Password",
+                    "Password must contain at least 6 characters, one letter, one number and one special character.");
+
+                return View(model);
+            }
+
+            // Confirm password
+            if (model.Password != model.ConfirmPassword)
+            {
+                ModelState.AddModelError(
+                    "ConfirmPassword",
+                    "Passwords do not match.");
+
+                return View(model);
+            }
+
+            // Family member count
+            if (model.FamilyMembersCount <= 0)
+            {
+                ModelState.AddModelError(
+                    "FamilyMembersCount",
+                    "Family members count must be greater than 0.");
+
+                return View(model);
+            }
+
+            // Owner/Tenant validation
+            var flatResidents =
+                _context.Residents
+                .Where(r =>
+                    r.Wing == model.Wing &&
+                    r.FlatNumber == model.FlatNumber)
+                .ToList();
+
+            if (model.OwnerOrTenant == "Owner")
+            {
+                bool ownerExists =
+                    flatResidents.Any(r =>
+                        r.OwnerOrTenant == "Owner");
+
+                if (ownerExists)
+                {
+                    ModelState.AddModelError(
+                        "",
+                        "Owner already registered for this flat.");
+
+                    return View(model);
+                }
+            }
+
+            if (model.OwnerOrTenant == "Tenant")
+            {
+                bool tenantExists =
+                    flatResidents.Any(r =>
+                        r.OwnerOrTenant == "Tenant");
+
+                if (tenantExists)
+                {
+                    ModelState.AddModelError(
+                        "",
+                        "Tenant already registered for this flat.");
+
+                    return View(model);
+                }
+
+                bool ownerExists =
+                    flatResidents.Any(r =>
+                        r.OwnerOrTenant == "Owner");
+
+                if (!ownerExists)
+                {
+                    ModelState.AddModelError(
+                        "",
+                        "Owner must be registered before tenant registration.");
+
+                    return View(model);
+                }
+            }
+
 
             // Save Users table
             User user = new User
@@ -131,7 +232,6 @@ namespace SocietyManagementSystem.Controllers
 
                 if (User.IsInRole("Resident"))
                     return RedirectToAction("Dashboard", "Resident");
-
                 if (User.IsInRole("SecurityGuard"))
                     return RedirectToAction("Dashboard", "Security");
             }
@@ -146,6 +246,10 @@ namespace SocietyManagementSystem.Controllers
                 return View(model);
 
             var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
+            Console.WriteLine($"User Found: {user?.Email}");
+            Console.WriteLine($"Role: {user?.Role}");
+            Console.WriteLine($"Approval: {user?.ApprovalStatus}");
+
 
             if (user == null)
             {
@@ -160,7 +264,7 @@ namespace SocietyManagementSystem.Controllers
                 ModelState.AddModelError("", "Invalid email or password.");
                 return View(model);
             }
-
+            Console.WriteLine("Password Verified");
             if (user.ApprovalStatus != "Approved")
             {
                 ModelState.AddModelError("", "Your account is pending admin approval.");
@@ -213,6 +317,13 @@ namespace SocietyManagementSystem.Controllers
 
             if (user.Role == "SecurityGuard")
                 return RedirectToAction("Dashboard", "Security");
+
+            Console.WriteLine("Login Button Clicked");
+            Console.WriteLine(model.Email);
+
+            Console.WriteLine(user?.Role);
+
+            Console.WriteLine("Redirecting...");
 
             return RedirectToAction("Index", "Home");
         }

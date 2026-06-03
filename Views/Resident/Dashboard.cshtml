@@ -139,6 +139,47 @@
                 color: #1A1A2E;
             }
 
+    .notice-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        background: #F8FAFC;
+        border: 1px solid #E5E7EB;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        .notice-card:hover {
+            background: #EEF4FF;
+            transform: translateY(-2px);
+        }
+
+    .notice-title {
+        color: #111827;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .notice-date {
+        color: #6B7280;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    .notice-arrow {
+        font-size: 20px;
+        color: #6B7280;
+    }
+
+    .view-all-btn {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        font-weight: 600;
+    }
         @@media (max-width: 900px) {
             .bottom-grid {
                 grid-template-columns: 1fr;
@@ -240,11 +281,6 @@
                 <div class="stat-label">Total Visitors</div>
                 <div class="stat-value" id="totalvisitors">0</div>
             </div>
-
-            <div class="stat-card">
-                <div class="stat-label">Maintenance Due</div>
-                <div class="stat-value" ></div>
-            </div>
         </div>
 
         <!-- Quick Actions -->
@@ -270,7 +306,7 @@
                 <div class="action-desc">Approve or reject visitor entries.</div>
             </a>
 
-            <a href="#" class="action-card">
+        <a href="/Resident/MyMaintenance" class="action-card">
                 <i class="bi bi-credit-card"></i>
                 <div class="action-title">Maintenance</div>
                 <div class="action-desc">Check and manage maintenance dues.</div>
@@ -281,21 +317,45 @@
         <!-- Bottom Panels -->
         <div class="bottom-grid">
 
-            <div class="panel">
-                <div class="section-title">Recent Notices</div>
+        <div class="panel">
 
-                <div class="notice-item">
-                    Water supply maintenance scheduled on Sunday.
-                </div>
-
-                <div class="notice-item">
-                    Monthly society meeting at 7 PM in clubhouse.
-                </div>
-
-                <div class="notice-item">
-                    Visitor policy updated for weekend access.
-                </div>
+            <div class="section-title">
+                Recent Notices
             </div>
+
+            @foreach (var notice in ViewBag.RecentNotices)
+            {
+                <a asp-action="NoticeDetails"
+                   asp-route-id="@notice.NoticeId"
+                   class="notice-card">
+
+                    <div class="notice-content">
+
+                        <div class="notice-title">
+                            @notice.Title
+                        </div>
+
+                        <div class="notice-date">
+                            @notice.PostedDate.ToString("dd MMM yyyy")
+                        </div>
+
+                    </div>
+
+                    <div class="notice-arrow">
+                        →
+                    </div>
+
+                </a>
+            }
+
+            <a asp-action="Notice"
+               class="view-all-btn">
+
+                View All Notices
+
+            </a>
+
+        </div>
 
             <div class="panel">
                 <div class="section-title">Profile Summary</div>

@@ -1,0 +1,122 @@
+﻿@model SocietyManagementSystem.Models.Maintenance
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h2 class="mb-4">Edit Maintenance</h2>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Error"]
+                    </div>
+                }
+
+                <form method="post">
+                    <input type="hidden"
+                           asp-for="MaintenanceId" />
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Month</label>
+
+                            <select asp-for="Month"
+                                    class="form-control"
+                                    required>
+
+                                <option value="">-- Select Month --</option>
+
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Year</label>
+
+                            <select asp-for="Year"
+                                    class="form-control">
+
+                                <option value="">
+                                    -- Select Year --
+                                </option>
+
+                                @for (int year = DateTime.Now.Year;
+                                year <= DateTime.Now.Year + 10;
+                                year++)
+                                {
+                                    <option value="@year">
+
+                                        @year
+
+                                    </option>
+                                }
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Amount</label>
+
+                            <input asp-for="Amount"
+                                   type="number"
+                                   class="form-control"
+                                   required />
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <label>Due Date</label>
+
+                            <input asp-for="DueDate"
+                                   type="date"
+                                   class="form-control"
+                                   min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                   required />
+
+
+
+                        </div>
+                    </div>
+
+
+
+                    <button class="btn btn-success">
+                        Save Maintenance
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

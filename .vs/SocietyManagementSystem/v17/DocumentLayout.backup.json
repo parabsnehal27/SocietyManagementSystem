@@ -3,52 +3,12 @@
   "WorkspaceRootPath": "C:\\awp\\SocietyManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\residentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\residentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\resident\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\shared\\_securitylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\shared\\_securitylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\resident\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\resident\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\securitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\registerresidentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\registerresidentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\security\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\security\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\changepasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\changepasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\views\\shared\\_residentlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:views\\shared\\_residentlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\residentprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\residentprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\viewmodels\\securityprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:viewmodels\\securityprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|c:\\awp\\societymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D11CC83-56A5-4294-B65C-12CA091364AE}|SocietyManagementSystem.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 187,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,152 +26,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Security\\Dashboard.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\Security\\Dashboard.cshtml",
-              "ViewState": "AgIAALEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-31T09:54:05.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Resident\\Dashboard.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\Resident\\Dashboard.cshtml",
-              "ViewState": "AgIAAFABAAAAAAAAAAAQwOYAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-31T09:21:02.993Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Profile.cshtml",
-              "RelativeDocumentMoniker": "Views\\Resident\\Profile.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Resident\\Profile.cshtml",
-              "RelativeToolTip": "Views\\Resident\\Profile.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-29T14:24:06.038Z",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAkwMAAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T19:04:36.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ResidentController.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\ResidentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ResidentController.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\ResidentController.cs",
-              "RelativeToolTip": "Controllers\\ResidentController.cs",
-              "ViewState": "AgIAABgCAAAAAAAAAAAAwBwCAAA1AAAAAAAAAA==",
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\AdminController.cs*",
+              "RelativeToolTip": "Controllers\\AdminController.cs*",
+              "ViewState": "AgIAABUEAAAAAAAAAAAnwCEEAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T14:16:57.04Z",
+              "WhenOpened": "2026-06-03T19:02:06.406Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_SecurityLayout.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_SecurityLayout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_SecurityLayout.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_SecurityLayout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_SecurityLayout.cshtml",
-              "ViewState": "AgIAAE0BAAAAAAAAAAAAACcBAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-29T14:32:26.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RegisterResidentViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\RegisterResidentViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\RegisterResidentViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\RegisterResidentViewModel.cs",
-              "RelativeToolTip": "ViewModels\\RegisterResidentViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T16:46:53.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ChangePasswordViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ChangePasswordViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ChangePasswordViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ChangePasswordViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ChangePasswordViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T15:04:13.442Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SecurityController.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SecurityController.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Controllers\\SecurityController.cs",
-              "RelativeToolTip": "Controllers\\SecurityController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T14:16:54.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Profile.cshtml",
-              "RelativeDocumentMoniker": "Views\\Security\\Profile.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Security\\Profile.cshtml",
-              "RelativeToolTip": "Views\\Security\\Profile.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-29T14:24:01.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_ResidentLayout.cshtml",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_ResidentLayout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_ResidentLayout.cshtml",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\Views\\Shared\\_ResidentLayout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_ResidentLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABABAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-29T14:32:08.546Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ResidentProfileViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ResidentProfileViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ResidentProfileViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\ResidentProfileViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ResidentProfileViewModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA7wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T14:25:59.996Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SecurityProfileViewModel.cs",
-              "DocumentMoniker": "C:\\awp\\SocietyManagementSystem\\ViewModels\\SecurityProfileViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\SecurityProfileViewModel.cs",
-              "ToolTip": "C:\\awp\\SocietyManagementSystem\\ViewModels\\SecurityProfileViewModel.cs",
-              "RelativeToolTip": "ViewModels\\SecurityProfileViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T14:21:55.246Z"
             }
           ]
         }

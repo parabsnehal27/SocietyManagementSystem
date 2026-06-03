@@ -25,5 +25,6 @@ namespace SocietyManagementSystem.Models
         public bool IsActive { get; set; } = true;
 
         public User User { get; set; }
+        public string? AttachmentPath { get; set; }
     }
 }

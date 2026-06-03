@@ -1,1 +1,402 @@
-﻿<h2>Admin Dashboard</h2>
+﻿@using SocietyManagementSystem.Models
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var recentComplaints =
+        ViewBag.RecentComplaints as List<Complaint>
+        ?? new List<Complaint>();
+}
+
+<h2 class="mb-4">Dashboard</h2>
+<p class="text-muted mb-4">
+    Overview of society activities and statistics
+</p>
+
+
+<!-- ROW 1 -->
+<div class="row mt-3">
+
+    <!-- RESIDENTS -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+
+        <div class="card bg-primary text-white shadow-lg border-0">
+
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
+
+                <div>
+
+                    <h5>Total Residents</h5>
+
+                    <h1>@ViewBag.TotalResidents</h1>
+
+                </div>
+
+                <i class="fas fa-users fa-4x opacity-50"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COMPLAINTS -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+
+        <div class="card bg-danger text-white shadow-lg border-0">
+
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
+
+                <div>
+
+                    <h5>Complaints</h5>
+
+                    <h1>@ViewBag.TotalComplaints</h1>
+
+                </div>
+
+                <i class="fas fa-exclamation-circle fa-4x opacity-50"></i>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- VISITORS -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+
+        <div class="card bg-success text-white shadow-lg border-0">
+
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
+
+                <div>
+
+                    <h5>Visitors</h5>
+
+                    <h1>@ViewBag.TotalVisitors</h1>
+
+                </div>
+
+                <i class="fas fa-user-secret fa-4x opacity-50"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @* <!-- MAINTENANCE -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+
+        <div class="card bg-orange text-white shadow-lg border-0">
+
+            <div class="card-body d-flex
+                        justify-content-between
+                        align-items-center">
+
+                <div>
+
+                    <h5>Maintenance</h5>
+
+                    <h1>
+                        ₹@(
+                           ViewBag.PaidMaintenance *
+                           1000
+                           )
+                    </h1>
+
+                </div>
+
+                <i class="fas fa-money-bill-wave fa-4x opacity-50"></i>
+
+            </div>
+
+        </div>
+
+    </div> *@
+
+</div>
+
+<!-- ROW 2 -->
+<div class="row">
+
+    <!-- PENDING -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card border-warning shadow">
+
+            <div class="card-body">
+
+                <h5>Pending Complaints</h5>
+
+                <h2 class="text-warning">
+                    @ViewBag.PendingComplaints
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RESOLVED -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card border-success shadow">
+
+            <div class="card-body">
+
+                <h5>Resolved Complaints</h5>
+
+                <h2 class="text-success">
+                    @ViewBag.ResolvedComplaints
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MAINTENANCE -->
+    <div class="col-md-4 mb-4">
+
+        <div class="card border-primary shadow">
+
+            <div class="card-body">
+
+                <h5>Paid Maintenance</h5>
+
+                <h2 class="text-primary">
+                    @ViewBag.PaidMaintenance
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row mb-4">
+
+    <!-- COMPLAINT CHART -->
+    <div class="col-md-6">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white">
+
+                Complaint Analytics
+
+            </div>
+
+            <div class="card-body">
+
+                <div style="position:relative;height:280px;">
+
+                    <canvas id="complaintChart">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MAINTENANCE CHART -->
+    <div class="col-md-6">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white">
+
+                Maintenance Analytics
+
+            </div>
+
+            <div class="card-body">
+
+                <div style="position:relative;height:280px;">
+
+                    <canvas id="maintenanceChart">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- RECENT COMPLAINTS -->
+<div class="card shadow">
+
+    <div class="card-header bg-dark text-white">
+
+        Recent Complaints
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var complaint in recentComplaints)
+                {
+                    <tr>
+
+                        <td>@complaint.Title</td>
+
+                        <td>@complaint.Category</td>
+
+                        <td>
+
+                            @if (complaint.Status == "Resolved")
+                            {
+                                <span class="badge bg-success">
+                                    Resolved
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            }
+
+                        </td>
+
+                        <td>
+                            @(complaint.CreatedAt.ToString("dd-MM-yyyy"))
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <script>
+
+        window.onload = function () {
+
+            // COMPLAINT PIE CHART
+            const complaintCtx =
+                document.getElementById('complaintChart');
+
+            new Chart(complaintCtx, {
+
+                type: 'pie',
+
+
+                data: {
+
+                    labels: [
+                        'Pending',
+                        'Resolved'
+                    ],
+
+                    datasets: [{
+
+                        data: [
+        @ViewBag.PendingComplaints,
+        @ViewBag.ResolvedComplaints
+                        ],
+
+                        backgroundColor: [
+                            '#ffc107',
+                            '#28a745'
+                        ]
+
+                    }]
+                },
+                options:{
+                    responsive:true,
+                    maintainAspectRatio:false
+                }
+
+            });
+
+            // MAINTENANCE BAR CHART
+            const maintenanceCtx =
+                document.getElementById('maintenanceChart');
+
+            new Chart(maintenanceCtx, {
+
+                type: 'bar',
+
+                data: {
+
+                    labels: [
+                        'Paid',
+                        'Pending'
+                    ],
+
+                    datasets: [{
+
+                        label: 'Maintenance',
+
+                        data: [
+        @ViewBag.PaidMaintenance,
+        @ViewBag.PendingMaintenance
+                        ],
+
+                        backgroundColor: [
+                            '#007bff',
+                            '#dc3545'
+                        ]
+
+                    }]
+                },
+                options:{
+                    responsive:true,
+                    maintainAspectRatio:false
+                }
+            });
+
+        };
+
+    </script>
+
+}
+
+
+

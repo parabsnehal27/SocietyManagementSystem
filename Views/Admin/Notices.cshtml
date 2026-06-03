@@ -1,0 +1,172 @@
+﻿@model List<SocietyManagementSystem.Models.Notice>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<h2 class="mb-4">Notices</h2>
+<p class="text-muted mb-4">
+    Create and manage society notices
+</p>
+
+
+<div class="d-flex justify-content-between mb-4">
+
+    <a href="/Admin/CreateNotice"
+       class="btn btn-primary">
+
+        Add Notice
+
+    </a>
+
+    <a href="/Admin/ExportNoticePdf"
+       class="btn btn-danger">
+
+        Export PDF
+
+    </a>
+
+</div>
+
+<form method="get"
+      class="mb-4">
+
+    <div class="input-group w-50">
+
+        <input type="text"
+               name="search"
+               class="form-control"
+               placeholder="Search by Notice Title, Category or Description" />
+
+        <button class="btn btn-primary">
+
+            <i class="fas fa-search"></i>
+
+            Search
+
+        </button>
+
+    </div>
+
+
+</form>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Posted</th>
+                <th>Expiry</th>
+                <th>Status</th>
+                <th width="120">Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var notice in Model)
+            {
+                <tr>
+
+                    <td>@count</td>
+
+                    <td>@notice.Title</td>
+
+                    <td>@notice.NoticeType</td>
+
+                    <td>
+                        @(notice.PostedDate.ToString("dd-MM-yyyy"))
+                    </td>
+
+                    <td>
+                        @(notice.ExpiryDate?.ToString("dd-MM-yyyy"))
+                    </td>
+
+                    <!-- STATUS -->
+                    <td>
+
+                        @if (notice.ExpiryDate < DateTime.Now.Date)
+                        {
+                            <span class="badge bg-danger">
+
+                                Expired
+
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">
+
+                                Active
+
+                            </span>
+                        }
+
+                    </td>
+
+                    <!-- ACTION -->
+
+                    <td>
+
+                        <div class="d-flex flex-wrap gap-2">
+
+                            <a href="/Admin/EditNotice/@notice.NoticeId"
+                               class="btn btn-warning btn-sm"
+                               title="Edit Notice">
+
+                                <i class="fas fa-edit"></i>
+
+                            </a>
+
+                            <a href="/Admin/DeleteNotice/@notice.NoticeId"
+                               class="btn btn-danger btn-sm"
+                               title="Delete Notice"
+                               onclick="return confirm('Are you sure you want to delete this notice?')">
+
+                                <i class="fas fa-trash"></i>
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                count++;
+            }
+
+        </tbody>
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    // existing rows
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="10"
+                        class="text-center text-muted">
+
+                        No records found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

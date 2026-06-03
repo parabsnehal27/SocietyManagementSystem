@@ -89,6 +89,8 @@ namespace SocietyManagementSystem.Controllers
             if (!IsSecurityGuardLoggedIn())
                 return RedirectToAction("Login", "Account");
 
+
+
             if (!ModelState.IsValid)
             {
                 ViewBag.FlatNumbers = _context.Residents
@@ -101,7 +103,16 @@ namespace SocietyManagementSystem.Controllers
 
                 return View(model);
             }
+            if (!System.Text.RegularExpressions.Regex
+                .IsMatch(model.PhoneNumber ?? "",
+                @"^[6-9]\d{9}$"))
+            {
+                ModelState.AddModelError(
+                    "PhoneNumber",
+                    "Enter valid 10 digit mobile number.");
 
+                return View(model);
+            }
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (string.IsNullOrEmpty(userIdClaim))

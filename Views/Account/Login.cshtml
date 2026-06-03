@@ -1,22 +1,286 @@
 ﻿@model SocietyManagementSystem.ViewModels.LoginViewModel
+
 @{
-    ViewData["Title"] = "Login";
+    Layout = null;
 }
 
-<h2>Login</h2>
+<!DOCTYPE html>
 
-<form method="post" asp-action="Login">
-    <div>
-        <label>Email</label>
-        <input type="email" name="Email" class="form-control" />
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
+
+    <title>Smart CHS Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          rel="stylesheet" />
+
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #F8FAFC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI',sans-serif;
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #374151;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            color: white;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6C757D;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #1A1A2E;
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 12px;
+            border: 1px solid #D1D5DB;
+        }
+
+            .form-control:focus {
+                border-color: #6B7280;
+                box-shadow: none;
+            }
+
+        .input-group-text {
+            border-radius: 0 12px 12px 0;
+            cursor: pointer;
+            background: white;
+        }
+
+        .btn-login {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 12px;
+            background: #374151;
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+            .btn-login:hover {
+                background: #111827;
+            }
+
+        .register-btn {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .links a {
+                text-decoration: none;
+                color: #0066CC;
+                font-weight: 600;
+            }
+
+            .links a,
+            .register-btn {
+                color: #374151;
+            }
+
+        .validation-summary-errors ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .validation-summary-errors li {
+            color: red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-card">
+
+        <div class="logo-circle">
+            <i class="fas fa-building"></i>
+        </div>
+
+        <div class="title">
+            Smart CHS
+        </div>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Success"]
+            </div>
+        }
+
+        <div asp-validation-summary="ModelOnly"
+             class="text-danger">
+        </div>
+
+        <form asp-action="Login"
+              method="post">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Email Address
+                </label>
+
+                <input asp-for="Email"
+                       type="email"
+                       class="form-control"
+                       placeholder="Enter your email" />
+
+                <span asp-validation-for="Email"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Password
+                </label>
+
+                <div class="input-group">
+
+                    <input asp-for="Password"
+                           type="password"
+                           id="password"
+                           class="form-control"
+                           placeholder="Enter password" />
+
+                    <span class="input-group-text"
+                          onclick="togglePassword()">
+
+                        <i class="fas fa-eye"
+                           id="eyeIcon">
+                        </i>
+
+                    </span>
+
+                </div>
+
+                <span asp-validation-for="Password"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <button type="submit"
+                    class="btn-login">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="links">
+
+            <a href="/Account/ForgotPassword">
+
+                Forgot Password?
+
+            </a>
+
+        </div>
+
+        <a href="/Account/RegisterResident"
+           class="btn btn-outline-primary register-btn">
+
+            New Resident? Register Here
+
+        </a>
+
     </div>
 
-    <div>
-        <label>Password</label>
-        <input type="password" name="Password" class="form-control" />
-    </div>
+    <script>
 
-    <br />
+        function togglePassword() {
 
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+            var password =
+                document.getElementById("password");
+
+            var eye =
+                document.getElementById("eyeIcon");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                eye.classList.remove("fa-eye");
+
+                eye.classList.add("fa-eye-slash");
+            }
+            else {
+
+                password.type = "password";
+
+                eye.classList.remove("fa-eye-slash");
+
+                eye.classList.add("fa-eye");
+            }
+        }
+
+    </script>
+
+    <partial name="_ValidationScriptsPartial" />
+
+</body>
+
+</html>

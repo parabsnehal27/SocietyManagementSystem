@@ -28,8 +28,84 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlclJlc2lkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/awp/SocietyManagementSystem/Views/Admin/Complaints.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ29tcGxhaW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/ComplaintsPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ29tcGxhaW50c1BkZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/CreateMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlTWFpbnRlbmFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/CreateNotice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlTm90aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/CreateSecurity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlU2VjdXJpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/awp/SocietyManagementSystem/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/EditMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdE1haW50ZW5hbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/EditNotice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdE5vdGljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/EditResident.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFJlc2lkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/EditSecurity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFNlY3VyaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/Maintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFpbnRlbmFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/MaintenancePdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFpbnRlbmFuY2VQZGYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/MaintenanceSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFpbnRlbmFuY2VTZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/MarkPaid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFya1BhaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/NoticePdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTm90aWNlUGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/Notices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTm90aWNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/Residents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVzaWRlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/ResidentsPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVzaWRlbnRzUGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/Security.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VjdXJpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Admin/Visitor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzaXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Home/Index.cshtml]
@@ -50,6 +126,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/awp/SocietyManagementSystem/Views/Resident/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/MaintenanceDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcTWFpbnRlbmFuY2VEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/MyMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcTXlNYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/NoticeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcTm90aWNlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Resident/Notices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRcTm90aWNlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Resident/Profile.cshtml]
@@ -94,6 +186,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/awp/SocietyManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/awp/SocietyManagementSystem/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/awp/SocietyManagementSystem/Views/Shared/_ResidentLayout.cshtml]

@@ -32,5 +32,13 @@ namespace SocietyManagementSystem.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public Resident Resident { get; set; }
+
+        public decimal PreviousDue { get; set; }
+
+        public decimal LateFee { get; set; }
+
+        public decimal TotalDue { get; set; }
+
+        public bool InterestApplied { get; set; }
     }
 }
